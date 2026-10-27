@@ -1,12 +1,26 @@
 # THE UNAPPLICATION
 
-### DON'T INTERVIEW MY RESUME. INTERVIEW MY THINKING.
+### FROM NOISE TO SIGNAL.
+
+DON'T INTERVIEW MY RESUME. INTERVIEW MY THINKING.
 
 An independent, interactive application by **Yash Hurdale**, tailored to the supplied **R/GA Data Analyst** target. A fictional campaign gains engagement without gaining revenue. Choose an investigation, challenge its assumptions and download a decision you can defend.
 
 **THE UNAPPLICATION is the recruiter-facing experience. [Exclamation AI](https://github.com/yashayyy27/exclamation-ai) is the separately maintained engineering proof.** Exclamation AI is unchanged. Selected work from PULSE, RESTOPS and Apex Insights is linked with explicit evidence limits.
 
 ![Actual desktop experience](docs/screenshots/desktop-hero.png)
+
+## Cinematic edition · v2
+
+An original procedural signal aperture moves from noise to clarity in an optional 12-second introduction. The headline, identity, challenge and evidence navigation are usable from the first frame. Pause/skip controls, reduced-motion and Save-Data support are built in; no video, external font, WebGL runtime or new dependency is required.
+
+The investigations now have count-preserving event separation, live attribution flows and cohort-volume diagrams. Each of the six red-team challenges has a corresponding explanatory signal state. The final ivory decision scene exposes the finding, uncertainty, action and evidence. All original analysis and brief-export functions remain unchanged.
+
+- [Creative treatment and official reference study](docs/cinematic-v2/CREATIVE-TREATMENT.md)
+- [Verification, visual review and performance comparison](docs/cinematic-v2/REVIEW.md)
+- [Desktop](docs/screenshots/v2/desktop-hero.png) · [mobile](docs/screenshots/v2/mobile-hero.png) · [decision](docs/screenshots/v2/desktop-decision.png)
+
+This branch is for review. Nothing has been deployed, published or made public. Resume navigation reaches an honest availability note until an approved file is supplied.
 
 ## Run locally
 

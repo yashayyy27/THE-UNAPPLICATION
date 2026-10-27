@@ -1,0 +1,99 @@
+{
+  "method": "Three isolated Lighthouse 13.5.0 mobile runs per version. The candidate-only mode retains the unchanged baseline runs after a targeted candidate optimisation. Same Chromium, machine and uncompressed Python static-server settings. No concurrent browser tests. Medians are descriptive local observations, not field Core Web Vitals.",
+  "results": [
+    {
+      "version": "v1",
+      "round": 1,
+      "performance": 84,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 60,
+      "lcpMs": 4039.5873,
+      "tbtMs": 184,
+      "cls": 0,
+      "transferBytes": 547195
+    },
+    {
+      "version": "v2",
+      "round": 1,
+      "performance": 82,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 60,
+      "lcpMs": 4220.0689999999995,
+      "tbtMs": 218,
+      "cls": 0.000230543536177447,
+      "transferBytes": 585672
+    },
+    {
+      "version": "v1",
+      "round": 2,
+      "performance": 85,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 60,
+      "lcpMs": 4013.5173999999997,
+      "tbtMs": 160,
+      "cls": 0,
+      "transferBytes": 547195
+    },
+    {
+      "version": "v2",
+      "round": 2,
+      "performance": 83,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 60,
+      "lcpMs": 4288.8248,
+      "tbtMs": 183,
+      "cls": 0.000230543536177447,
+      "transferBytes": 585672
+    },
+    {
+      "version": "v1",
+      "round": 3,
+      "performance": 86,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 60,
+      "lcpMs": 4002.7262,
+      "tbtMs": 143,
+      "cls": 0,
+      "transferBytes": 547195
+    },
+    {
+      "version": "v2",
+      "round": 3,
+      "performance": 77,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 60,
+      "lcpMs": 4313.7948,
+      "tbtMs": 342,
+      "cls": 0.000230543536177447,
+      "transferBytes": 585672
+    }
+  ],
+  "medians": {
+    "v1": {
+      "performance": 85,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 60,
+      "lcpMs": 4013.5173999999997,
+      "tbtMs": 160,
+      "cls": 0,
+      "transferBytes": 547195
+    },
+    "v2": {
+      "performance": 82,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 60,
+      "lcpMs": 4288.8248,
+      "tbtMs": 218,
+      "cls": 0.000230543536177447,
+      "transferBytes": 585672
+    }
+  }
+}

@@ -1,0 +1,4 @@
+# Keep authored code and the review summary prominent; raw lab reports stay inspectable.
+docs/cinematic-v2/lighthouse*.json linguist-generated=true
+docs/cinematic-v2/performance/v1-*.json linguist-generated=true
+docs/cinematic-v2/performance/v2-*.json linguist-generated=true

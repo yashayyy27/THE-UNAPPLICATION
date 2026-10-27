@@ -1,0 +1,45 @@
+
+> the-unapplication@1.0.0 test:e2e
+> playwright test
+
+
+Running 32 tests using 1 worker
+
+(node:66268) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [desktop] › tests/browser/cinematic.spec.ts:5:1 › optional intro pauses, resumes and skips while navigation remains available (1.2s)
+  ✓   2 [desktop] › tests/browser/cinematic.spec.ts:29:1 › navigation and inquiry work before the visual sequence finishes (585ms)
+  ✓   3 [desktop] › tests/browser/cinematic.spec.ts:56:1 › reduced motion and later preference changes keep a complete static experience (592ms)
+  ✓   4 [desktop] › tests/browser/cinematic.spec.ts:85:1 › Save-Data disables motion and needs no external media (340ms)
+  ✓   5 [desktop] › tests/browser/cinematic.spec.ts:106:1 › unsupported observers and blocked media fail open (754ms)
+  ✓   6 [desktop] › tests/browser/cinematic.spec.ts:135:1 › no JavaScript still exposes the thesis, evidence, resume status and default PDF (369ms)
+  ✓   7 [desktop] › tests/browser/cinematic.spec.ts:153:1 › state-aware download preserves visualisation choices after challenges (882ms)
+  ✓   8 [desktop] › tests/browser/cinematic.spec.ts:180:1 › WCAG 2.2 checks and cinematic scene screenshots (3.0s)
+  ✓   9 [desktop] › tests/browser/cinematic.spec.ts:236:1 › intro suspends offscreen and responds to a visibility change (749ms)
+  ✓  10 [desktop] › tests/browser/cinematic.spec.ts:259:1 › supporting diagrams activate near the viewport without shifting the readout (379ms)
+  ✓  11 [desktop] › tests/browser/journey.spec.ts:4:1 › primary journey, all investigation paths and revised decision (645ms)
+  ✓  12 [desktop] › tests/browser/journey.spec.ts:32:1 › all six challenges produce distinct, useful responses (720ms)
+  ✓  13 [desktop] › tests/browser/journey.spec.ts:52:1 › current-selection brief downloads, and default PDF is a real file (497ms)
+  ✓  14 [desktop] › tests/browser/journey.spec.ts:82:1 › evidence, contact, fixture, manifest and all local anchors resolve (634ms)
+  ✓  15 [desktop] › tests/browser/journey.spec.ts:106:1 › keyboard entry, reduced motion, accessibility and no horizontal overflow (2.0s)
+  ✓  16 [desktop] › tests/browser/journey.spec.ts:136:1 › capture actual experience (870ms)
+(node:66362) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  17 [mobile] › tests/browser/cinematic.spec.ts:5:1 › optional intro pauses, resumes and skips while navigation remains available (708ms)
+  ✓  18 [mobile] › tests/browser/cinematic.spec.ts:29:1 › navigation and inquiry work before the visual sequence finishes (557ms)
+  ✓  19 [mobile] › tests/browser/cinematic.spec.ts:56:1 › reduced motion and later preference changes keep a complete static experience (952ms)
+  ✓  20 [mobile] › tests/browser/cinematic.spec.ts:85:1 › Save-Data disables motion and needs no external media (398ms)
+  ✓  21 [mobile] › tests/browser/cinematic.spec.ts:106:1 › unsupported observers and blocked media fail open (456ms)
+  ✓  22 [mobile] › tests/browser/cinematic.spec.ts:135:1 › no JavaScript still exposes the thesis, evidence, resume status and default PDF (252ms)
+  ✓  23 [mobile] › tests/browser/cinematic.spec.ts:153:1 › state-aware download preserves visualisation choices after challenges (653ms)
+  ✓  24 [mobile] › tests/browser/cinematic.spec.ts:180:1 › WCAG 2.2 checks and cinematic scene screenshots (4.3s)
+  ✓  25 [mobile] › tests/browser/cinematic.spec.ts:236:1 › intro suspends offscreen and responds to a visibility change (785ms)
+  ✓  26 [mobile] › tests/browser/cinematic.spec.ts:259:1 › supporting diagrams activate near the viewport without shifting the readout (350ms)
+  ✓  27 [mobile] › tests/browser/journey.spec.ts:4:1 › primary journey, all investigation paths and revised decision (1.9s)
+  ✓  28 [mobile] › tests/browser/journey.spec.ts:32:1 › all six challenges produce distinct, useful responses (685ms)
+  ✓  29 [mobile] › tests/browser/journey.spec.ts:52:1 › current-selection brief downloads, and default PDF is a real file (402ms)
+  ✓  30 [mobile] › tests/browser/journey.spec.ts:82:1 › evidence, contact, fixture, manifest and all local anchors resolve (537ms)
+  ✓  31 [mobile] › tests/browser/journey.spec.ts:106:1 › keyboard entry, reduced motion, accessibility and no horizontal overflow (2.0s)
+  ✓  32 [mobile] › tests/browser/journey.spec.ts:136:1 › capture actual experience (2.0s)
+
+  32 passed (33.5s)

@@ -22,4 +22,8 @@ Next.js App Router static export + React + strict TypeScript. CSS tokens replace
 - Weak attribution, small samples, missing data and costs must change the decision. No causal or uplift claims.
 - Recruiter timing, manual screen-reader testing and owner ability to explain the work require human validation.
 - External artifacts may disappear; commit pinning and labelled evidence boundaries reduce drift but do not guarantee availability.
-- Public publication requires owner visibility approval. Repository is private at creation; hosted review is private.
+- Public publication requires owner visibility approval. Repository remains private; no hosted review is deployed.
+
+## Creative direction 2.0
+
+The active branch reinterprets the journey as Noise → Signal → Decision, with an original procedural aperture, meaningful data flows, a global pause control and a light executive reveal. The original U device is now a small independent brand mark; the aperture carries the visual narrative. The initial sequence is optional and finite, with a complete static/no-JS poster composition. Direct navigation includes investigation, evidence, resume availability and contact. See [cinematic treatment](cinematic-v2/CREATIVE-TREATMENT.md).

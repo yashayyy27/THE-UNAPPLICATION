@@ -1,5 +1,15 @@
 "use client";
 import { useState } from "react";
+import { MotionSystem, MotionControl, Scene } from "./MotionSystem";
+import SignalHero from "./SignalHero";
+import {
+  ViewportVisual,
+  MeasurementVisual,
+  AttributionVisual,
+  CohortVisual,
+  ChallengeSignal,
+  ContradictionTrace,
+} from "./AnalyticalVisuals";
 import {
   candidate,
   edition,
@@ -67,16 +77,18 @@ function Chapter({
       id={id}
       aria-labelledby={`${id}-heading`}
     >
-      <div className="chapter-label">
-        <span>{number}</span>
-        <span>{title}</span>
-        <span className="label-line" />
-      </div>
-      {children}
+      <Scene>
+        <div className="chapter-label">
+          <span>{number}</span>
+          <span>{title}</span>
+          <span className="label-line" />
+        </div>
+        {children}
+      </Scene>
     </section>
   );
 }
-export default function Unapplication() {
+function ExperienceContent() {
   const [pathId, setPathId] = useState<PathId>("measurement");
   const [challengeId, setChallengeId] = useState<ChallengeId>("tracking");
   const [missing, setMissing] = useState(0);
@@ -123,82 +135,20 @@ export default function Unapplication() {
         </a>
         <nav aria-label="Main navigation">
           <a href="#brief">The challenge</a>
-          <a href="#proof">The evidence</a>
+          <a href="#investigation">Investigation</a>
+          <a href="#proof">Evidence</a>
+          <a href="#resume">Resume</a>
           <a className="nav-contact" href="#contact">
-            Let’s talk <Arrow diagonal />
+            Contact <Arrow diagonal />
           </a>
         </nav>
+        <MotionControl />
         <span className="edition-tag">
           {edition.company} — {edition.number}
         </span>
       </header>
       <main id="main">
-        <section className="hero" aria-labelledby="hero-title">
-          <div className="hero-topline">
-            <p className="eyebrow">
-              <span className="status-dot" /> A DIFFERENT KIND OF APPLICATION
-            </p>
-            <p className="mono hero-edition">
-              {candidate.name.toUpperCase()} / {edition.role.toUpperCase()}
-            </p>
-          </div>
-          <div className="hero-composition">
-            <div className="hero-copy">
-              <h1 id="hero-title">
-                <span className="quiet">DON’T INTERVIEW</span>
-                <span className="quiet">MY RESUME.</span>
-                <span>INTERVIEW</span>
-                <span className="accent">
-                  MY THINKING<span className="period">.</span>
-                </span>
-              </h1>
-              <div className="hero-description">
-                <p className="hero-byline">
-                  {candidate.name} <span>/ {edition.role}</span>
-                </p>
-                <p>{candidate.introduction}</p>
-                <p className="hero-small">
-                  An independent application for {edition.company}.<br />A short
-                  challenge. A clear decision. Evidence you can inspect.
-                </p>
-              </div>
-              <div className="hero-actions">
-                <a className="button primary" href="#brief">
-                  Put my thinking to the test <Arrow />
-                </a>
-                <a className="subtle-link" href="#proof">
-                  Explore the evidence <Arrow diagonal />
-                </a>
-              </div>
-            </div>
-            <div className="hero-art" aria-hidden="true">
-              <div className="art-coordinates">
-                FIG. 001
-                <br />
-                QUESTION EVERYTHING.
-              </div>
-              <div className="cross cross-one">+</div>
-              <div className="u-shape">
-                <div className="u-cut" />
-              </div>
-              <div className="art-strike" />
-              <div className="cross cross-two">+</div>
-              <span className="art-caption">
-                AN APPLICATION.
-                <br />
-                WITHOUT THE USUAL ANSWERS.
-              </span>
-              <span className="art-number">01—07</span>
-            </div>
-          </div>
-          <div className="hero-bottom">
-            <span className="mono">LESS CLAIMING. MORE SHOWING.</span>
-            <span>
-              60–90 seconds to explore <span aria-hidden="true">↓</span>
-            </span>
-            <span className="mono">SCROLL TO QUESTION / 01</span>
-          </div>
-        </section>
+        <SignalHero />
         <Chapter id="brief" number="01" title="THE BUSINESS PROBLEM">
           <div className="section-heading">
             <h2 id="brief-heading">
@@ -215,6 +165,7 @@ export default function Unapplication() {
               </p>
             </div>
           </div>
+          <ContradictionTrace />
           <div className="metrics">
             <div className="metric">
               <span className="mono">ENGAGED SESSIONS</span>
@@ -334,6 +285,9 @@ export default function Unapplication() {
                     <span className="mono">PURCHASE RECONCILIATION</span>
                     <span className="badge subtle">ILLUSTRATIVE</span>
                   </div>
+                  <ViewportVisual kind="measurement">
+                    <MeasurementVisual missing={missing} />
+                  </ViewportVisual>
                   <div className="reconciliation">
                     <div>
                       <strong>120</strong>
@@ -397,6 +351,9 @@ export default function Unapplication() {
                       <option value="linear">Linear</option>
                     </select>
                   </label>
+                  <ViewportVisual kind="attribution">
+                    <AttributionVisual allocations={allocations} />
+                  </ViewportVisual>
                   <div className="credit-chart">
                     {Object.entries(allocations).map(([name, value]) => (
                       <div key={name}>
@@ -442,6 +399,9 @@ export default function Unapplication() {
                       ))}
                     </select>
                   </label>
+                  <ViewportVisual kind="cohort">
+                    <CohortVisual cohort={cohort} />
+                  </ViewportVisual>
                   <div
                     className="funnel"
                     role="img"
@@ -603,6 +563,7 @@ export default function Unapplication() {
               aria-live="polite"
               aria-atomic="true"
             >
+              <ChallengeSignal id={challengeId} cost={cost} />
               <p className="eyebrow">
                 CHALLENGE ACCEPTED / {challenge.short.toUpperCase()}
               </p>
@@ -687,6 +648,21 @@ export default function Unapplication() {
               </div>
               <h3>{brief.recommendation}</h3>
               <dl>
+                <div>
+                  <dt>The problem</dt>
+                  <dd>
+                    Engagement rises 65%; purchases and revenue stay flat in an
+                    illustrative campaign.
+                  </dd>
+                </div>
+                <div>
+                  <dt>The finding</dt>
+                  <dd>{brief.selectedDetail}</dd>
+                </div>
+                <div>
+                  <dt>Still uncertain</dt>
+                  <dd>{challenge.revised}</dd>
+                </div>
                 <div>
                   <dt>The lens</dt>
                   <dd>{path.title}</dd>
@@ -795,6 +771,26 @@ export default function Unapplication() {
               </a>
             </div>
           </details>
+          <div id="resume" className="resume-note">
+            <div>
+              <p className="eyebrow">THE PERSON BEHIND THE QUESTIONS</p>
+              <h3>Yash Hurdale.</h3>
+              <p>
+                Business questions. Analytical systems. Decisions with the
+                uncertainty attached.
+              </p>
+            </div>
+            <div>
+              <span className="badge">RESUME / AWAITING APPROVED FILE</span>
+              <p>
+                Resume download is waiting for an owner-approved file. Explore
+                the verified project evidence or contact Yash directly.
+              </p>
+              <a href="#contact" className="subtle-link">
+                Start a conversation <Arrow diagonal />
+              </a>
+            </div>
+          </div>
           <div className="selected-work" aria-label="More selected work">
             {selectedWork.map((work, i) => (
               <article key={work.name}>
@@ -858,5 +854,13 @@ export default function Unapplication() {
         <a href="#main">Back to the question ↑</a>
       </footer>
     </>
+  );
+}
+
+export default function Unapplication() {
+  return (
+    <MotionSystem>
+      <ExperienceContent />
+    </MotionSystem>
   );
 }

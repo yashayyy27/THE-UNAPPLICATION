@@ -40,3 +40,11 @@ The source excerpt shown in the UI is simplified explanatory logic, explicitly l
 ## Maintenance
 
 Run Node 24, edit content, then `npm run check` and `npm run test:e2e`. Update a pinned evidence revision only after inspecting the relevant artifact and its limitations. Regenerate PDF if default copy changes; render and inspect all pages. Do not add credentials to client code or equate simulated outcomes with achievements. The owner should explain the calculations above and defend why the recommendation changes before sharing the experience.
+
+## Cinematic presentation layer (v2)
+
+`MotionSystem.tsx` owns a finite intro clock and session-only pause, reduced-motion, Save-Data, viewport and visibility handling. Motion starts only after preferences are available; server/no-JS output is complete and static. `SignalHero.tsx` authors the procedural aperture and labels from existing fixture inputs. Its finite transform runs on an HTML layer instead of repeatedly transforming an SVG group. `AnalyticalVisuals.tsx` uses compact SVG paths to display exact event counts, attribution credit and cohort volumes; the adjacent accessible readouts retain all numerical meaning. `Scene` adds finite intersection-triggered line reveals without hiding content.
+
+No analytics functions, fixtures, evidence revisions, brief exporters, production dependencies or Exclamation AI files change in this redesign. See the [creative treatment](cinematic-v2/CREATIVE-TREATMENT.md) and [review](cinematic-v2/REVIEW.md).
+
+Optional intro playback is scheduled after browser idle (with a bounded fallback), so it does not take priority over hydration and first paint. Supporting diagrams activate near the viewport with reserved space and a static poster; analytical readouts and controls are present independently of that enhancement.

@@ -1,5 +1,7 @@
 # Observed verification · 28 October 2026 (Australia/Sydney)
 
+> Historical v1 release record. Current cinematic branch verification and performance trade-offs are in [the v2 review](cinematic-v2/REVIEW.md).
+
 All results below are for THE UNAPPLICATION unless explicitly labelled upstream. Local checks used the bundled Node 24.22.1 runtime, Next.js 16.4.3, Vitest 4.1.12 and Chromium. No paid services or model calls.
 
 ## Completed
