@@ -1,0 +1,131 @@
+{
+  "edition": "R/GA — 001",
+  "owner": "Yash Hurdale",
+  "auditedAt": "2026-10-28",
+  "sourceRepository": "https://github.com/yashayyy27/exclamation-ai",
+  "sourceCommit": "35f1aff81c166215496b0f0b2b041db7a4c0360e",
+  "verificationBoundary": "Source and committed historical receipts inspected. Google account sessions were not independently reauthenticated. Historical upstream test counts are not new results for this application.",
+  "evidence": [
+    {
+      "id": "E01",
+      "title": "SQL you can trace.",
+      "category": "REPRODUCIBLE SOURCE",
+      "description": "An ordered, session-grain funnel. Deduplication and transaction revenue have separate definitions.",
+      "path": "data/sql/sessions.sql",
+      "secondary": "services/api/analytics.py",
+      "secondaryLabel": "Python pipeline",
+      "limitation": "The public dashboard uses invented events; it is not client performance.",
+      "url": "https://github.com/yashayyy27/exclamation-ai/blob/35f1aff81c166215496b0f0b2b041db7a4c0360e/data/sql/sessions.sql",
+      "secondaryUrl": "https://github.com/yashayyy27/exclamation-ai/blob/35f1aff81c166215496b0f0b2b041db7a4c0360e/services/api/analytics.py",
+      "classification": "B: locally reproducible source"
+    },
+    {
+      "id": "E02",
+      "title": "A real Google reconciliation.",
+      "category": "DOCUMENTED HISTORICAL RUN",
+      "description": "22,096 public historical events. Nine reconciled checks. One bounded day, 1 January 2021 UTC.",
+      "path": "docs/bigquery-analysis-2026-10-25.md",
+      "secondary": "docs/evidence/bigquery-console-20261025-reconciliation.json",
+      "secondaryLabel": "Reconciliation receipt",
+      "limitation": "Console execution is documented upstream. SDK authentication remains unverified.",
+      "url": "https://github.com/yashayyy27/exclamation-ai/blob/35f1aff81c166215496b0f0b2b041db7a4c0360e/docs/bigquery-analysis-2026-10-25.md",
+      "secondaryUrl": "https://github.com/yashayyy27/exclamation-ai/blob/35f1aff81c166215496b0f0b2b041db7a4c0360e/docs/evidence/bigquery-console-20261025-reconciliation.json",
+      "classification": "A: working behaviour documented by upstream historical receipts"
+    },
+    {
+      "id": "E03",
+      "title": "Measurement, with receipts.",
+      "category": "DOCUMENTED TEST DELIVERY",
+      "description": "Eight event types and two distinct demo purchases received through unpublished GTM Preview → GA4 DebugView.",
+      "path": "docs/google-tracking-2026-10-26.md",
+      "secondary": "apps/web/src/measurement.ts",
+      "secondaryLabel": "Event contracts",
+      "limitation": "Owner test property. Public tracking is disabled; daily export arrival is unverified.",
+      "url": "https://github.com/yashayyy27/exclamation-ai/blob/35f1aff81c166215496b0f0b2b041db7a4c0360e/docs/google-tracking-2026-10-26.md",
+      "secondaryUrl": "https://github.com/yashayyy27/exclamation-ai/blob/35f1aff81c166215496b0f0b2b041db7a4c0360e/apps/web/src/measurement.ts",
+      "classification": "A: working behaviour documented by upstream historical receipts"
+    },
+    {
+      "id": "E04",
+      "title": "A failure worth showing.",
+      "category": "DETERMINISTIC ADVERSARIAL TEST",
+      "description": "An evidence validator accepted a duplicate metric substitution. The recorded replay shows the repaired gate rejecting it.",
+      "path": "docs/failure-analysis.md",
+      "secondary": "docs/evidence/validator-replay.json",
+      "secondaryLabel": "Inspect the replay",
+      "limitation": "Fixture and mocked-provider results. No live model quality or client uplift is claimed.",
+      "url": "https://github.com/yashayyy27/exclamation-ai/blob/35f1aff81c166215496b0f0b2b041db7a4c0360e/docs/failure-analysis.md",
+      "secondaryUrl": "https://github.com/yashayyy27/exclamation-ai/blob/35f1aff81c166215496b0f0b2b041db7a4c0360e/docs/evidence/validator-replay.json",
+      "classification": "B: reproducible deterministic adversarial test"
+    }
+  ],
+  "selectedWork": [
+    {
+      "name": "PULSE",
+      "focus": "From warning signal to decision brief.",
+      "description": "A synthetic business early-warning workflow with scoped investigation, conditional scenarios and business analysis artifacts.",
+      "url": "https://github.com/yashayyy27/PULSE/blob/e2f3176a7be0723749c94b258ed8e5fa5681b4ad/README.md",
+      "limit": "README inspected. Hosted deployment and real stakeholder approvals are not claimed.",
+      "classification": "README inspected; full implementation and outcomes not independently rerun"
+    },
+    {
+      "name": "RESTOPS",
+      "focus": "Operational trade-offs, made inspectable.",
+      "description": "A restaurant-operations portfolio connecting profit reconciliation, costed scenarios and proposed interventions.",
+      "url": "https://github.com/yashayyy27/RESTOPS/blob/45aa830a67e89838e91b49d46d16d5f2b219c6fd/README.md",
+      "limit": "Synthetic restaurant data. Proposed actions are not achieved savings or client results.",
+      "classification": "README inspected; full implementation and outcomes not independently rerun"
+    },
+    {
+      "name": "APEX INSIGHTS",
+      "focus": "Commercial questions. Explicit data boundaries.",
+      "description": "Power BI model/report source with Python, SQL and Excel evidence across synthetic commerce and public F1 data.",
+      "url": "https://github.com/yashayyy27/apex-insights/blob/9a78ae328ea06be72a06380893e75712b1b2e345/README.md",
+      "limit": "README inspected. Native Windows Power BI rendering and interaction acceptance remain pending.",
+      "classification": "README inspected; full implementation and outcomes not independently rerun"
+    }
+  ],
+  "additionalClaims": [
+    {
+      "claim": "Engaged sessions +65%, purchases and revenue unchanged",
+      "source": "scenario.json",
+      "classification": "Synthetic demonstration; not an achievement",
+      "calculation": "3300/2000-1; 100/100-1; 8000/8000-1"
+    },
+    {
+      "claim": "Attribution allocation changes without changing USD 150 total",
+      "source": "content/scenario.ts + lib/analytics.ts",
+      "classification": "Separate synthetic mini-fixture; unit and browser tested"
+    },
+    {
+      "claim": "72 Python, 50 frontend and 16 browser tests in upstream historical log",
+      "url": "https://github.com/yashayyy27/exclamation-ai/blob/35f1aff81c166215496b0f0b2b041db7a4c0360e/docs/verification.md",
+      "classification": "Historical upstream counts, not rerun here"
+    },
+    {
+      "claim": "Email and LinkedIn contact",
+      "source": "https://yashayyy27.github.io/",
+      "classification": "Existing owner-published public contact; no private profile data used"
+    },
+    {
+      "claim": "Further portfolio work includes PULSE, RESTOPS and Apex Insights",
+      "source": "https://yashayyy27.github.io/",
+      "classification": "Public portfolio and project READMEs inspected. Implementations and outcomes not independently rerun."
+    },
+    {
+      "claim": "R/GA public creative/technology positioning informs the experience",
+      "source": "https://www.rga.com/about",
+      "classification": "Official public source; design interpretation is independent"
+    }
+  ],
+  "unavailable": [
+    "Exact job requirements/current vacancy status",
+    "Approved resume",
+    "Independently verified credentials/employment",
+    "Live model quality",
+    "BigQuery SDK transport",
+    "First daily export table",
+    "Causal impact/client uplift"
+  ],
+  "tests": "See docs/VERIFICATION.md for this application’s observed checks and limits."
+}

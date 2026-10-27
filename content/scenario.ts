@@ -1,0 +1,57 @@
+// Entirely invented. Separate from every historical Google/Exclamation AI result.
+export const scenario = {
+  id: "campaign-contrast-v1",
+  label: "SYNTHETIC SCENARIO",
+  currency: "USD",
+  description:
+    "Two illustrative 14-day periods for a fictional commerce campaign. Not R/GA or client data.",
+  before: {
+    sessions: 5000,
+    engaged: 2000,
+    views: 4000,
+    carts: 600,
+    checkouts: 200,
+    purchases: 100,
+    revenue: 8000,
+  },
+  after: {
+    sessions: 7500,
+    engaged: 3300,
+    views: 4800,
+    carts: 650,
+    checkouts: 200,
+    purchases: 100,
+    revenue: 8000,
+  },
+  cohorts: [
+    {
+      id: "all",
+      label: "All sessions",
+      before: [5000, 4000, 600, 200, 100],
+      after: [7500, 4800, 650, 200, 100],
+    },
+    {
+      id: "new",
+      label: "New visitors",
+      before: [3000, 2400, 200, 50, 20],
+      after: [5500, 3300, 250, 50, 20],
+    },
+    {
+      id: "returning",
+      label: "Returning visitors",
+      before: [2000, 1600, 400, 150, 80],
+      after: [2000, 1500, 400, 150, 80],
+    },
+  ],
+  quality: {
+    purchaseEvents: 120,
+    uniqueOrders: 100,
+    duplicateFirings: 20,
+    missingCampaignOrders: 8,
+  },
+  journeys: [
+    { id: "A", touches: ["Email", "Organic"], revenue: 100 },
+    { id: "B", touches: ["Paid search", "Organic"], revenue: 50 },
+    { id: "C", touches: ["Paid search"], revenue: 0 },
+  ],
+};

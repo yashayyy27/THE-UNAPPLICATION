@@ -1,0 +1,37 @@
+{
+  "name": "the-unapplication",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "NEXT_TELEMETRY_DISABLED=1 next dev --hostname 127.0.0.1 --port 4173",
+    "build": "NEXT_TELEMETRY_DISABLED=1 next build --webpack",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "check": "npm run typecheck && npm test && npm run build",
+    "preview": "python3 -m http.server 4173 --bind 127.0.0.1 --directory out",
+    "prebuild": "node scripts/export-content.mjs"
+  },
+  "dependencies": {
+    "next": "^16.4.3",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.0",
+    "@playwright/test": "^1.56.0",
+    "@testing-library/jest-dom": "^6.9.0",
+    "@testing-library/react": "^16.3.0",
+    "@types/node": "^22.18.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "jsdom": "^26.1.0",
+    "lighthouse": "^13.5.0",
+    "typescript": "^5.9.0",
+    "vitest": "^4.1.12"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  }
+}

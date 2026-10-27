@@ -1,0 +1,862 @@
+"use client";
+import { useState } from "react";
+import {
+  candidate,
+  edition,
+  artifact,
+  evidence,
+  selectedWork,
+  paths,
+  challenges,
+  proofRepo,
+  type PathId,
+  type ChallengeId,
+} from "../content/edition";
+import { scenario } from "../content/scenario";
+import {
+  adjustedPurchases,
+  breakEven,
+  change,
+  credit,
+  pct,
+  rate,
+  wilson,
+  type Attribution,
+} from "../lib/analytics";
+import { briefText, downloadBrief } from "../lib/brief";
+
+function Arrow({ diagonal = false }: { diagonal?: boolean }) {
+  return <span aria-hidden="true">{diagonal ? "↗" : "→"}</span>;
+}
+function External({
+  href,
+  children,
+  className = "",
+}: {
+  href: string;
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <a
+      className={className}
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {children} <Arrow diagonal />
+    </a>
+  );
+}
+function Chapter({
+  number,
+  title,
+  children,
+  className = "",
+  id,
+}: {
+  number: string;
+  title: string;
+  children: React.ReactNode;
+  className?: string;
+  id: string;
+}) {
+  return (
+    <section
+      className={`chapter ${className}`}
+      id={id}
+      aria-labelledby={`${id}-heading`}
+    >
+      <div className="chapter-label">
+        <span>{number}</span>
+        <span>{title}</span>
+        <span className="label-line" />
+      </div>
+      {children}
+    </section>
+  );
+}
+export default function Unapplication() {
+  const [pathId, setPathId] = useState<PathId>("measurement");
+  const [challengeId, setChallengeId] = useState<ChallengeId>("tracking");
+  const [missing, setMissing] = useState(0);
+  const [model, setModel] = useState<Attribution>("last");
+  const [cohortId, setCohortId] = useState("all");
+  const [cost, setCost] = useState(1000);
+  const [exported, setExported] = useState(false);
+  const path = paths.find((p) => p.id === pathId)!;
+  const challenge = challenges.find((c) => c.id === challengeId)!;
+  const cohort = scenario.cohorts.find((c) => c.id === cohortId)!;
+  const adjusted = adjustedPurchases(100, missing);
+  const allocations = credit(model);
+  const interval = wilson(100, 7500)!;
+  const briefState = {
+    path: pathId,
+    challenge: challengeId,
+    missing,
+    cost,
+    model,
+    cohort: cohortId,
+  };
+  const brief = briefText(briefState);
+  const markChanged = () => setExported(false);
+  const code =
+    pathId === "measurement"
+      ? `-- Transaction grain, not event count\nSELECT COUNT(DISTINCT transaction_id)\n  AS unique_orders\nFROM clean_purchase_events\nWHERE transaction_id IS NOT NULL;`
+      : pathId === "effectiveness"
+        ? `# Descriptive uncertainty, not causal proof\ninterval = wilson(successes=100, total=7500)\n# Credit allocations sum to the same revenue.\n# Missing spend + counterfactual → no ROAS.\nrecommendation = "validate before reallocating"`
+        : `-- Ordered session funnel, simplified\nSELECT session_key, started, viewed,\n       carted, checked, purchased\nFROM ordered_sessions;\n-- Each stage must follow its predecessor.`;
+  return (
+    <>
+      <a className="skip-link" href="#main">
+        Skip to the experience
+      </a>
+      <header className="site-header">
+        <a className="wordmark" href="#main">
+          <span className="brand-symbol" aria-hidden="true">
+            U<span>↗</span>
+          </span>
+          <span>
+            THE
+            <br /> UNAPPLICATION
+          </span>
+        </a>
+        <nav aria-label="Main navigation">
+          <a href="#brief">The challenge</a>
+          <a href="#proof">The evidence</a>
+          <a className="nav-contact" href="#contact">
+            Let’s talk <Arrow diagonal />
+          </a>
+        </nav>
+        <span className="edition-tag">
+          {edition.company} — {edition.number}
+        </span>
+      </header>
+      <main id="main">
+        <section className="hero" aria-labelledby="hero-title">
+          <div className="hero-topline">
+            <p className="eyebrow">
+              <span className="status-dot" /> A DIFFERENT KIND OF APPLICATION
+            </p>
+            <p className="mono hero-edition">
+              {candidate.name.toUpperCase()} / {edition.role.toUpperCase()}
+            </p>
+          </div>
+          <div className="hero-composition">
+            <div className="hero-copy">
+              <h1 id="hero-title">
+                <span className="quiet">DON’T INTERVIEW</span>
+                <span className="quiet">MY RESUME.</span>
+                <span>INTERVIEW</span>
+                <span className="accent">
+                  MY THINKING<span className="period">.</span>
+                </span>
+              </h1>
+              <div className="hero-description">
+                <p className="hero-byline">
+                  {candidate.name} <span>/ {edition.role}</span>
+                </p>
+                <p>{candidate.introduction}</p>
+                <p className="hero-small">
+                  An independent application for {edition.company}.<br />A short
+                  challenge. A clear decision. Evidence you can inspect.
+                </p>
+              </div>
+              <div className="hero-actions">
+                <a className="button primary" href="#brief">
+                  Put my thinking to the test <Arrow />
+                </a>
+                <a className="subtle-link" href="#proof">
+                  Explore the evidence <Arrow diagonal />
+                </a>
+              </div>
+            </div>
+            <div className="hero-art" aria-hidden="true">
+              <div className="art-coordinates">
+                FIG. 001
+                <br />
+                QUESTION EVERYTHING.
+              </div>
+              <div className="cross cross-one">+</div>
+              <div className="u-shape">
+                <div className="u-cut" />
+              </div>
+              <div className="art-strike" />
+              <div className="cross cross-two">+</div>
+              <span className="art-caption">
+                AN APPLICATION.
+                <br />
+                WITHOUT THE USUAL ANSWERS.
+              </span>
+              <span className="art-number">01—07</span>
+            </div>
+          </div>
+          <div className="hero-bottom">
+            <span className="mono">LESS CLAIMING. MORE SHOWING.</span>
+            <span>
+              60–90 seconds to explore <span aria-hidden="true">↓</span>
+            </span>
+            <span className="mono">SCROLL TO QUESTION / 01</span>
+          </div>
+        </section>
+        <Chapter id="brief" number="01" title="THE BUSINESS PROBLEM">
+          <div className="section-heading">
+            <h2 id="brief-heading">
+              Good numbers.
+              <br />
+              <span className="muted">Wrong conclusion?</span>
+            </h2>
+            <div className="section-intro">
+              <span className="badge">SYNTHETIC SCENARIO</span>
+              <p>
+                A fictional commerce campaign is getting more attention. Revenue
+                hasn’t moved. Before celebrating the campaign—or blaming the
+                checkout—where would you look?
+              </p>
+            </div>
+          </div>
+          <div className="metrics">
+            <div className="metric">
+              <span className="mono">ENGAGED SESSIONS</span>
+              <strong>
+                +
+                {(
+                  change(scenario.before.engaged, scenario.after.engaged)! * 100
+                ).toFixed(0)}
+                <span>%</span>
+              </strong>
+              <div className="metric-track">
+                <i style={{ width: "61%" }} />
+                <i style={{ width: "100%" }} />
+              </div>
+              <p>
+                2,000 <Arrow /> 3,300
+              </p>
+            </div>
+            <div className="metric">
+              <span className="mono">PURCHASES</span>
+              <strong>
+                0<span>%</span>
+              </strong>
+              <div className="metric-track">
+                <i style={{ width: "74%" }} />
+                <i style={{ width: "74%" }} />
+              </div>
+              <p>
+                100 <Arrow /> 100 distinct orders
+              </p>
+            </div>
+            <div className="metric">
+              <span className="mono">REVENUE</span>
+              <strong>
+                0<span>%</span>
+              </strong>
+              <div className="metric-track">
+                <i style={{ width: "74%" }} />
+                <i style={{ width: "74%" }} />
+              </div>
+              <p>
+                USD 8,000 <Arrow /> USD 8,000
+              </p>
+            </div>
+          </div>
+          <div className="data-note">
+            <span className="tiny-square" />
+            <p>
+              {scenario.description} All figures are invented. Two equal 14-day
+              windows; sessions 5,000 → 7,500.{" "}
+              <a href="./scenario.json" download>
+                Inspect the fixture ↗
+              </a>
+            </p>
+          </div>
+          <a className="next-link" href="#investigation">
+            Choose where to look <Arrow />
+          </a>
+        </Chapter>
+        <Chapter id="investigation" number="02" title="THE INVESTIGATION">
+          <div className="section-heading">
+            <h2 id="investigation-heading">
+              Three questions.
+              <br />
+              <span className="muted">Three different lenses.</span>
+            </h2>
+            <p className="section-intro">
+              Select a line of inquiry. The data, interpretation and evidence
+              change with your choice.
+            </p>
+          </div>
+          <div
+            className="path-selector"
+            role="group"
+            aria-label="Investigation path"
+          >
+            {paths.map((p) => (
+              <button
+                key={p.id}
+                className={`path-button ${pathId === p.id ? "selected" : ""}`}
+                aria-pressed={pathId === p.id}
+                onClick={() => {
+                  setPathId(p.id);
+                  markChanged();
+                }}
+              >
+                <span className="path-letter">{p.letter}</span>
+                <span>
+                  <strong>{p.title}</strong>
+                  <small>{p.question}</small>
+                </span>
+                <Arrow diagonal />
+              </button>
+            ))}
+          </div>
+          <div
+            className="investigation-panel"
+            aria-live="polite"
+            aria-atomic="true"
+            id="investigation-result"
+          >
+            <div className="panel-copy">
+              <p className="eyebrow">
+                {path.letter} / {path.deck}
+              </p>
+              <h3>{path.finding}</h3>
+              <p>{path.interpretation}</p>
+              <div className="finding-callout">
+                <span className="mono">MY NEXT MOVE</span>
+                <p>{path.recommendation}</p>
+              </div>
+            </div>
+            <div className="panel-data">
+              {pathId === "measurement" && (
+                <>
+                  <div className="data-card-heading">
+                    <span className="mono">PURCHASE RECONCILIATION</span>
+                    <span className="badge subtle">ILLUSTRATIVE</span>
+                  </div>
+                  <div className="reconciliation">
+                    <div>
+                      <strong>120</strong>
+                      <span>raw event firings</span>
+                    </div>
+                    <span className="math-symbol">−</span>
+                    <div>
+                      <strong>20</strong>
+                      <span>duplicate firings</span>
+                    </div>
+                    <span className="math-symbol">=</span>
+                    <div className="result-number">
+                      <strong>100</strong>
+                      <span>unique orders</span>
+                    </div>
+                  </div>
+                  <label className="control-label" htmlFor="missing-rate">
+                    What if purchases are missing?<output>{missing}%</output>
+                  </label>
+                  <input
+                    id="missing-rate"
+                    type="range"
+                    min="0"
+                    max="30"
+                    step="5"
+                    value={missing}
+                    onChange={(e) => {
+                      setMissing(Number(e.target.value));
+                      markChanged();
+                    }}
+                  />
+                  <p className="calculation">
+                    <strong>{adjusted.toFixed(1)}</strong> modelled purchases ·{" "}
+                    <strong>{pct(rate(adjusted, 7500), 2)}</strong> conversion
+                  </p>
+                  <p className="fine-print">
+                    Observed / (1 − missing fraction). Assumes uniform
+                    missingness. This does not recover actual orders or prove
+                    tracking failed.
+                  </p>
+                </>
+              )}
+              {pathId === "effectiveness" && (
+                <>
+                  <div className="data-card-heading">
+                    <span className="mono">WHO GETS THE CREDIT?</span>
+                    <span className="badge subtle">SEPARATE MINI-FIXTURE</span>
+                  </div>
+                  <label className="select-label" htmlFor="credit-model">
+                    Attribution rule
+                    <select
+                      id="credit-model"
+                      value={model}
+                      onChange={(e) => {
+                        setModel(e.target.value as Attribution);
+                        markChanged();
+                      }}
+                    >
+                      <option value="first">First touch</option>
+                      <option value="last">Last touch</option>
+                      <option value="linear">Linear</option>
+                    </select>
+                  </label>
+                  <div className="credit-chart">
+                    {Object.entries(allocations).map(([name, value]) => (
+                      <div key={name}>
+                        <span>{name}</span>
+                        <div className="credit-track">
+                          <i style={{ width: `${(value / 150) * 100}%` }} />
+                        </div>
+                        <strong>${value.toFixed(0)}</strong>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="calculation">
+                    Same journeys. Same <strong>USD 150</strong>. Different
+                    allocation.
+                  </p>
+                  <p className="fine-print">
+                    A: Email → Organic, $100. B: Paid search → Organic, $50. C:
+                    Paid search, $0. Invented complete same-device journeys; no
+                    spend or counterfactual.
+                  </p>
+                </>
+              )}
+              {pathId === "behaviour" && (
+                <>
+                  <div className="data-card-heading">
+                    <span className="mono">AN AVERAGE HIDES THE MIX</span>
+                    <span className="badge subtle">ILLUSTRATIVE</span>
+                  </div>
+                  <label className="select-label" htmlFor="cohort">
+                    Visitor cohort
+                    <select
+                      id="cohort"
+                      value={cohortId}
+                      onChange={(e) => {
+                        setCohortId(e.target.value);
+                        markChanged();
+                      }}
+                    >
+                      {scenario.cohorts.map((c) => (
+                        <option value={c.id} key={c.id}>
+                          {c.label}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                  <div
+                    className="funnel"
+                    role="img"
+                    aria-label={`${cohort.label}, period two ordered funnel: ${cohort.after.join(", ")}`}
+                  >
+                    {[
+                      "Sessions",
+                      "Product views",
+                      "Carts",
+                      "Checkouts",
+                      "Purchases",
+                    ].map((name, i) => (
+                      <div key={name}>
+                        <span>{name}</span>
+                        <div className="funnel-track">
+                          <i
+                            style={{
+                              width: `${Math.max(2, (cohort.after[i] / cohort.after[0]) * 100)}%`,
+                            }}
+                          />
+                        </div>
+                        <strong>
+                          {cohort.after[i].toLocaleString("en-US")}
+                        </strong>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="calculation">
+                    Conversion:{" "}
+                    <strong>
+                      {pct(rate(cohort.before[4], cohort.before[0]), 2)} →{" "}
+                      {pct(rate(cohort.after[4], cohort.after[0]), 2)}
+                    </strong>
+                  </p>
+                  <p className="fine-print">
+                    Closed, ordered session funnel. Rates use started sessions
+                    in the selected cohort. Counts describe the fixture; they do
+                    not identify why intent changed.
+                  </p>
+                </>
+              )}
+            </div>
+          </div>
+          <p className="limitation">
+            <span className="mono">THE LIMIT</span> {path.limitation}
+          </p>
+          <a className="next-link" href="#red-team">
+            Challenge this interpretation <Arrow />
+          </a>
+        </Chapter>
+        <Chapter id="engine" number="03" title="THE ANALYTICAL ENGINE">
+          <div className="engine-layout">
+            <div>
+              <h2 id="engine-heading">
+                A conclusion is only
+                <br />
+                as good as its <span className="accent">lineage.</span>
+              </h2>
+              <p className="engine-lede">
+                The interactive story is the front door.
+                <br />
+                <strong>Exclamation AI is the engineering underneath.</strong>
+              </p>
+              <p className="muted-text">
+                Keep the evidence inspectable: defined grains, ordered
+                transformations, bounded claims. This excerpt changes with your
+                investigation.
+              </p>
+              <External
+                href={artifact(path.sourcePath)}
+                className="subtle-link"
+              >
+                Inspect the original{" "}
+                {path.sourcePath.endsWith(".sql") ? "SQL" : "Python"} artifact
+              </External>
+            </div>
+            <div className="code-panel">
+              <div className="code-topline">
+                <span>
+                  <i /> {path.sourcePath.endsWith(".sql") ? "SQL" : "PYTHON"} /
+                  SIMPLIFIED EXPLANATION
+                </span>
+                <span>{path.evidenceId}</span>
+              </div>
+              <pre tabIndex={0} aria-label="Simplified analytical logic">
+                <code>{code}</code>
+              </pre>
+              <div className="code-bottomline">
+                Illustrative excerpt. Exact implementation at the linked source.
+              </div>
+            </div>
+          </div>
+          <div className="lineage">
+            <div>
+              <span>01 / INPUT</span>
+              <p>Explicitly labelled fixture</p>
+            </div>
+            <Arrow />
+            <div>
+              <span>02 / TRANSFORM</span>
+              <p>Deterministic, tested logic</p>
+            </div>
+            <Arrow />
+            <div>
+              <span>03 / INTERPRET</span>
+              <p>Assumptions stay visible</p>
+            </div>
+            <Arrow />
+            <div>
+              <span>04 / DECIDE</span>
+              <p>Evidence before action</p>
+            </div>
+          </div>
+        </Chapter>
+        <Chapter
+          id="red-team"
+          number="04"
+          title="THE RED TEAM CHALLENGE"
+          className="red-team"
+        >
+          <div className="section-heading">
+            <h2 id="red-team-heading">
+              Find a weakness
+              <br />
+              in my <span className="outline-text">analysis.</span>
+            </h2>
+            <p className="section-intro">
+              Good analysis survives scrutiny.
+              <br />
+              Better analysis changes when it should.
+              <br />
+              Choose a challenge.
+            </p>
+          </div>
+          <div className="red-team-layout">
+            <div
+              className="challenge-list"
+              role="group"
+              aria-label="Challenge an assumption"
+            >
+              {challenges.map((c, i) => (
+                <button
+                  key={c.id}
+                  aria-pressed={challengeId === c.id}
+                  className={challengeId === c.id ? "active" : ""}
+                  onClick={() => {
+                    setChallengeId(c.id);
+                    markChanged();
+                  }}
+                >
+                  <span className="mono">0{i + 1}</span>
+                  <span>{c.title}</span>
+                  <Arrow />
+                </button>
+              ))}
+            </div>
+            <div
+              className="challenge-response"
+              aria-live="polite"
+              aria-atomic="true"
+            >
+              <p className="eyebrow">
+                CHALLENGE ACCEPTED / {challenge.short.toUpperCase()}
+              </p>
+              <h3>{challenge.matters}</h3>
+              <dl>
+                <div>
+                  <dt>Still supported</dt>
+                  <dd>{challenge.supported}</dd>
+                </div>
+                <div>
+                  <dt>What I’d revise</dt>
+                  <dd>{challenge.revised}</dd>
+                </div>
+                <div>
+                  <dt>Evidence I need</dt>
+                  <dd>{challenge.needed}</dd>
+                </div>
+              </dl>
+              {challengeId === "sample" && (
+                <p className="calculation">
+                  After-period Wilson 95% interval:{" "}
+                  <strong>
+                    {pct(interval[0], 2)}–{pct(interval[1], 2)}
+                  </strong>
+                  . Assumes independent sessions; not a causal estimate.
+                </p>
+              )}
+              {challengeId === "cost" && (
+                <div className="cost-control">
+                  <label className="control-label" htmlFor="delivery-cost">
+                    Illustrative delivery cost
+                    <output>USD {cost.toLocaleString("en-US")}</output>
+                  </label>
+                  <input
+                    id="delivery-cost"
+                    type="range"
+                    min="0"
+                    max="10000"
+                    step="250"
+                    value={cost}
+                    onChange={(e) => {
+                      setCost(Number(e.target.value));
+                      markChanged();
+                    }}
+                  />
+                  <p className="calculation">
+                    <strong>{breakEven(cost)}</strong> incremental orders to
+                    break even at assumed $40 contribution/order. Not a
+                    forecast.
+                  </p>
+                </div>
+              )}
+              <div className="revised-action">
+                <span className="mono">THE DECISION CHANGES</span>
+                <p>{challenge.action}</p>
+              </div>
+            </div>
+          </div>
+          <a className="next-link" href="#decision">
+            Take this challenge into the decision <Arrow />
+          </a>
+        </Chapter>
+        <Chapter id="decision" number="05" title="THE EXECUTIVE DECISION">
+          <div className="decision-layout">
+            <div className="decision-title">
+              <p className="eyebrow">A RECOMMENDATION YOU CAN USE</p>
+              <h2 id="decision-heading">
+                The next move.
+                <br />
+                <span className="muted">Not the biggest claim.</span>
+              </h2>
+              <p>
+                Attention is up. Revenue is flat. The useful output is a
+                defensible next step, with the uncertainty attached.
+              </p>
+              <span className="badge">ILLUSTRATIVE / REVIEW DRAFT</span>
+            </div>
+            <div className="decision-card">
+              <div className="decision-card-top">
+                <span className="mono">DECISION BRIEF / {edition.number}</span>
+                <span className="mono">YH ↗</span>
+              </div>
+              <h3>{brief.recommendation}</h3>
+              <dl>
+                <div>
+                  <dt>The lens</dt>
+                  <dd>{path.title}</dd>
+                </div>
+                <div>
+                  <dt>The challenge</dt>
+                  <dd>{challenge.short}</dd>
+                </div>
+                <div>
+                  <dt>Validate next</dt>
+                  <dd>{challenge.needed}</dd>
+                </div>
+                <div>
+                  <dt>Business relevance</dt>
+                  <dd>
+                    Reduce the risk of funding the wrong fix. No revenue uplift
+                    or causal impact has been established.
+                  </dd>
+                </div>
+              </dl>
+              <button
+                className="button primary"
+                onClick={() => {
+                  downloadBrief(briefState);
+                  setExported(true);
+                }}
+              >
+                Download your decision brief <span aria-hidden="true">↓</span>
+              </button>
+              <p className="fine-print" role="status">
+                {exported
+                  ? "Downloaded: your selected path, challenge and assumptions. Open the HTML brief to print or save as PDF."
+                  : "One-page HTML · current selections included · print to PDF"}
+              </p>
+              <a className="small-link" href="./decision-brief.pdf" download>
+                Or download the default PDF brief ↗
+              </a>
+            </div>
+          </div>
+        </Chapter>
+        <Chapter id="proof" number="06" title="THE PROOF">
+          <div className="section-heading">
+            <h2 id="proof-heading">
+              Don’t take my word.
+              <br />
+              <span className="muted">Follow the evidence.</span>
+            </h2>
+            <div className="section-intro">
+              <p>
+                Exclamation AI stays the technical source. Every card links to a
+                specific artifact at an audited commit.
+              </p>
+              <External className="subtle-link" href={proofRepo}>
+                Open Exclamation AI
+              </External>
+            </div>
+          </div>
+          <div className="evidence-grid">
+            {evidence.map((e) => (
+              <article key={e.id} className="evidence-card">
+                <div className="evidence-top">
+                  <span className="mono">{e.id}</span>
+                  <span className="evidence-status">{e.category}</span>
+                </div>
+                <h3>{e.title}</h3>
+                <p>{e.description}</p>
+                <div className="evidence-links">
+                  <External href={artifact(e.path)}>View evidence</External>
+                  <External href={artifact(e.secondary)}>
+                    {e.secondaryLabel}
+                  </External>
+                </div>
+                <p className="evidence-limit">{e.limitation}</p>
+              </article>
+            ))}
+          </div>
+          <details className="evidence-details">
+            <summary>
+              What is verified—and what isn’t? <span aria-hidden="true">+</span>
+            </summary>
+            <div>
+              <p>
+                These links substantiate source implementation and historical
+                observations recorded in the upstream project. This application
+                does not independently reauthenticate those Google runs. The
+                synthetic challenge above is a separate demonstration of
+                reasoning.
+              </p>
+              <p>
+                The upstream verification log records 72 Python, 50 frontend and
+                16 browser tests. These are historical upstream counts, not
+                fresh test results for THE UNAPPLICATION. Live model evaluation,
+                BigQuery SDK transport, causal uplift and production
+                daily-export arrival remain unverified.
+              </p>
+              <p>
+                The target job listing was inaccessible. Exact role requirements
+                and current vacancy status are unverified. No approved resume
+                was supplied; no resume or credentials have been invented.
+              </p>
+              <External href={artifact("docs/verification.md")}>
+                Read the full verification report
+              </External>
+              <a href="./evidence-manifest.json" download>
+                Download the evidence manifest ↗
+              </a>
+            </div>
+          </details>
+          <div className="selected-work" aria-label="More selected work">
+            {selectedWork.map((work, i) => (
+              <article key={work.name}>
+                <span className="mono">
+                  0{i + 1} / {work.name}
+                </span>
+                <h3>{work.focus}</h3>
+                <p>{work.description}</p>
+                <External href={work.url}>Inspect {work.name}</External>
+                <p className="work-limit">{work.limit}</p>
+              </article>
+            ))}
+          </div>
+          <div className="more-work">
+            <span className="mono">BEYOND THIS CHALLENGE</span>
+            <p>
+              Explore PULSE, RESTOPS and Apex Insights in my existing portfolio.
+              The project descriptions above come from inspected READMEs; their
+              full implementations were not rerun for this edition.
+            </p>
+            <External href={candidate.portfolio}>Explore more work</External>
+          </div>
+        </Chapter>
+        <section
+          className="contact-section"
+          id="contact"
+          aria-labelledby="contact-heading"
+        >
+          <div>
+            <p className="eyebrow">
+              {candidate.name.toUpperCase()} / THE UNAPPLICATION
+            </p>
+            <h2 id="contact-heading">
+              You’ve seen the thinking.
+              <br />
+              <span className="accent">Let’s talk about what’s next.</span>
+            </h2>
+            <p>Let’s discuss how I’d approach your next challenge.</p>
+            <a
+              className="button primary"
+              href={`mailto:${candidate.email}?subject=Let%E2%80%99s%20talk%20%E2%80%94%20THE%20UNAPPLICATION`}
+            >
+              Start a conversation <Arrow diagonal />
+            </a>
+            <div className="contact-links">
+              <External href={candidate.github}>GitHub</External>
+              <External href={candidate.linkedin}>LinkedIn</External>
+              <External href={candidate.portfolio}>Portfolio</External>
+            </div>
+          </div>
+          <span className="contact-mark" aria-hidden="true">
+            U↗
+          </span>
+        </section>
+      </main>
+      <footer className="site-footer">
+        <span>
+          © {new Date().getFullYear()} {candidate.name}
+        </span>
+        <p>{edition.disclaimer}</p>
+        <a href="#main">Back to the question ↑</a>
+      </footer>
+    </>
+  );
+}

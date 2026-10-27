@@ -1,0 +1,25 @@
+
+> the-unapplication@1.0.0 test:e2e
+> playwright test
+
+
+Running 12 tests using 1 worker
+
+(node:51328) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [desktop] › tests/browser/journey.spec.ts:4:1 › primary journey, all investigation paths and revised decision (1.2s)
+  ✓   2 [desktop] › tests/browser/journey.spec.ts:11:1 › all six challenges produce distinct, useful responses (519ms)
+  ✓   3 [desktop] › tests/browser/journey.spec.ts:12:1 › current-selection brief downloads, and default PDF is a real file (317ms)
+  ✓   4 [desktop] › tests/browser/journey.spec.ts:13:1 › evidence, contact, fixture, manifest and all local anchors resolve (440ms)
+  ✓   5 [desktop] › tests/browser/journey.spec.ts:14:1 › keyboard entry, reduced motion, accessibility and no horizontal overflow (1.5s)
+  ✓   6 [desktop] › tests/browser/journey.spec.ts:15:1 › capture actual experience (708ms)
+(node:51397) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   7 [mobile] › tests/browser/journey.spec.ts:4:1 › primary journey, all investigation paths and revised decision (2.3s)
+  ✓   8 [mobile] › tests/browser/journey.spec.ts:11:1 › all six challenges produce distinct, useful responses (507ms)
+  ✓   9 [mobile] › tests/browser/journey.spec.ts:12:1 › current-selection brief downloads, and default PDF is a real file (324ms)
+  ✓  10 [mobile] › tests/browser/journey.spec.ts:13:1 › evidence, contact, fixture, manifest and all local anchors resolve (358ms)
+  ✓  11 [mobile] › tests/browser/journey.spec.ts:14:1 › keyboard entry, reduced motion, accessibility and no horizontal overflow (1.3s)
+  ✓  12 [mobile] › tests/browser/journey.spec.ts:15:1 › capture actual experience (1.2s)
+
+  12 passed (12.8s)
