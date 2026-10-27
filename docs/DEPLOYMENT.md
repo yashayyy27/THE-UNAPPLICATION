@@ -2,7 +2,7 @@
 
 ## Current distribution
 
-The separate GitHub repository is private at creation. A private Site shell was registered, but its source transfer was rejected by automatic approval review. No hosted review has been deployed. Public recruiter access has not been authorised; an owner-private review URL is not a recruiter-shareable release. See the delivery message for the verified publication status and actual URL.
+The separate GitHub repository is private at creation. A private Site shell was registered, but its source transfer was rejected by automatic approval review. The owner subsequently chose GitHub only. No source was transferred and no hosted review has been deployed. Public recruiter access has not been authorised; an owner-private review URL is not a recruiter-shareable release. See the delivery message for the verified publication status and actual URL.
 
 ## Vercel
 

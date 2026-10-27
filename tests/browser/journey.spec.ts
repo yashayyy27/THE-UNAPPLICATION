@@ -8,6 +8,8 @@ test("primary journey, all investigation paths and revised decision", async ({
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto("/");
   await expect(page.locator("h1")).toContainText("MY THINKING");
+  const primary = await page.getByRole("link", {name: "Put my thinking to the test"}).boundingBox();
+  expect(primary!.y + primary!.height).toBeLessThanOrEqual(page.viewportSize()!.height);
   await page.getByRole("link", { name: "Put my thinking to the test" }).click();
   await expect(page).toHaveURL(/#brief/);
   await page.getByRole("button", { name: /Customer behaviour/ }).click();

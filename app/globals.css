@@ -153,7 +153,7 @@ p {
 }
 .site-header {
   margin: 0 var(--page);
-  height: 116px;
+  height: 92px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -237,7 +237,7 @@ p {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   gap: 12px;
-  margin-top: 62px;
+  margin-top: 34px;
   margin-bottom: 50px;
 }
 .hero h1 {
@@ -259,7 +259,7 @@ p {
   color: var(--accent);
 }
 .hero-description {
-  margin-top: 30px;
+  margin-top: 22px;
   max-width: 460px;
 }
 .hero-description > p:first-child {
@@ -289,7 +289,7 @@ p {
 .hero-art {
   position: relative;
   align-self: start;
-  height: 460px;
+  height: 420px;
   margin-top: 8px;
   margin-left: 25px;
   isolation: isolate;
