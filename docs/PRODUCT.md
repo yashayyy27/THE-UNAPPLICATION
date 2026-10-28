@@ -16,13 +16,13 @@ Next.js App Router static export + React + strict TypeScript. CSS tokens replace
 ## Acceptance and risk register
 - Evidence over claim: all achievement copy links to commit-pinned artifacts. Upstream receipts are historical documentation, not current reruns or independently authenticated cloud verification.
 - Synthetic results are never attributed to R/GA or clients. Historical Google data is a separate source.
-- Missing resume: no approved resume was found; omit fabricated download and explicitly disclose the gap.
+- Approved resume: the existing final R/GA PDF is published on owner request, with exact-byte SHA-256/size validation. Candidate-supplied employment and education remain separate from independently verified project evidence.
 - Background: existing owner portfolio states business analytics/data science and operations; these are owner-published statements, not independently verified credentials. Avoid degrees/employer assertions in public copy.
 - Official role requirements checked on 29 October 2026; see [research](RESEARCH.md) and [evidence mapping](ROLE-EVIDENCE-MAP.md). Availability and location/eligibility require confirmation when applying.
 - Weak attribution, small samples, missing data and costs must change the decision. No causal or uplift claims.
 - Recruiter timing, manual screen-reader testing and owner ability to explain the work require human validation.
 - External artifacts may disappear; commit pinning and labelled evidence boundaries reduce drift but do not guarantee availability.
-- Public publication requires owner visibility approval. Repository remains private; no hosted review is deployed.
+- The owner approved public source/history and GitHub Pages publication on 29 October 2026. The repository and website are public; future site updates use the verified manual deployment workflow.
 
 ## Creative direction 2.0
 

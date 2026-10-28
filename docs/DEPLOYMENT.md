@@ -1,6 +1,6 @@
 # GitHub Pages release
 
-The owner reported all requested checks complete and authorized publication on GitHub's domain on 29 October 2026. Cinematic v2 and the accepted performance trade-off remain intact. No approved resume was supplied; retain its honest pending/contact state.
+The owner reported all requested checks complete and authorized publication on GitHub's domain on 29 October 2026. Cinematic v2 and the accepted performance trade-off remain intact. The owner subsequently requested publication of the existing final R/GA PDF on 29 October 2026; its exact bytes and approval record now enable the resume download. [Resume provenance](RESUME-RELEASE.md).
 
 ## Approved hosting choice
 
