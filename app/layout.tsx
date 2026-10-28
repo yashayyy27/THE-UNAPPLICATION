@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./artwork.css";
+const title = "THE UNAPPLICATION — Yash Hurdale · R/GA 001";
+const description = "Independent Data Analyst application by Yash Hurdale. Inspect SQL, Python, BigQuery and GA4/GTM evidence, challenge the analysis and arrange an interview.";
+const siteURL = "https://yashayyy27.github.io/THE-UNAPPLICATION/";
 export const metadata: Metadata = {
-  title: "THE UNAPPLICATION — Yash Hurdale · R/GA 001",
-  description:
-    "Don’t interview my resume. Interview my thinking. An independent, interactive application by Yash Hurdale, grounded in inspectable analytical evidence.",
+  title,
+  description,
+  alternates: { canonical: siteURL },
+  openGraph: { title, description, url: siteURL, type: "website", locale: "en_AU" },
+  twitter: { card: "summary", title, description },
   robots: {
     index: process.env.NEXT_PUBLIC_SITE_RELEASE === "true",
     follow: process.env.NEXT_PUBLIC_SITE_RELEASE === "true",

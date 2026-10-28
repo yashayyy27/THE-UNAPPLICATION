@@ -101,6 +101,10 @@ describe("deterministic analytical boundaries", () => {
         expect(html).toContain("125.0");
         expect(html).toContain("50 incremental orders");
         expect(html).toContain("SYNTHETIC SCENARIO");
+        expect(html).toContain("NOT CLIENT DATA");
+        expect(html).toContain("No uplift, client outcome or causal impact has been established.");
+        expect(html).toContain(challenge.needed.replace("&", "&amp;"));
+        expect(html).not.toMatch(/REVIEW DRAFT|Applicant review is still required/);
         expect(html).toContain(sourceCommit);
       }
   });

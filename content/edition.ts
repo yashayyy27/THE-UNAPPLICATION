@@ -1,7 +1,7 @@
 export const candidate = {
   name: "Yash Hurdale",
   introduction:
-    "I turn ambiguous business questions into analysis you can inspect—and decisions you can challenge.",
+    "I’m a Master of Business Analytics graduate based in Sydney, working with SQL, Python, Excel and Power BI. My experience spans Assistant Product Manager and Business & Data Analyst Intern roles, and commercial operations at Nando’s.",
   email: "yash.h2700@gmail.com",
   github: "https://github.com/yashayyy27",
   linkedin: "https://www.linkedin.com/in/yash-hurdale-ba47a4178/",
@@ -28,6 +28,13 @@ export const sourceCommit = "35f1aff81c166215496b0f0b2b041db7a4c0360e";
 export const proofRepo = "https://github.com/yashayyy27/exclamation-ai";
 export const artifact = (path: string) =>
   `${proofRepo}/blob/${sourceCommit}/${path}`;
+// Direct entry points preserve the same audited revision as the full evidence cards.
+export const openingEvidence = [
+  { label: "SQL source", path: "data/sql/sessions.sql" },
+  { label: "Python source", path: "services/api/analytics.py" },
+  { label: "BigQuery run", path: "docs/bigquery-analysis-2026-10-25.md" },
+  { label: "GA4/GTM test", path: "docs/google-tracking-2026-10-26.md" },
+] as const;
 export const evidence = [
   {
     id: "E01",

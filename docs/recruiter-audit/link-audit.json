@@ -1,0 +1,150 @@
+{
+  "checkedOn": "2026-10-29",
+  "source": "Production export; GET with redirect following; three concurrent requests; no sign-in.",
+  "external": [
+    {
+      "url": "https://github.com/yashayyy27",
+      "status": 200,
+      "finalURL": "https://github.com/yashayyy27",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://github.com/yashayyy27/apex-insights/blob/9a78ae328ea06be72a06380893e75712b1b2e345/README.md",
+      "status": 200,
+      "finalURL": "https://github.com/yashayyy27/apex-insights/blob/9a78ae328ea06be72a06380893e75712b1b2e345/README.md",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://github.com/yashayyy27/exclamation-ai",
+      "status": 200,
+      "finalURL": "https://github.com/yashayyy27/exclamation-ai",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://github.com/yashayyy27/exclamation-ai/blob/35f1aff81c166215496b0f0b2b041db7a4c0360e/apps/web/src/measurement.ts",
+      "status": 200,
+      "finalURL": "https://github.com/yashayyy27/exclamation-ai/blob/35f1aff81c166215496b0f0b2b041db7a4c0360e/apps/web/src/measurement.ts",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://github.com/yashayyy27/exclamation-ai/blob/35f1aff81c166215496b0f0b2b041db7a4c0360e/data/sql/sessions.sql",
+      "status": 200,
+      "finalURL": "https://github.com/yashayyy27/exclamation-ai/blob/35f1aff81c166215496b0f0b2b041db7a4c0360e/data/sql/sessions.sql",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://github.com/yashayyy27/exclamation-ai/blob/35f1aff81c166215496b0f0b2b041db7a4c0360e/data/sql/transactions.sql",
+      "status": 200,
+      "finalURL": "https://github.com/yashayyy27/exclamation-ai/blob/35f1aff81c166215496b0f0b2b041db7a4c0360e/data/sql/transactions.sql",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://github.com/yashayyy27/exclamation-ai/blob/35f1aff81c166215496b0f0b2b041db7a4c0360e/docs/bigquery-analysis-2026-10-25.md",
+      "status": 200,
+      "finalURL": "https://github.com/yashayyy27/exclamation-ai/blob/35f1aff81c166215496b0f0b2b041db7a4c0360e/docs/bigquery-analysis-2026-10-25.md",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://github.com/yashayyy27/exclamation-ai/blob/35f1aff81c166215496b0f0b2b041db7a4c0360e/docs/evidence/bigquery-console-20261025-reconciliation.json",
+      "status": 200,
+      "finalURL": "https://github.com/yashayyy27/exclamation-ai/blob/35f1aff81c166215496b0f0b2b041db7a4c0360e/docs/evidence/bigquery-console-20261025-reconciliation.json",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://github.com/yashayyy27/exclamation-ai/blob/35f1aff81c166215496b0f0b2b041db7a4c0360e/docs/evidence/validator-replay.json",
+      "status": 200,
+      "finalURL": "https://github.com/yashayyy27/exclamation-ai/blob/35f1aff81c166215496b0f0b2b041db7a4c0360e/docs/evidence/validator-replay.json",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://github.com/yashayyy27/exclamation-ai/blob/35f1aff81c166215496b0f0b2b041db7a4c0360e/docs/failure-analysis.md",
+      "status": 200,
+      "finalURL": "https://github.com/yashayyy27/exclamation-ai/blob/35f1aff81c166215496b0f0b2b041db7a4c0360e/docs/failure-analysis.md",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://github.com/yashayyy27/exclamation-ai/blob/35f1aff81c166215496b0f0b2b041db7a4c0360e/docs/google-tracking-2026-10-26.md",
+      "status": 200,
+      "finalURL": "https://github.com/yashayyy27/exclamation-ai/blob/35f1aff81c166215496b0f0b2b041db7a4c0360e/docs/google-tracking-2026-10-26.md",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://github.com/yashayyy27/exclamation-ai/blob/35f1aff81c166215496b0f0b2b041db7a4c0360e/docs/verification.md",
+      "status": 200,
+      "finalURL": "https://github.com/yashayyy27/exclamation-ai/blob/35f1aff81c166215496b0f0b2b041db7a4c0360e/docs/verification.md",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://github.com/yashayyy27/exclamation-ai/blob/35f1aff81c166215496b0f0b2b041db7a4c0360e/services/api/analytics.py",
+      "status": 200,
+      "finalURL": "https://github.com/yashayyy27/exclamation-ai/blob/35f1aff81c166215496b0f0b2b041db7a4c0360e/services/api/analytics.py",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://github.com/yashayyy27/PULSE/blob/e2f3176a7be0723749c94b258ed8e5fa5681b4ad/README.md",
+      "status": 200,
+      "finalURL": "https://github.com/yashayyy27/PULSE/blob/e2f3176a7be0723749c94b258ed8e5fa5681b4ad/README.md",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://github.com/yashayyy27/RESTOPS/blob/45aa830a67e89838e91b49d46d16d5f2b219c6fd/README.md",
+      "status": 200,
+      "finalURL": "https://github.com/yashayyy27/RESTOPS/blob/45aa830a67e89838e91b49d46d16d5f2b219c6fd/README.md",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://www.linkedin.com/in/yash-hurdale-ba47a4178/",
+      "status": 999,
+      "finalURL": "https://www.linkedin.com/in/yash-hurdale-ba47a4178",
+      "contentType": "text/html"
+    },
+    {
+      "url": "https://www.rga.com/careers/8302236?gh_jid=8302236",
+      "status": 200,
+      "finalURL": "https://www.rga.com/careers/8302236?gh_jid=8302236",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://yashayyy27.github.io/",
+      "status": 200,
+      "finalURL": "https://yashayyy27.github.io/",
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://yashayyy27.github.io/THE-UNAPPLICATION/",
+      "status": 200,
+      "finalURL": "https://yashayyy27.github.io/THE-UNAPPLICATION/",
+      "contentType": "text/html; charset=utf-8"
+    }
+  ],
+  "local": [
+    {
+      "href": "./scenario.json",
+      "exists": true,
+      "bytes": 1775
+    },
+    {
+      "href": "./decision-brief.pdf",
+      "exists": true,
+      "bytes": 4007
+    },
+    {
+      "href": "./evidence-manifest.json",
+      "exists": true,
+      "bytes": 7910
+    },
+    {
+      "href": "./resume/yash-hurdale.pdf",
+      "exists": true,
+      "bytes": 97795
+    }
+  ],
+  "contact": [
+    "mailto:yash.h2700@gmail.com?subject=Interview%20Yash%20Hurdale%20%E2%80%94%20Data%20Analyst"
+  ],
+  "approvedResume": {
+    "bytes": 97795,
+    "sha256": "fbbb4f87199b84eff9ccb023e16ab358f70941ce803212d279719818923e052f",
+    "matchesApproval": true
+  }
+}

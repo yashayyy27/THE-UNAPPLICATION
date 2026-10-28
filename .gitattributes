@@ -9,3 +9,6 @@ docs/recruiter-readiness/performance/v?-?.json linguist-generated=true
 app/artwork.css linguist-generated=true
 
 docs/recruiter-readiness/diagnostics/*.json linguist-generated=true
+
+# PDF byte offsets and checksums must be preserved; review rendered pages instead of text diffs.
+*.pdf binary

@@ -71,3 +71,26 @@ describe("recruiter journey", () => {
     expect(screen.getByText(/Not a forecast/)).toBeInTheDocument();
   });
 });
+
+describe("finished public application", () => {
+  it("offers four pinned evidence entry points in the opening experience", async () => {
+    const { artifact, openingEvidence } = await import("../content/edition");
+    render(<Unapplication />);
+    const entry = screen.getByRole("group", { name: "Inspect technical evidence" });
+    for (const item of openingEvidence) {
+      const link = within(entry).getByRole("link", { name: item.label });
+      expect(link).toHaveAttribute("href", artifact(item.path));
+      expect(link).toHaveAttribute("rel", "noopener noreferrer");
+    }
+  });
+  it("introduces the candidate factually and keeps interview and resume actions together", () => {
+    render(<Unapplication />);
+    const resume = within(document.querySelector("#resume") as HTMLElement);
+    expect(resume.getByText(/Master of Business Analytics graduate/)).toHaveTextContent("Assistant Product Manager and Business & Data Analyst Intern");
+    const contact = within(document.querySelector("#contact") as HTMLElement);
+    expect(contact.getByRole("link", { name: "Interview Yash" })).toHaveAttribute("href", expect.stringContaining("mailto:yash.h2700@gmail.com?subject=Interview%20Yash"));
+    expect(contact.getByRole("link", { name: /Resume \(PDF/ })).toHaveAttribute("download");
+    expect(document.body.textContent).not.toMatch(/REVIEW DRAFT|AWAITING APPROVED FILE|Applicant review is still required/);
+    expect(screen.getByText(/Employment and education are candidate-supplied/)).toBeInTheDocument();
+  });
+});

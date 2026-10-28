@@ -1,7 +1,8 @@
 "use client";
-import { candidate, edition } from "../content/edition";
+import { candidate, edition, openingEvidence, artifact } from "../content/edition";
 import { scenario } from "../content/scenario";
 import { pct, rate } from "../lib/analytics";
+import { External } from "./Presentation";
 import { useMotionSystem } from "./MotionSystem";
 const signals = [
   `${scenario.after.engaged.toLocaleString("en-US")} engaged`,
@@ -89,23 +90,28 @@ export default function SignalHero() {
               {candidate.name} <span>/ {edition.role}</span>
             </p>
             <p>
-              I turn business questions into inspectable analysis.
+              Sydney-based Business Analytics graduate.
               <br />
-              SQL. Python. Decisions you can challenge.
+              SQL. Python. Commercial perspective.
             </p>
             <p className="hero-small">
               An independent application for {edition.company}.<br />
-              One business problem. Three lenses. Evidence you can challenge.
+              Product, data analysis and restaurant operations experience.
             </p>
           </div>
           <div className="hero-actions">
             <a className="button primary" href="#brief" onClick={m.skip}>
               Put my thinking to the test <span aria-hidden="true">↗</span>
             </a>
-            <a className="subtle-link" href="#proof">
-              Explore the evidence <span aria-hidden="true">↗</span>
-            </a>
           </div>
+          <div className="hero-evidence" role="group" aria-label="Inspect technical evidence">
+            {openingEvidence.map((item) => (
+              <External key={item.label} href={artifact(item.path)}>{item.label}</External>
+            ))}
+          </div>
+          <a className="hero-evidence-context" href="#proof">
+            Code, public-data analysis and owner test receipts. Explore the evidence and limits ↗
+          </a>
         </div>
       </div>
       <div className="hero-bottom">

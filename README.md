@@ -16,6 +16,8 @@ An independent, interactive application by **Yash Hurdale**, tailored to the sup
 
 ## Release verification
 
+[Post-launch recruiter audit and before/after captures](docs/recruiter-audit/REVIEW.md).
+
 [Performance and recruiter readiness report](docs/recruiter-readiness/REVIEW.md) · [approved resume release instructions](docs/RESUME-RELEASE.md). The live release preserves the cinematic identity and complete analytical journey. The challenge navigation now reaches the red team directly; the primary opening CTA starts with the business question.
 
 ## Cinematic edition · v2

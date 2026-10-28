@@ -19,6 +19,10 @@ Verified requirements and responsibilities, paraphrased from the listing:
 
 The [requirement-to-evidence map](ROLE-EVIDENCE-MAP.md) is our assessment of the project, not employer validation or a claim that every requirement is met.
 
+## Post-launch copy check · 29 October 2026
+
+The official listing was reopened for the recruiter audit. The requirements above remain supported. The public disclosure now summarises Python/SQL, tracking QA, reproducible AI workflows and recommendations, explicitly separates the candidate’s fit assessment from employer validation, and retains the header/body location discrepancy. No salary, visa status, location eligibility or continuing vacancy is assumed. [Audit and verification](recruiter-audit/REVIEW.md).
+
 ## Earlier research and company sources
 
 On 28 October the listing and Greenhouse retrieval were unavailable through the research tools. That access limitation is superseded by the dated official-page check above. No failed retrieval is being treated as evidence about the role.

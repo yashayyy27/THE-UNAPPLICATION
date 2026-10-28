@@ -1,7 +1,6 @@
 import { memo } from "react";
 import { candidate, edition, evidence, selectedWork, proofRepo, artifact, officialRole } from "../content/edition";
 import { Chapter, External, Arrow } from "./Presentation";
-import resumeConfig from "../content/resume.json";
 import ResumeDownload from "./ResumeDownload";
 // Proof and contact never depend on investigation state.
 function StaticEvidence() { return <>
@@ -61,10 +60,18 @@ function StaticEvidence() { return <>
                 daily-export arrival remain unverified.
               </p>
               <p>
-                The official role requirements were checked on 29 October 2026.
-                Confirm availability before applying. {resumeConfig.approved
-                  ? "The linked resume is owner-approved; credentials are not independently certified."
-                  : "No approved resume was supplied; no resume or credentials have been invented."}
+                R/GA’s official Data Analyst listing asks for working Python and
+                SQL, tested tracking, reproducible AI workflows and clear
+                recommendations. Tool familiarity spans at least two listed groups;
+                GA4/GTM is one group and BigQuery is another. These are verified
+                requirements, not an employer assessment of my fit. The source
+                header says Japan; its body lists Tokyo or Melbourne/Sydney.
+                Availability and location need confirmation with R/GA.
+              </p>
+              <p>
+                Listing checked on 29 October 2026. My project-to-role mapping is
+                my interpretation. Employment and education are candidate-supplied
+                in the resume; project verification does not certify credentials.
               </p>
               <External href={officialRole.url}>
                 Read the official Data Analyst listing
@@ -82,8 +89,7 @@ function StaticEvidence() { return <>
               <p className="eyebrow">THE PERSON BEHIND THE QUESTIONS</p>
               <h3>Yash Hurdale.</h3>
               <p>
-                Business questions. Analytical systems. Decisions with the
-                uncertainty attached.
+                {candidate.introduction}
               </p>
             </div>
             <div>
@@ -125,15 +131,16 @@ function StaticEvidence() { return <>
             <h2 id="contact-heading">
               You’ve seen the thinking.
               <br />
-              <span className="accent">Let’s talk about what’s next.</span>
+              <span className="accent">Let’s talk about the role.</span>
             </h2>
-            <p>Let’s discuss how I’d approach your next challenge.</p>
+            <p>Interview me about the analysis, the trade-offs and what I would test next.</p>
             <a
               className="button primary"
-              href={`mailto:${candidate.email}?subject=Let%E2%80%99s%20talk%20%E2%80%94%20THE%20UNAPPLICATION`}
+              href={`mailto:${candidate.email}?subject=Interview%20Yash%20Hurdale%20%E2%80%94%20Data%20Analyst`}
             >
-              Start a conversation <Arrow diagonal />
+              Interview Yash <Arrow diagonal />
             </a>
+            <div className="contact-resume"><ResumeDownload compact /></div>
             <div className="contact-links">
               <External href={candidate.github}>GitHub</External>
               <External href={candidate.linkedin}>LinkedIn</External>

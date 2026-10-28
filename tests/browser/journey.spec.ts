@@ -98,7 +98,7 @@ test("evidence, contact, fixture, manifest and all local anchors resolve", async
   ])
     expect((await request.get(url)).ok()).toBeTruthy();
   await page.getByText("What is verified—and what isn’t?").click();
-  await expect(page.getByText(/The linked resume is owner-approved/)).toBeVisible();
+  await expect(page.getByText(/Employment and education are candidate-supplied/)).toBeVisible();
   expect(
     await page.locator('a[href^="mailto:"]').getAttribute("href"),
   ).toContain("yash.h2700@gmail.com");
@@ -107,7 +107,7 @@ test("evidence, contact, fixture, manifest and all local anchors resolve", async
 });
 test("the approved final resume downloads with its exact recorded identity", async ({ page }) => {
   await page.goto("/#resume");
-  const link = page.getByRole("link", { name: /Download approved resume/ });
+  const link = page.getByRole("link", { name: /Download resume/ });
   await expect(link).toHaveAttribute("href", resumeConfig.approved.href);
   await expect(link).toHaveAttribute("download");
   const pending = page.waitForEvent("download");

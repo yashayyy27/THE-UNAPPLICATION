@@ -598,7 +598,7 @@ function ExperienceContent() {
                 Attention is up. Revenue is flat. The useful output is a
                 defensible next step, with the uncertainty attached.
               </p>
-              <span className="badge">ILLUSTRATIVE / REVIEW DRAFT</span>
+              <span className="badge">SYNTHETIC SCENARIO / NOT CLIENT DATA</span>
             </div>
             <div className="decision-card">
               <div className="decision-card-top">
