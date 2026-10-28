@@ -15,6 +15,9 @@ test("project URL hydrates, loads every requested local asset and permits immedi
   });
   await page.goto(prefix);
   await expect(page.locator("h1")).toContainText("MY THINKING");
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://yashayyy27.github.io/THE-UNAPPLICATION/");
+  await expect(page.locator('meta[property="og:url"]')).toHaveAttribute("content", "https://yashayyy27.github.io/THE-UNAPPLICATION/");
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute("content", /SQL, Python, BigQuery and GA4\/GTM/);
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "index, follow");
   await expect(page.locator("#scene-styles")).toHaveAttribute("media", "all");
   await page.getByRole("link", { name: "Put my thinking to the test" }).click();
@@ -46,8 +49,10 @@ test("public downloads and click-time brief resolve beneath the project path", a
   const html = readFileSync((await download.path())!, "utf8");
   expect(html).toContain("cost USD 2000");
   expect(html).toContain("SYNTHETIC SCENARIO");
+  expect(html).toContain("NOT CLIENT DATA");
+  expect(html).not.toContain("REVIEW DRAFT");
   await page.goto(prefix + "#resume");
-  const resume = page.getByRole("link", { name: /Download approved resume/ });
+  const resume = page.getByRole("link", { name: /Download resume/ });
   await expect(resume).toHaveAttribute("href", resumeConfig.approved.href);
   const resumePending = page.waitForEvent("download");
   await resume.click();

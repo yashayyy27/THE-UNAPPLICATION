@@ -15,19 +15,19 @@ describe("approved resume release gate", () => {
   it("offers contact without advertising a missing resume", () => {
     render(<ResumeDownload resume={null} />);
     expect(screen.getByRole("link", { name: /Start a conversation/ })).toHaveAttribute("href", "#contact");
-    expect(screen.queryByRole("link", { name: /Download approved resume/ })).toBeNull();
+    expect(screen.queryByRole("link", { name: /Download resume/ })).toBeNull();
     expect(verifyResume(null)).toContain("pending");
   });
   it("makes the configured final resume downloadable only when its file identity verifies", () => {
     expect(verifyResume(resumeConfig.approved, pathToFileURL(join(process.cwd(), "public") + "/"))).toContain("verified");
     render(<ResumeDownload />);
-    expect(screen.getByRole("link", { name: /Download approved resume/ })).toHaveAttribute("href", resumeConfig.approved.href);
-    expect(screen.getByRole("link", { name: /Download approved resume/ })).toHaveAttribute("download");
+    expect(screen.getByRole("link", { name: /Download resume/ })).toHaveAttribute("href", resumeConfig.approved.href);
+    expect(screen.getByRole("link", { name: /Download resume/ })).toHaveAttribute("download");
   });
   it("renders a native PDF download only for a complete approval record", () => {
     render(<ResumeDownload resume={record} />);
-    expect(screen.getByRole("link", { name: /Download approved resume/ })).toHaveAttribute("href", record.href);
-    expect(screen.getByRole("link", { name: /Download approved resume/ })).toHaveAttribute("download");
+    expect(screen.getByRole("link", { name: /Download resume/ })).toHaveAttribute("href", record.href);
+    expect(screen.getByRole("link", { name: /Download resume/ })).toHaveAttribute("download");
     expect(isResumeRecord({ ...record, href: "https://example.com/unverified.pdf" })).toBe(false);
     expect(isResumeRecord({ ...record, href: "./resume/../../secret.pdf" })).toBe(false);
     expect(isResumeRecord({ ...record, sha256: "unverified" })).toBe(false);
@@ -50,4 +50,9 @@ describe("approved resume release gate", () => {
       expect(() => verifyResume(record, publicURL)).toThrow("complete PDF");
     } finally { rmSync(directory, { recursive: true, force: true }); }
   });
+});
+
+it("does not expose an unapproved file through the final compact CTA", () => {
+  render(<ResumeDownload compact resume={null} />);
+  expect(screen.queryByRole("link", { name: /Resume \(PDF/ })).toBeNull();
 });

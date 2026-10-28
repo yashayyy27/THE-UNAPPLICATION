@@ -1751,3 +1751,6 @@
 
 .viewport-visual { position: relative; }
 .visual-fallback > span { position: absolute; bottom: 4px; left: 0; color: var(--muted); font-size: 9px; }
+
+.contact-resume { margin-top: 12px; }
+.contact-resume a { min-height: 44px; font-size: 12px; }

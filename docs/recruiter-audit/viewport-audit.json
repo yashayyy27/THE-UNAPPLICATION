@@ -1,0 +1,41 @@
+{
+  "mode": "Chromium; reduced motion; CSS viewport height 800; no horizontal overflow",
+  "results": [
+    {
+      "width": 320,
+      "scrollWidth": 320,
+      "openingEvidenceLinks": 4,
+      "primaryBottom": 540
+    },
+    {
+      "width": 375,
+      "scrollWidth": 375,
+      "openingEvidenceLinks": 4,
+      "primaryBottom": 526.375
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "openingEvidenceLinks": 4,
+      "primaryBottom": 531.75
+    },
+    {
+      "width": 540,
+      "scrollWidth": 540,
+      "openingEvidenceLinks": 4,
+      "primaryBottom": 585.8125
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "openingEvidenceLinks": 4,
+      "primaryBottom": 587.203125
+    },
+    {
+      "width": 1280,
+      "scrollWidth": 1280,
+      "openingEvidenceLinks": 4,
+      "primaryBottom": 605.828125
+    }
+  ]
+}

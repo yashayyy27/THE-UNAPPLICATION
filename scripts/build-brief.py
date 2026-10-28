@@ -9,12 +9,12 @@ ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'public/decision-brief.pdf'
 INK=HexColor('#172013'); MUTED=HexColor('#54604c'); LINE=HexColor('#c4cbbb')
 c=canvas.Canvas(str(OUT),pagesize=A4)
-c.setTitle('THE UNAPPLICATION - Decision brief');c.setAuthor('Yash Hurdale');c.setSubject('Independent R/GA edition. Synthetic analysis; review draft.')
+c.setTitle('THE UNAPPLICATION - Decision brief');c.setAuthor('Yash Hurdale');c.setSubject('Independent R/GA edition. Synthetic analysis; not client data.')
 w,h=A4;x=43;y=h-42;cw=w-86
 c.setFillColor(INK);c.rect(x,y-5,cw,7,fill=1,stroke=0)
 y-=31;c.setFont('Helvetica-Bold',10);c.drawString(x,y,'THE UNAPPLICATION');c.setFont('Helvetica',9);c.drawRightString(w-x,y,'YASH HURDALE / R/GA - 001')
 y-=49;c.setFont('Helvetica-Bold',34);c.drawString(x,y,'Attention is up.');y-=36;c.drawString(x,y,'What decision follows?')
-y-=29;c.setFillColor(HexColor('#deefb8'));c.rect(x,y-6,cw,21,fill=1,stroke=0);c.setFillColor(INK);c.setFont('Helvetica-Bold',8);c.drawString(x+9,y+1,'SYNTHETIC SCENARIO  /  NOT CLIENT DATA  /  REVIEW DRAFT')
+y-=29;c.setFillColor(HexColor('#deefb8'));c.rect(x,y-6,cw,21,fill=1,stroke=0);c.setFillColor(INK);c.setFont('Helvetica-Bold',8);c.drawString(x+9,y+1,'SYNTHETIC SCENARIO  /  NOT CLIENT DATA')
 y-=31
 style=ParagraphStyle('body',fontName='Helvetica',fontSize=9.2,leading=13,textColor=INK)
 def block(label,text):

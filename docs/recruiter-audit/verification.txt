@@ -1,0 +1,167 @@
+Post-launch recruiter audit · 29 October 2026
+Node 24; local production builds; Chromium desktop/mobile emulation.
+No deployment dispatched.
+
+
+COMMAND: npm run check
+
+> the-unapplication@1.0.0 check
+> npm run typecheck && npm test && npm run build
+
+
+> the-unapplication@1.0.0 typecheck
+> tsc --noEmit
+
+
+> the-unapplication@1.0.0 test
+> vitest run
+
+
+ RUN  v4.1.12 /Users/yashhurdale/Documents/New project/THE-UNAPPLICATION
+
+
+ Test Files  4 passed (4)
+      Tests  40 passed (40)
+   Start at  02:36:32
+   Duration  1.37s (transform 482ms, setup 651ms, import 468ms, tests 635ms, environment 2.02s)
+
+
+> the-unapplication@1.0.0 prebuild
+> node scripts/export-content.mjs
+
+Compiled scene CSS: 24246 bytes.
+Approved resume verified: ./resume/yash-hurdale.pdf
+Exported fixture and evidence manifest.
+
+> the-unapplication@1.0.0 build
+> NEXT_TELEMETRY_DISABLED=1 next build --webpack
+
+▲ Next.js 16.4.3 (webpack)
+✓ Running next.config.ts took 77ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 1065ms
+  Running TypeScript ...
+  Finished TypeScript in 1179ms ...
+  Collecting page data using 4 workers ...
+  Generating static pages using 4 workers (0/3) ...
+✓ Generating static pages using 4 workers (3/3) in 266ms
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ○ /
+└ ○ /_not-found
+
+
+○  (Static)  prerendered as static content
+
+
+
+COMMAND: npm run test:e2e
+Running 50 tests using 1 worker
+  ✓   1 [desktop] › tests/browser/cinematic.spec.ts:10:1 › optional intro pauses, resumes and skips while navigation remains available (2.1s)
+  ✓   2 [desktop] › tests/browser/cinematic.spec.ts:36:1 › navigation and inquiry work before the visual sequence finishes (3.1s)
+  ✓   3 [desktop] › tests/browser/cinematic.spec.ts:72:1 › reduced motion and later preference changes keep a complete static experience (463ms)
+  ✓   4 [desktop] › tests/browser/cinematic.spec.ts:101:1 › Save-Data disables motion and needs no external media (246ms)
+  ✓   5 [desktop] › tests/browser/cinematic.spec.ts:122:1 › unsupported observers and blocked media fail open (354ms)
+  ✓   6 [desktop] › tests/browser/cinematic.spec.ts:152:1 › no JavaScript still exposes the thesis, evidence, resume status and default PDF (279ms)
+  ✓   7 [desktop] › tests/browser/cinematic.spec.ts:173:1 › state-aware download preserves visualisation choices after challenges (557ms)
+  ✓   8 [desktop] › tests/browser/cinematic.spec.ts:200:1 › WCAG 2.2 checks and cinematic scene screenshots (3.9s)
+  ✓   9 [desktop] › tests/browser/cinematic.spec.ts:263:1 › intro suspends offscreen and responds to a visibility change (648ms)
+  ✓  10 [desktop] › tests/browser/cinematic.spec.ts:288:1 › supporting diagrams activate near the viewport without shifting the readout (578ms)
+  ✓  11 [desktop] › tests/browser/cinematic.spec.ts:305:1 › concurrent scene styling works without hydration and keeps the first frame stable (2.0s)
+  ✓  12 [desktop] › tests/browser/cinematic.spec.ts:325:1 › scene stylesheet failure retains readable content, navigation and working analysis (344ms)
+  ✓  13 [desktop] › tests/browser/cinematic.spec.ts:337:1 › diagram code loads on approach and a failed chunk preserves the analytical journey (1.6s)
+  ✓  14 [desktop] › tests/browser/cinematic.spec.ts:363:1 › default first frame exposes motion choice and preserves the complete introduction (324ms)
+  ✓  15 [desktop] › tests/browser/cinematic.spec.ts:384:1 › a failed brief module offers retry and retains the real default PDF (1.2s)
+  ✓  16 [desktop] › tests/browser/cinematic.spec.ts:400:1 › a delayed brief keeps the click-time selection while analysis remains interactive (2.1s)
+  ✓  17 [desktop] › tests/browser/journey.spec.ts:6:1 › primary journey, all investigation paths and revised decision (3.2s)
+  ✓  18 [desktop] › tests/browser/journey.spec.ts:34:1 › all six challenges produce distinct, useful responses (730ms)
+  ✓  19 [desktop] › tests/browser/journey.spec.ts:54:1 › current-selection brief downloads, and default PDF is a real file (751ms)
+  ✓  20 [desktop] › tests/browser/journey.spec.ts:84:1 › evidence, contact, fixture, manifest and all local anchors resolve (946ms)
+  ✓  21 [desktop] › tests/browser/journey.spec.ts:108:1 › the approved final resume downloads with its exact recorded identity (290ms)
+  ✓  22 [desktop] › tests/browser/journey.spec.ts:122:1 › keyboard entry, reduced motion, accessibility and no horizontal overflow (1.9s)
+  ✓  23 [desktop] › tests/browser/journey.spec.ts:152:1 › capture actual experience (560ms)
+  ✓  24 [desktop] › tests/browser/recruiter-audit.spec.ts:7:1 › opening evidence is directly inspectable with static motion and keyboard navigation (846ms)
+  ✓  25 [desktop] › tests/browser/recruiter-audit.spec.ts:25:1 › role context stays bounded and final invitation downloads the unchanged approved resume (1.2s)
+  ✓  26 [mobile] › tests/browser/cinematic.spec.ts:10:1 › optional intro pauses, resumes and skips while navigation remains available (614ms)
+  ✓  27 [mobile] › tests/browser/cinematic.spec.ts:36:1 › navigation and inquiry work before the visual sequence finishes (4.9s)
+  ✓  28 [mobile] › tests/browser/cinematic.spec.ts:72:1 › reduced motion and later preference changes keep a complete static experience (1.7s)
+  ✓  29 [mobile] › tests/browser/cinematic.spec.ts:101:1 › Save-Data disables motion and needs no external media (262ms)
+  ✓  30 [mobile] › tests/browser/cinematic.spec.ts:122:1 › unsupported observers and blocked media fail open (630ms)
+  ✓  31 [mobile] › tests/browser/cinematic.spec.ts:152:1 › no JavaScript still exposes the thesis, evidence, resume status and default PDF (266ms)
+  ✓  32 [mobile] › tests/browser/cinematic.spec.ts:173:1 › state-aware download preserves visualisation choices after challenges (1.4s)
+  ✓  33 [mobile] › tests/browser/cinematic.spec.ts:200:1 › WCAG 2.2 checks and cinematic scene screenshots (6.6s)
+  ✓  34 [mobile] › tests/browser/cinematic.spec.ts:263:1 › intro suspends offscreen and responds to a visibility change (2.7s)
+  ✓  35 [mobile] › tests/browser/cinematic.spec.ts:288:1 › supporting diagrams activate near the viewport without shifting the readout (581ms)
+  ✓  36 [mobile] › tests/browser/cinematic.spec.ts:305:1 › concurrent scene styling works without hydration and keeps the first frame stable (2.0s)
+  ✓  37 [mobile] › tests/browser/cinematic.spec.ts:325:1 › scene stylesheet failure retains readable content, navigation and working analysis (344ms)
+  ✓  38 [mobile] › tests/browser/cinematic.spec.ts:337:1 › diagram code loads on approach and a failed chunk preserves the analytical journey (1.6s)
+  ✓  39 [mobile] › tests/browser/cinematic.spec.ts:363:1 › default first frame exposes motion choice and preserves the complete introduction (4.1s)
+  ✓  40 [mobile] › tests/browser/cinematic.spec.ts:384:1 › a failed brief module offers retry and retains the real default PDF (857ms)
+  ✓  41 [mobile] › tests/browser/cinematic.spec.ts:400:1 › a delayed brief keeps the click-time selection while analysis remains interactive (2.0s)
+  ✓  42 [mobile] › tests/browser/journey.spec.ts:6:1 › primary journey, all investigation paths and revised decision (1.3s)
+  ✓  43 [mobile] › tests/browser/journey.spec.ts:34:1 › all six challenges produce distinct, useful responses (549ms)
+  ✓  44 [mobile] › tests/browser/journey.spec.ts:54:1 › current-selection brief downloads, and default PDF is a real file (358ms)
+  ✓  45 [mobile] › tests/browser/journey.spec.ts:84:1 › evidence, contact, fixture, manifest and all local anchors resolve (436ms)
+  ✓  46 [mobile] › tests/browser/journey.spec.ts:108:1 › the approved final resume downloads with its exact recorded identity (223ms)
+  ✓  47 [mobile] › tests/browser/journey.spec.ts:122:1 › keyboard entry, reduced motion, accessibility and no horizontal overflow (1.3s)
+  ✓  48 [mobile] › tests/browser/journey.spec.ts:152:1 › capture actual experience (1.1s)
+  ✓  49 [mobile] › tests/browser/recruiter-audit.spec.ts:7:1 › opening evidence is directly inspectable with static motion and keyboard navigation (343ms)
+  ✓  50 [mobile] › tests/browser/recruiter-audit.spec.ts:25:1 › role context stays bounded and final invitation downloads the unchanged approved resume (1.2s)
+  50 passed (1.2m)
+
+COMMAND: npm run test:pages (local project-path export, release flag enabled)
+Running 6 tests using 1 worker
+  ✓  1 [desktop] › tests/pages/release.spec.ts:9:1 › project URL hydrates, loads every requested local asset and permits immediate navigation (1.9s)
+  ✓  2 [desktop] › tests/pages/release.spec.ts:36:1 › public downloads and click-time brief resolve beneath the project path (1.4s)
+  ✓  3 [desktop] › tests/pages/release.spec.ts:66:1 › reduced-motion accessibility and the 404 return link work at a subpath (1.3s)
+  ✓  4 [mobile] › tests/pages/release.spec.ts:9:1 › project URL hydrates, loads every requested local asset and permits immediate navigation (1.5s)
+  ✓  5 [mobile] › tests/pages/release.spec.ts:36:1 › public downloads and click-time brief resolve beneath the project path (2.3s)
+  ✓  6 [mobile] › tests/pages/release.spec.ts:66:1 › reduced-motion accessibility and the 404 return link work at a subpath (1.3s)
+  6 passed (12.3s)
+
+COMMAND: NEXT_PUBLIC_BASE_PATH=/THE-UNAPPLICATION NEXT_PUBLIC_SITE_RELEASE=true npm run build
+
+> the-unapplication@1.0.0 prebuild
+> node scripts/export-content.mjs
+
+Compiled scene CSS: 24246 bytes.
+Approved resume verified: ./resume/yash-hurdale.pdf
+Exported fixture and evidence manifest.
+
+> the-unapplication@1.0.0 build
+> NEXT_TELEMETRY_DISABLED=1 next build --webpack
+
+▲ Next.js 16.4.3 (webpack)
+✓ Running next.config.ts took 108ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 3.6s
+  Running TypeScript ...
+  Finished TypeScript in 1464ms ...
+  Collecting page data using 4 workers ...
+  Generating static pages using 4 workers (0/3) ...
+✓ Generating static pages using 4 workers (3/3) in 601ms
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ○ /
+└ ○ /_not-found
+
+
+○  (Static)  prerendered as static content
+
+
+
+COMMAND: npm audit --omit=dev
+found 0 vulnerabilities
+
+
+PDF verification (pypdf + Poppler): one A4 page; no draft label in extracted text or metadata; synthetic/not-client-data, invented-counts, model-not-recovered-sales, not-a-forecast, no-uplift/no-causality and unverified-SDK/model-quality disclosures retained; provenance annotation pinned to audited commit. Final PNG visually inspected.
+
+
+Preservation: git diff --exit-code -- lib/analytics.ts lib/brief-model.ts content/scenario.ts components/MotionSystem.tsx components/AnalyticalVisuals.tsx components/ViewportVisual.tsx content/resume.json public/resume/yash-hurdale.pdf package.json package-lock.json .github/workflows/pages.yml
+PASS, no changes. Exclamation AI working tree clean; no source modifications. Historical screenshot bytes restored after tests.
