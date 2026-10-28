@@ -66,7 +66,7 @@ Timing is a design target, not the result of a recruiter study. Deeper inspectio
 - Upstream historical test counts are labelled as historical. This project's observed verification is in [VERIFICATION](docs/VERIFICATION.md).
 - No live AI calls or simulated AI claims. Numerical results come from pure tested functions.
 - No tracking, sign-up, cookies, API keys or unsolicited development-tool credits.
-- The official role listing was unavailable; exact job requirements/current vacancy status remain unverified. Company positioning comes from [R/GA's official About page](https://www.rga.com/about).
+- The [official Data Analyst listing](https://www.rga.com/careers/8302236?gh_jid=8302236) was checked on 29 October 2026. [Requirement-to-evidence mapping](docs/ROLE-EVIDENCE-MAP.md) distinguishes demonstrated work from gaps. Recheck availability before applying.
 - No approved resume was supplied. No resume, qualification, employment, client outcome or uplift claim was invented.
 
 ## Handover
@@ -75,7 +75,8 @@ Timing is a design target, not the result of a recruiter study. Deeper inspectio
 - [Research and evidence classification](docs/RESEARCH.md)
 - [Evidence manifest](docs/EVIDENCE-MANIFEST.md) · [machine-readable manifest](public/evidence-manifest.json)
 - [Architecture and analytical walkthrough](docs/ARCHITECTURE.md)
-- [Deployment and owner review](docs/DEPLOYMENT.md)
+- [Final owner-review checklist](docs/FINAL-OWNER-REVIEW.md)
+- [Private-source / public-site release steps](docs/DEPLOYMENT.md)
 - [Verification and known limitations](docs/VERIFICATION.md)
 - [Default one-page brief](public/decision-brief.pdf) · [mobile screenshot](docs/screenshots/mobile.png)
 

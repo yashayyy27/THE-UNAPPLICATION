@@ -6,6 +6,7 @@ import {
   evidence,
   selectedWork,
   sourceCommit,
+  officialRole,
   artifact,
 } from "../content/edition.ts";
 import { verifyResume } from "./verify-resume.mjs";
@@ -16,7 +17,8 @@ writeFileSync("public/scenario.json", JSON.stringify(scenario, null, 2) + "\n");
 const manifest = {
   edition: "R/GA — 001",
   owner: "Yash Hurdale",
-  auditedAt: "2026-10-28",
+  auditedAt: "2026-10-29",
+  officialRole,
   sourceRepository: "https://github.com/yashayyy27/exclamation-ai",
   sourceCommit,
   verificationBoundary:
@@ -77,7 +79,7 @@ const manifest = {
     },
   ],
   unavailable: [
-    "Exact job requirements/current vacancy status",
+    "Vacancy availability at application time; recruiting confirmation of location/eligibility",
     ...(resumeApproval ? [] : ["Approved resume"]),
     "Independently verified credentials/employment",
     "Live model quality",

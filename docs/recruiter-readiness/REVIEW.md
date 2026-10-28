@@ -76,10 +76,20 @@ Transferred first-frame CSS fell from 40,677 B to 23,914 B; the page script from
 - [x] Static, reduced-motion, data-saving, no-JavaScript and loading-failure paths.
 - [x] TypeScript, unit/component, browser, accessibility and production-build checks.
 - [x] Real desktop/mobile screenshots and documented controlled performance measurements.
-- [ ] Close or explicitly accept the remaining LCP gap to v1; the latest overall-score median matches, but LCP parity and field Core Web Vitals are not established.
+- [x] Owner accepted the minor LCP trade-off on 29 October 2026: retained medians 4.09s v1 / 4.24s v2, with performance 85 / 85 and TBT 154.5ms / 67ms. No further redesign or Lighthouse campaign requested. Field Core Web Vitals remain unmeasured.
 - [ ] Supply and approve the resume PDF; configure its exact SHA-256/size in `content/resume.json`, then recheck the real download and PDF accessibility. [Instructions](../RESUME-RELEASE.md). No credentials or resume have been invented.
 - [ ] Owner review of the finished creative experience, contact details and touch-first Play choice.
 - [ ] Manual VoiceOver/physical-device and Safari/Firefox review; automated Chromium scans are not an accessibility certification.
-- [ ] Verify the intended vacancy if applying to a specific opening. The [official careers page](https://www.rga.com/careers) was accessible, but [listing 8302236](https://www.rga.com/careers/8302236?gh_jid=8302236) remained inaccessible. Company-wide themes are not represented as verified role requirements. [Research](../RESEARCH.md).
+- [x] Official listing and requirements checked on 29 October 2026; [research](../RESEARCH.md) and [Exclamation AI mapping](../ROLE-EVIDENCE-MAP.md) refreshed. Recheck availability/location when applying.
+- [ ] Complete and sign the [final owner-review checklist](../FINAL-OWNER-REVIEW.md); approve merge and public deployment separately from this preparation. [Deployment instructions](../DEPLOYMENT.md).
 
 The repository remains private and PR #1 remains unmerged. Nothing is deployed or published. Local Lighthouse observations are not hosted compression/cache measurements or field Core Web Vitals. Review-only `noindex,nofollow` is intentional.
+
+
+## Final release preparation · 29 October 2026
+
+The official listing is now accessible; [role research](../RESEARCH.md), [requirement-to-evidence mapping](../ROLE-EVIDENCE-MAP.md), [manual owner checklist](../FINAL-OWNER-REVIEW.md) and [private-source/public-site deployment instructions](../DEPLOYMENT.md) are current. Role provenance was corrected in the evidence disclosure and generated manifest. No styling, motion, calculations, fixtures, resume configuration or dependencies changed in this preparation.
+
+Performance reports, traces, diagnostic history and screenshots above are retained from the preceding performance pass at `4bc9ae7`. They are not new measurements of the 29 October copy/documentation update. The owner accepts the minor LCP trade-off; no additional Lighthouse runs or broad redesign were undertaken.
+
+Fresh local verification on the updated production export passed strict TypeScript, all 36 unit/component tests, the production build and all 44 desktop/mobile browser tests, including the existing axe checks. All 21 unique pinned upstream evidence targets in the mapping exist in the unchanged audited checkout; local documentation targets resolve. Manual Safari, VoiceOver, physical-device review and owner sign-off remain pending. No approved resume PDF was supplied. No merge, source upload to a host, publication or deployment took place.

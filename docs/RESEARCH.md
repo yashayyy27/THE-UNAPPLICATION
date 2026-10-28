@@ -1,15 +1,31 @@
-# Research and evidence audit · 28 October 2026 (Australia/Sydney)
+# Research and evidence audit · 29 October 2026 (Australia/Sydney)
 
-## Official company sources
-- https://www.rga.com/about — retrieved through web research. R/GA describes combining creative and technology disciplines, insight-informed reframing, experimentation and commercial thinking. Design response: an interactive decision narrative with visible uncertainty and engineering proof. Independent interpretation; no endorsement or confidential material.
-- https://www.rga.com/careers/8302236?gh_jid=8302236 — inaccessible through research tools. Greenhouse board API retrieval also unavailable. No exact responsibilities, technical requirements, location, seniority or active vacancy status have been verified. Data Analyst is the supplied target, not a claim that the vacancy remains open.
-- https://nextjs.org/docs/app/guides/static-exports — official static-export guidance consulted for hosting architecture. Next 16.4.3 verified through npm registry; Node minimum >=20.9.
+## Official role refresh · 29 October 2026
 
-## Official careers refresh · 28 October 2026
+The [official Data Analyst listing, ID 8302236](https://www.rga.com/careers/8302236?gh_jid=8302236) is now accessible. The [careers index](https://www.rga.com/careers) also lists it. The page header says Japan; the body specifies Tokyo or Melbourne/Sydney. Confirm location and application availability with recruiting before submitting; no closing date, salary, visa eligibility or seniority is inferred.
 
-The [official careers page](https://www.rga.com/careers) was accessible in this pass. It describes curiosity, creative work across disciplines, learning, and simplifying complexity. The experience interprets those broad principles through inspectable evidence and a challengeable decision. These are company-wide themes, not verified Data Analyst responsibilities.
+Verified requirements and responsibilities, paraphrased from the listing:
 
-The supplied [listing 8302236](https://www.rga.com/careers/8302236?gh_jid=8302236) remained inaccessible. Current vacancy status, location, seniority and exact requirements remain unverified. No new role-specific claims have been added.
+| ID | Requirement / responsibility |
+|---|---|
+| R1 | Build LLM workflows; show prompts, evaluation, failures, improvements and reproducible handover. |
+| R2 | Turn end-to-end analysis into clear senior/executive presentations and one actionable recommendation. |
+| R3 | Design business-aligned measurement; implement, test and debug web/app tracking. |
+| R4 | Read, write and debug Python/SQL; join, clean and validate messy data. |
+| R5 | Familiarity with at least two tool groups: GA4/GTM, BigQuery, Looker Studio/Power BI, Adobe Analytics, media platforms, CRM. |
+| R6 | Build trustworthy dashboards, automate repetitive reporting and specify the next solution. |
+| R7 | Demonstrate sustained AI experimentation, marketing interest and cross-disciplinary learning. |
+| R8 | Show use by another person and decisions that led to action. |
+
+The [requirement-to-evidence map](ROLE-EVIDENCE-MAP.md) is our assessment of the project, not employer validation or a claim that every requirement is met.
+
+## Earlier research and company sources
+
+On 28 October the listing and Greenhouse retrieval were unavailable through the research tools. That access limitation is superseded by the dated official-page check above. No failed retrieval is being treated as evidence about the role.
+
+- [Official About page](https://www.rga.com/about): background for the independent creative interpretation, not endorsement or confidential research.
+- [Official careers page](https://www.rga.com/careers): earlier company-wide research remains distinct from the specific role requirements above.
+- [Next.js static-export documentation](https://nextjs.org/docs/app/guides/static-exports): architecture reference. The project pins its build environment to Node 24 through CI; consult package.json for its dependency range.
 
 ## Exclamation AI audit
 Audited clean local checkout and remote main at 35f1aff81c166215496b0f0b2b041db7a4c0360e. Read architecture, analytics/marketing Python, SQL transformations, integration and verification reports, evaluation/QA logs, portfolio README and public identity/contact copy. No source modification.

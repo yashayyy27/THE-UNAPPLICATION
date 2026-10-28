@@ -18,7 +18,7 @@ Next.js App Router static export + React + strict TypeScript. CSS tokens replace
 - Synthetic results are never attributed to R/GA or clients. Historical Google data is a separate source.
 - Missing resume: no approved resume was found; omit fabricated download and explicitly disclose the gap.
 - Background: existing owner portfolio states business analytics/data science and operations; these are owner-published statements, not independently verified credentials. Avoid degrees/employer assertions in public copy.
-- Role listing inaccessible: supplied company/role is the target; exact requirements remain unverified.
+- Official role requirements checked on 29 October 2026; see [research](RESEARCH.md) and [evidence mapping](ROLE-EVIDENCE-MAP.md). Availability and location/eligibility require confirmation when applying.
 - Weak attribution, small samples, missing data and costs must change the decision. No causal or uplift claims.
 - Recruiter timing, manual screen-reader testing and owner ability to explain the work require human validation.
 - External artifacts may disappear; commit pinning and labelled evidence boundaries reduce drift but do not guarantee availability.

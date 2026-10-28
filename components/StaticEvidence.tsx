@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { candidate, edition, evidence, selectedWork, proofRepo, artifact } from "../content/edition";
+import { candidate, edition, evidence, selectedWork, proofRepo, artifact, officialRole } from "../content/edition";
 import { Chapter, External, Arrow } from "./Presentation";
 import resumeConfig from "../content/resume.json";
 import ResumeDownload from "./ResumeDownload";
@@ -61,11 +61,14 @@ function StaticEvidence() { return <>
                 daily-export arrival remain unverified.
               </p>
               <p>
-                The target job listing was inaccessible. Exact role requirements
-                and current vacancy status are unverified. {resumeConfig.approved
+                The official role requirements were checked on 29 October 2026.
+                Confirm availability before applying. {resumeConfig.approved
                   ? "The linked resume is owner-approved; credentials are not independently certified."
                   : "No approved resume was supplied; no resume or credentials have been invented."}
               </p>
+              <External href={officialRole.url}>
+                Read the official Data Analyst listing
+              </External>
               <External href={artifact("docs/verification.md")}>
                 Read the full verification report
               </External>
