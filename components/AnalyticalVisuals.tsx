@@ -1,5 +1,4 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
 import { scenario } from "../content/scenario";
 import { breakEven } from "../lib/analytics";
 import type { ChallengeId } from "../content/edition";
@@ -284,71 +283,6 @@ export function ChallengeSignal({
           ? `${breakEven(cost)} incremental orders needed at assumed $40 contribution each.`
           : r.detail}
       </p>
-    </div>
-  );
-}
-export function ContradictionTrace() {
-  return (
-    <div className="contradiction-trace" aria-hidden="true">
-      <span>ATTENTION</span>
-      <svg viewBox="0 0 1000 80" preserveAspectRatio="none">
-        <path className="trace-attention" d="M0 66H290L470 14H1000" />
-        <path className="trace-revenue" d="M0 66H1000" />
-      </svg>
-      <span>VALUE</span>
-    </div>
-  );
-}
-
-// Optional graphics activate near the viewport; the exact analytical readouts
-// and controls always render independently, including in static HTML.
-export function ViewportVisual({
-  kind,
-  children,
-}: {
-  kind: "measurement" | "attribution" | "cohort";
-  children: React.ReactNode;
-}) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [ready, setReady] = useState(false);
-  useEffect(() => {
-    if (typeof IntersectionObserver !== "function") {
-      setReady(true);
-      return;
-    }
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((e) => e.isIntersecting)) {
-          setReady(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "180px" },
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-  return (
-    <div
-      ref={ref}
-      className={`viewport-visual viewport-${kind}`}
-      data-visual-ready={ready ? "true" : "false"}
-    >
-      {ready ? (
-        children
-      ) : (
-        <svg className="visual-poster" viewBox="0 0 480 160" aria-hidden="true">
-          <path d="M20 80H170L240 40L310 80H460" />
-          <circle cx="240" cy="40" r="5" />
-          <text x="20" y="130">
-            {kind === "measurement"
-              ? "EVENTS → DISTINCT ORDERS"
-              : kind === "attribution"
-                ? "CREDIT CHANGES. TOTAL REVENUE DOES NOT."
-                : "VISITOR MIX → ORDERED PURCHASES"}
-          </text>
-        </svg>
-      )}
     </div>
   );
 }

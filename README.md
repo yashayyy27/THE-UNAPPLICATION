@@ -10,9 +10,13 @@ An independent, interactive application by **Yash Hurdale**, tailored to the sup
 
 ![Actual desktop experience](docs/screenshots/desktop-hero.png)
 
+## Current review
+
+[Performance and recruiter readiness report](docs/recruiter-readiness/REVIEW.md) · [approved resume release instructions](docs/RESUME-RELEASE.md). The current branch preserves the cinematic identity and complete analytical journey. The challenge navigation now reaches the red team directly; the primary opening CTA starts with the business question.
+
 ## Cinematic edition · v2
 
-An original procedural signal aperture moves from noise to clarity in an optional 12-second introduction. The headline, identity, challenge and evidence navigation are usable from the first frame. Pause/skip controls, reduced-motion and Save-Data support are built in; no video, external font, WebGL runtime or new dependency is required.
+An original procedural signal aperture moves from noise to clarity in an optional 12-second introduction. Touch users start it with the visible Play control; desktop playback begins after the first static frame. The headline, identity, challenge and evidence navigation are usable from the first frame. Pause/skip controls, reduced-motion and Save-Data support are built in; no video, external font, WebGL runtime or new dependency is required.
 
 The investigations now have count-preserving event separation, live attribution flows and cohort-volume diagrams. Each of the six red-team challenges has a corresponding explanatory signal state. The final ivory decision scene exposes the finding, uncertainty, action and evidence. All original analysis and brief-export functions remain unchanged.
 
@@ -42,7 +46,7 @@ npm run test:e2e                # desktop/mobile, downloads, keyboard and axe ch
 npm run preview                # serve the production out/ directory
 ```
 
-`npm run build` exports a complete static site to `out/`. The prebuild regenerates the public fixture and evidence manifest. Python is optional: `python3 -m pip install reportlab` then `python3 scripts/build-brief.py` regenerates the default PDF.
+`npm run build` exports a complete static site to `out/`. The prebuild regenerates the fixture, evidence manifest and minified scene styles, and verifies any approved resume against its file size and SHA-256. Python is optional: `python3 -m pip install reportlab` then `python3 scripts/build-brief.py` regenerates the default PDF.
 
 ## A 60–90 second route
 

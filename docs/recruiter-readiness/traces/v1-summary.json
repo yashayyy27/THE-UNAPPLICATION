@@ -1,0 +1,92 @@
+{
+  "fetchedAt": "2026-10-28T02:45:56.262Z",
+  "lighthouse": "13.5.0",
+  "settings": {
+    "formFactor": "mobile",
+    "throttlingMethod": "simulate",
+    "throttling": {
+      "rttMs": 150,
+      "throughputKbps": 1638.4,
+      "requestLatencyMs": 562.5,
+      "downloadThroughputKbps": 1474.5600000000002,
+      "uploadThroughputKbps": 675,
+      "cpuSlowdownMultiplier": 4
+    }
+  },
+  "performance": 86,
+  "lcpMs": 4091.6978,
+  "tbtMs": 137.5,
+  "lcpElement": "main#main > section#brief > div.section-heading > h2#brief-heading",
+  "traceNote": "Raw recorded renderer timings below are unthrottled observed milliseconds, not additive across nested categories and not the simulated Lighthouse metrics above.",
+  "timings": {
+    "Layout": {
+      "count": 5,
+      "totalMs": 85.923
+    },
+    "UpdateLayoutTree": {
+      "count": 6,
+      "totalMs": 3.907
+    },
+    "Paint": {
+      "count": 5,
+      "totalMs": 4.606
+    },
+    "PrePaint": {
+      "count": 7,
+      "totalMs": 3.705
+    },
+    "Layerize": {
+      "count": 6,
+      "totalMs": 0.212
+    },
+    "EvaluateScript": {
+      "count": 12,
+      "totalMs": 58.476
+    }
+  },
+  "largestLayout": {
+    "ms": 85.479,
+    "dirtyObjects": 792,
+    "totalObjects": 792
+  },
+  "lighthouseMainThread": [
+    {
+      "group": "styleLayout",
+      "groupLabel": "Style & Layout",
+      "duration": 359.31999999999994
+    },
+    {
+      "group": "scriptEvaluation",
+      "groupLabel": "Script Evaluation",
+      "duration": 303.852000000001
+    },
+    {
+      "group": "other",
+      "groupLabel": "Other",
+      "duration": 148.372
+    },
+    {
+      "group": "scriptParseCompile",
+      "groupLabel": "Script Parsing & Compilation",
+      "duration": 62.42
+    },
+    {
+      "group": "paintCompositeRender",
+      "groupLabel": "Rendering",
+      "duration": 32.172
+    },
+    {
+      "group": "parseHTML",
+      "groupLabel": "Parse HTML & CSS",
+      "duration": 24.287999999999997
+    }
+  ],
+  "renderBlocking": [
+    {
+      "url": "http://127.0.0.1:4174/_next/static/css/6fbc6b4ffca2be07.css",
+      "totalBytes": 29425,
+      "wastedMs": 302
+    }
+  ],
+  "nonCompositedAnimations": []
+}

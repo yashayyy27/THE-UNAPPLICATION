@@ -1,3 +1,5 @@
+> Historical verification snapshot. The latest performance and recruiter readiness pass is recorded in [the current review](../recruiter-readiness/REVIEW.md).
+
 # Cinematic v2 · verification and visual review
 
 28 October 2026 · independent application for Yash Hurdale · no deployment or visibility change.

@@ -23,125 +23,25 @@ export function SignalAperture() {
           fill="none"
           preserveAspectRatio="xMidYMid slice"
         >
-          <defs>
-            <linearGradient
-              id="ribbon"
-              x1="500"
-              y1="100"
-              x2="1250"
-              y2="700"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop stopColor="#e2ff56" />
-              <stop offset=".5" stopColor="#a0b749" />
-              <stop offset="1" stopColor="#54652d" />
-            </linearGradient>
-            <radialGradient id="halo">
-              <stop stopColor="#cfff3c" stopOpacity=".13" />
-              <stop offset="1" stopColor="#cfff3c" stopOpacity="0" />
-            </radialGradient>
-          </defs>
-          <ellipse cx="1030" cy="405" rx="500" ry="390" fill="url(#halo)" />
-          <g className="aperture-ribbons">
-            {Array.from({ length: 22 }, (_, i) => (
-              <ellipse
-                key={i}
-                cx={1008 + i * 2}
-                cy={Number((390 + i * 1.6).toFixed(1))}
-                rx={174 + i * 9}
-                ry={50 + i * 9}
-                transform={`rotate(${(-37 + i * 0.65).toFixed(2)} ${1008 + i * 2} ${(390 + i * 1.6).toFixed(1)})`}
-                stroke="url(#ribbon)"
-                strokeWidth={i % 7 === 0 ? 1.4 : 0.65}
-                opacity={0.28 + i / 45}
-              />
-            ))}
-          </g>
-          <g className="signal-orbits">
-            <ellipse
-              cx="1065"
-              cy="415"
-              rx="310"
-              ry="310"
-              stroke="#c8dc8c"
-              strokeOpacity=".12"
-              strokeDasharray="2 12"
-            />
-            <path
-              d="M650 720L1320 87M670 145L1315 665M760 415H1380"
-              stroke="#b5cc74"
-              strokeOpacity=".2"
-            />
-            <circle cx="1065" cy="415" r="9" fill="#d9ff43" />
-            <circle
-              cx="1065"
-              cy="415"
-              r="22"
-              stroke="#d9ff43"
-              strokeOpacity=".5"
-            />
-          </g>
-          <g className="signal-dots">
-            {[false, true].map((bright) => (
-              <path
-                key={String(bright)}
-                fill={bright ? "#e2ff56" : "#7b8659"}
-                d={Array.from({ length: 56 }, (_, i) => {
-                  if ((i % 8 === 0) !== bright) return "";
-                  const a = i * 2.39996,
-                    r = 65 + ((i * 47) % 320),
-                    cx = 1065 + Math.cos(a) * r,
-                    cy = 415 + Math.sin(a) * r * 0.75,
-                    s = bright ? 2.7 : 1;
-                  return `M${(cx - s).toFixed(1)} ${cy.toFixed(1)}a${s} ${s} 0 1 0 ${s * 2} 0a${s} ${s} 0 1 0 -${s * 2} 0`;
-                }).join("")}
-              />
-            ))}
-          </g>
-          <g className="signal-labels">
-            {signals.map((text, i) => (
-              <g
-                className={`signal-label signal-label-${i}`}
-                key={text}
-                style={
-                  {
-                    "--drift-x": `${(i % 2 ? 1 : -1) * (35 + i * 7)}px`,
-                    "--drift-y": `${((i % 3) - 1) * 35}px`,
-                  } as React.CSSProperties
-                }
-              >
-                <path
-                  d={`M${770 + (i % 3) * 180} ${196 + Math.floor(i / 3) * 165}h28`}
-                  stroke="#adc660"
-                />
-                <text
-                  x={807 + (i % 3) * 180}
-                  y={200 + Math.floor(i / 3) * 165}
-                  fill="#c4cbae"
-                  fontSize="11"
-                  fontFamily="monospace"
-                >
-                  {text}
-                </text>
-              </g>
-            ))}
-          </g>
           <path
             className="resolved-trace"
             d="M600 570L810 570L897 484L956 484L1024 415H1340"
             stroke="#d9ff43"
             strokeWidth="1.5"
           />
-          <text
-            x="1230"
-            y="445"
-            fill="#d9ff43"
-            fontSize="10"
-            fontFamily="monospace"
-          >
-            DECISION / 001
-          </text>
+
         </svg>
+        <span className="decision-marker">DECISION / 001</span>
+        <div className="signal-labels">
+          {signals.map((text, i) => (
+            <span className="signal-label" key={text} style={{
+              left: `${(807 + (i % 3) * 180) / 14}%`,
+              top: `${(192 + Math.floor(i / 3) * 165) / 8}%`,
+              "--drift-x": `${(i % 2 ? 1 : -1) * (35 + i * 7)}px`,
+              "--drift-y": `${((i % 3) - 1) * 35}px`,
+            } as React.CSSProperties}><i />{text}</span>
+          ))}
+        </div>
       </div>
       <span className="aperture-index">FIG. 001 / SIGNAL APERTURE</span>
       <span className="aperture-state">
@@ -189,9 +89,9 @@ export default function SignalHero() {
               {candidate.name} <span>/ {edition.role}</span>
             </p>
             <p>
-              Anyone can show you a result.
+              I turn business questions into inspectable analysis.
               <br />
-              I’ll show you what I would question.
+              SQL. Python. Decisions you can challenge.
             </p>
             <p className="hero-small">
               An independent application for {edition.company}.<br />
@@ -220,18 +120,18 @@ export default function SignalHero() {
         </div>
         <div className="intro-controls">
           <span className="motion-note">
-            {m.enabled
+            {m.pending ? "Optional: play the 12-second story." : m.enabled
               ? m.phase === "complete"
                 ? "A clear next move."
                 : "An optional 12-second visual story."
               : m.reason}
           </span>
           <button
-            onClick={m.skip}
+            onClick={m.pending ? m.start : m.skip}
             className="skip-intro"
-            disabled={m.phase === "complete"}
+            disabled={m.phase === "complete" && !m.pending}
           >
-            {m.phase === "complete"
+            {m.pending ? "Play cinematic introduction" : m.phase === "complete"
               ? "Introduction complete"
               : "Skip introduction"}{" "}
             <span aria-hidden="true">↗</span>

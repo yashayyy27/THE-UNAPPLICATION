@@ -1,0 +1,97 @@
+{
+  "fetchedAt": "2026-10-28T02:46:58.712Z",
+  "lighthouse": "13.5.0",
+  "settings": {
+    "formFactor": "mobile",
+    "throttlingMethod": "simulate",
+    "throttling": {
+      "rttMs": 150,
+      "throughputKbps": 1638.4,
+      "requestLatencyMs": 562.5,
+      "downloadThroughputKbps": 1474.5600000000002,
+      "uploadThroughputKbps": 675,
+      "cpuSlowdownMultiplier": 4
+    }
+  },
+  "performance": 85,
+  "lcpMs": 4240.1754,
+  "tbtMs": 67,
+  "lcpElement": "main#main > section#hero-scene > div.signal-aperture > div.aperture-canvas",
+  "traceNote": "Raw recorded renderer timings below are unthrottled observed milliseconds, not additive across nested categories and not the simulated Lighthouse metrics above.",
+  "timings": {
+    "Layout": {
+      "count": 9,
+      "totalMs": 70.343
+    },
+    "UpdateLayoutTree": {
+      "count": 9,
+      "totalMs": 8.539
+    },
+    "Paint": {
+      "count": 8,
+      "totalMs": 3.093
+    },
+    "PrePaint": {
+      "count": 14,
+      "totalMs": 3.339
+    },
+    "Layerize": {
+      "count": 7,
+      "totalMs": 0.547
+    },
+    "EvaluateScript": {
+      "count": 13,
+      "totalMs": 55.553
+    }
+  },
+  "largestLayout": {
+    "ms": 64.955,
+    "dirtyObjects": 187,
+    "totalObjects": 187
+  },
+  "lighthouseMainThread": [
+    {
+      "group": "styleLayout",
+      "groupLabel": "Style & Layout",
+      "duration": 313.10799999999983
+    },
+    {
+      "group": "scriptEvaluation",
+      "groupLabel": "Script Evaluation",
+      "duration": 265.2239999999992
+    },
+    {
+      "group": "other",
+      "groupLabel": "Other",
+      "duration": 132.01600000000008
+    },
+    {
+      "group": "scriptParseCompile",
+      "groupLabel": "Script Parsing & Compilation",
+      "duration": 63.635999999999996
+    },
+    {
+      "group": "paintCompositeRender",
+      "groupLabel": "Rendering",
+      "duration": 24.876
+    },
+    {
+      "group": "parseHTML",
+      "groupLabel": "Parse HTML & CSS",
+      "duration": 17.628
+    },
+    {
+      "group": "garbageCollection",
+      "groupLabel": "Garbage Collection",
+      "duration": 11.475999999999994
+    }
+  ],
+  "renderBlocking": [
+    {
+      "url": "http://127.0.0.1:4173/_next/static/css/42a0e6ff44b19cfe.css",
+      "totalBytes": 23914,
+      "wastedMs": 153
+    }
+  ],
+  "nonCompositedAnimations": []
+}

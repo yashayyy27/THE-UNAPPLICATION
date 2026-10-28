@@ -1,0 +1,6 @@
+Verified against prior v2 HEAD 5bcd959:
+- BriefState and briefText model body preserved byte-for-byte in lib/brief-model.ts.
+- HTML escaping, briefHtml and downloadBrief bodies preserved byte-for-byte in lib/brief.ts.
+- lib/analytics.ts and content/scenario.ts unchanged.
+- Exclamation AI working tree clean and untouched.
+- Final measured export matches all 38 built production files.

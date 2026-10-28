@@ -1,3 +1,5 @@
+> Historical verification snapshot. The latest performance and recruiter readiness pass is recorded in [the current review](recruiter-readiness/REVIEW.md).
+
 # Observed verification · 28 October 2026 (Australia/Sydney)
 
 > Historical v1 release record. Current cinematic branch verification and performance trade-offs are in [the v2 review](cinematic-v2/REVIEW.md).

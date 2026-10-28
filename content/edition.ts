@@ -6,7 +6,6 @@ export const candidate = {
   github: "https://github.com/yashayyy27",
   linkedin: "https://www.linkedin.com/in/yash-hurdale-ba47a4178/",
   portfolio: "https://yashayyy27.github.io/",
-  resume: null,
 };
 export const edition = {
   company: "R/GA",

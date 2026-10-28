@@ -82,7 +82,11 @@ describe("motion lifecycle and truthful visual models", () => {
         <Probe />
       </MotionSystem>,
     );
-    act(() => vi.advanceTimersByTime(100));
+    expect(screen.getByTestId("phase")).toHaveTextContent("complete");
+    expect(document.querySelector(".experience")).toHaveAttribute("data-motion", "static");
+    act(() => vi.advanceTimersByTime(200));
+    act(() => vi.advanceTimersByTime(200));
+    expect(screen.getByTestId("phase")).toHaveTextContent("noise");
     act(() => vi.advanceTimersByTime(3000));
     expect(screen.getByTestId("phase")).toHaveTextContent("sorting");
     fireEvent.click(screen.getByRole("button", { name: "Pause motion" }));
@@ -92,6 +96,20 @@ describe("motion lifecycle and truthful visual models", () => {
     act(() => vi.advanceTimersByTime(9000));
     expect(screen.getByTestId("phase")).toHaveTextContent("complete");
     act(() => vi.advanceTimersByTime(20000));
+    expect(screen.getByTestId("phase")).toHaveTextContent("complete");
+  });
+  it("offers the complete touch introduction on demand while keeping the first frame static", () => {
+    vi.useFakeTimers();
+    vi.stubGlobal("matchMedia", (query: string) => ({ matches: query.includes("pointer: coarse"), addEventListener: vi.fn(), removeEventListener: vi.fn() }));
+    render(<MotionSystem><Probe /></MotionSystem>);
+    act(() => vi.advanceTimersByTime(5000));
+    expect(document.querySelector(".experience")).toHaveAttribute("data-motion", "static");
+    expect(screen.getByTestId("phase")).toHaveTextContent("complete");
+    fireEvent.click(screen.getByRole("button", { name: "Play introduction" }));
+    act(() => vi.advanceTimersByTime(200));
+    act(() => vi.advanceTimersByTime(200));
+    expect(screen.getByTestId("phase")).toHaveTextContent("noise");
+    act(() => vi.advanceTimersByTime(12000));
     expect(screen.getByTestId("phase")).toHaveTextContent("complete");
   });
   it("allows immediate skip regardless of visual phase", () => {

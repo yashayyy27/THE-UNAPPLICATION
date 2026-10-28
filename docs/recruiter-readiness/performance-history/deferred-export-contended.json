@@ -1,0 +1,166 @@
+{
+  "method": "5 isolated alternating Lighthouse 13.5.0 default mobile runs per version. Same Chromium, machine, frozen production exports and uncompressed Python static-server settings. No concurrent tests, builds or active preview tabs. Fresh Chrome per run. Candidate-only mode, if selected, retains baseline runs and must not be described as a fresh paired comparison. Medians are descriptive local observations, not field Core Web Vitals.",
+  "capturedAt": "2026-10-28T02:42:02.515Z",
+  "candidateOnly": false,
+  "rounds": 5,
+  "results": [
+    {
+      "version": "v1",
+      "round": 1,
+      "performance": 81,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 60,
+      "lcpMs": 4095.5609,
+      "tbtMs": 237.00000000000023,
+      "cls": 0,
+      "transferBytes": 547195
+    },
+    {
+      "version": "v2",
+      "round": 1,
+      "performance": 83,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 60,
+      "lcpMs": 4239.5351,
+      "tbtMs": 192,
+      "cls": 0.0004392925528926895,
+      "transferBytes": 582009
+    },
+    {
+      "version": "v1",
+      "round": 2,
+      "performance": 81,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 60,
+      "lcpMs": 3913.9955,
+      "tbtMs": 256,
+      "cls": 0,
+      "transferBytes": 547195
+    },
+    {
+      "version": "v2",
+      "round": 2,
+      "performance": 73,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 60,
+      "lcpMs": 4283.204900000001,
+      "tbtMs": 485,
+      "cls": 0.0004392925528926895,
+      "transferBytes": 582009
+    },
+    {
+      "version": "v1",
+      "round": 3,
+      "performance": 86,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 60,
+      "lcpMs": 4078.7622,
+      "tbtMs": 125,
+      "cls": 0,
+      "transferBytes": 547195
+    },
+    {
+      "version": "v2",
+      "round": 3,
+      "performance": 85,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 60,
+      "lcpMs": 4192.1657,
+      "tbtMs": 104.99999999999955,
+      "cls": 0.0004392925528926895,
+      "transferBytes": 582009
+    },
+    {
+      "version": "v1",
+      "round": 4,
+      "performance": 86,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 60,
+      "lcpMs": 4096.166,
+      "tbtMs": 129.99999999999955,
+      "cls": 0,
+      "transferBytes": 547195
+    },
+    {
+      "version": "v2",
+      "round": 4,
+      "performance": 86,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 60,
+      "lcpMs": 4231.4307,
+      "tbtMs": 64,
+      "cls": 0.0004392925528926895,
+      "transferBytes": 582009
+    },
+    {
+      "version": "v1",
+      "round": 5,
+      "performance": 86,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 60,
+      "lcpMs": 4071.9013,
+      "tbtMs": 116,
+      "cls": 0,
+      "transferBytes": 547195
+    },
+    {
+      "version": "v2",
+      "round": 5,
+      "performance": 85,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 60,
+      "lcpMs": 4212.0397,
+      "tbtMs": 132.99999999999977,
+      "cls": 0.0004392925528926895,
+      "transferBytes": 582009
+    }
+  ],
+  "medians": {
+    "v1": {
+      "performance": 86,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 60,
+      "lcpMs": 4078.7622,
+      "tbtMs": 129.99999999999955,
+      "cls": 0,
+      "transferBytes": 547195
+    },
+    "v2": {
+      "performance": 85,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 60,
+      "lcpMs": 4231.4307,
+      "tbtMs": 132.99999999999977,
+      "cls": 0.0004392925528926895,
+      "transferBytes": 582009
+    }
+  },
+  "hostBenchmarkIndices": {
+    "v1": [
+      898.5,
+      1026.5,
+      1765,
+      1765,
+      1776.5
+    ],
+    "v2": [
+      1306,
+      1691,
+      1729.5,
+      1745,
+      1227
+    ]
+  }
+}

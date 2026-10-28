@@ -1,0 +1,57 @@
+
+> the-unapplication@1.0.0 test:e2e
+> playwright test
+
+
+Running 44 tests using 1 worker
+
+(node:84196) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [desktop] › tests/browser/cinematic.spec.ts:10:1 › optional intro pauses, resumes and skips while navigation remains available (1.2s)
+  ✓   2 [desktop] › tests/browser/cinematic.spec.ts:35:1 › navigation and inquiry work before the visual sequence finishes (3.3s)
+  ✓   3 [desktop] › tests/browser/cinematic.spec.ts:71:1 › reduced motion and later preference changes keep a complete static experience (903ms)
+  ✓   4 [desktop] › tests/browser/cinematic.spec.ts:100:1 › Save-Data disables motion and needs no external media (319ms)
+  ✓   5 [desktop] › tests/browser/cinematic.spec.ts:121:1 › unsupported observers and blocked media fail open (427ms)
+  ✓   6 [desktop] › tests/browser/cinematic.spec.ts:151:1 › no JavaScript still exposes the thesis, evidence, resume status and default PDF (310ms)
+  ✓   7 [desktop] › tests/browser/cinematic.spec.ts:169:1 › state-aware download preserves visualisation choices after challenges (1.1s)
+  ✓   8 [desktop] › tests/browser/cinematic.spec.ts:196:1 › WCAG 2.2 checks and cinematic scene screenshots (4.2s)
+  ✓   9 [desktop] › tests/browser/cinematic.spec.ts:259:1 › intro suspends offscreen and responds to a visibility change (786ms)
+  ✓  10 [desktop] › tests/browser/cinematic.spec.ts:284:1 › supporting diagrams activate near the viewport without shifting the readout (723ms)
+  ✓  11 [desktop] › tests/browser/cinematic.spec.ts:301:1 › concurrent scene styling works without hydration and keeps the first frame stable (2.1s)
+  ✓  12 [desktop] › tests/browser/cinematic.spec.ts:321:1 › scene stylesheet failure retains readable content, navigation and working analysis (1.4s)
+  ✓  13 [desktop] › tests/browser/cinematic.spec.ts:333:1 › diagram code loads on approach and a failed chunk preserves the analytical journey (1.7s)
+  ✓  14 [desktop] › tests/browser/cinematic.spec.ts:359:1 › default first frame exposes motion choice and preserves the complete introduction (452ms)
+  ✓  15 [desktop] › tests/browser/cinematic.spec.ts:380:1 › a failed brief module offers retry and retains the real default PDF (1.3s)
+  ✓  16 [desktop] › tests/browser/cinematic.spec.ts:396:1 › a delayed brief keeps the click-time selection while analysis remains interactive (1.5s)
+  ✓  17 [desktop] › tests/browser/journey.spec.ts:4:1 › primary journey, all investigation paths and revised decision (2.4s)
+  ✓  18 [desktop] › tests/browser/journey.spec.ts:32:1 › all six challenges produce distinct, useful responses (715ms)
+  ✓  19 [desktop] › tests/browser/journey.spec.ts:52:1 › current-selection brief downloads, and default PDF is a real file (498ms)
+  ✓  20 [desktop] › tests/browser/journey.spec.ts:82:1 › evidence, contact, fixture, manifest and all local anchors resolve (599ms)
+  ✓  21 [desktop] › tests/browser/journey.spec.ts:106:1 › keyboard entry, reduced motion, accessibility and no horizontal overflow (1.9s)
+  ✓  22 [desktop] › tests/browser/journey.spec.ts:136:1 › capture actual experience (870ms)
+(node:84380) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  23 [mobile] › tests/browser/cinematic.spec.ts:10:1 › optional intro pauses, resumes and skips while navigation remains available (745ms)
+  ✓  24 [mobile] › tests/browser/cinematic.spec.ts:35:1 › navigation and inquiry work before the visual sequence finishes (4.7s)
+  ✓  25 [mobile] › tests/browser/cinematic.spec.ts:71:1 › reduced motion and later preference changes keep a complete static experience (1.2s)
+  ✓  26 [mobile] › tests/browser/cinematic.spec.ts:100:1 › Save-Data disables motion and needs no external media (311ms)
+  ✓  27 [mobile] › tests/browser/cinematic.spec.ts:121:1 › unsupported observers and blocked media fail open (435ms)
+  ✓  28 [mobile] › tests/browser/cinematic.spec.ts:151:1 › no JavaScript still exposes the thesis, evidence, resume status and default PDF (239ms)
+  ✓  29 [mobile] › tests/browser/cinematic.spec.ts:169:1 › state-aware download preserves visualisation choices after challenges (1.4s)
+  ✓  30 [mobile] › tests/browser/cinematic.spec.ts:196:1 › WCAG 2.2 checks and cinematic scene screenshots (5.6s)
+  ✓  31 [mobile] › tests/browser/cinematic.spec.ts:259:1 › intro suspends offscreen and responds to a visibility change (1.0s)
+  ✓  32 [mobile] › tests/browser/cinematic.spec.ts:284:1 › supporting diagrams activate near the viewport without shifting the readout (668ms)
+  ✓  33 [mobile] › tests/browser/cinematic.spec.ts:301:1 › concurrent scene styling works without hydration and keeps the first frame stable (2.1s)
+  ✓  34 [mobile] › tests/browser/cinematic.spec.ts:321:1 › scene stylesheet failure retains readable content, navigation and working analysis (1.5s)
+  ✓  35 [mobile] › tests/browser/cinematic.spec.ts:333:1 › diagram code loads on approach and a failed chunk preserves the analytical journey (1.7s)
+  ✓  36 [mobile] › tests/browser/cinematic.spec.ts:359:1 › default first frame exposes motion choice and preserves the complete introduction (4.5s)
+  ✓  37 [mobile] › tests/browser/cinematic.spec.ts:380:1 › a failed brief module offers retry and retains the real default PDF (995ms)
+  ✓  38 [mobile] › tests/browser/cinematic.spec.ts:396:1 › a delayed brief keeps the click-time selection while analysis remains interactive (2.1s)
+  ✓  39 [mobile] › tests/browser/journey.spec.ts:4:1 › primary journey, all investigation paths and revised decision (2.4s)
+  ✓  40 [mobile] › tests/browser/journey.spec.ts:32:1 › all six challenges produce distinct, useful responses (674ms)
+  ✓  41 [mobile] › tests/browser/journey.spec.ts:52:1 › current-selection brief downloads, and default PDF is a real file (432ms)
+  ✓  42 [mobile] › tests/browser/journey.spec.ts:82:1 › evidence, contact, fixture, manifest and all local anchors resolve (503ms)
+  ✓  43 [mobile] › tests/browser/journey.spec.ts:106:1 › keyboard entry, reduced motion, accessibility and no horizontal overflow (1.9s)
+  ✓  44 [mobile] › tests/browser/journey.spec.ts:136:1 › capture actual experience (1.7s)
+
+  44 passed (1.1m)

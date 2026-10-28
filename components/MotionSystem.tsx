@@ -8,6 +8,8 @@ type MotionValue = {
   paused: boolean;
   phase: IntroPhase;
   playing: boolean;
+  pending: boolean;
+  start: () => void;
   toggle: () => void;
   skip: () => void;
   reason: string;
@@ -17,6 +19,8 @@ const MotionContext = createContext<MotionValue>({
   paused: false,
   phase: "complete",
   playing: false,
+  pending: false,
+  start: () => {},
   toggle: () => {},
   skip: () => {},
   reason: "Static presentation",
@@ -32,6 +36,8 @@ export function MotionSystem({ children }: { children: React.ReactNode }) {
     [visible, setVisible] = useState(true),
     [heroVisible, setHeroVisible] = useState(true);
   const [idleReady, setIdleReady] = useState(false);
+  const [manualStart, setManualStart] = useState(false);
+  const [requested, setRequested] = useState(false);
   const elapsed = useRef(0),
     finished = useRef(false);
   useEffect(() => {
@@ -41,6 +47,16 @@ export function MotionSystem({ children }: { children: React.ReactNode }) {
         : null;
     const connection = (navigator as Navigator & { connection?: Connection })
       .connection;
+    // Touch navigation favours a stable first frame and an explicit play choice.
+    let preferenceFrame1 = 0, preferenceFrame2 = 0;
+    const initializePreferences = () => {
+      preferenceFrame1 = window.requestAnimationFrame(() => {
+        preferenceFrame2 = window.requestAnimationFrame(() => {
+          setManualStart(typeof window.matchMedia === "function" && window.matchMedia("(hover: none) and (pointer: coarse)").matches);
+          preferences();
+        });
+      });
+    };
     const preferences = () => {
       const limited = !reduced || !!reduced.matches || !!connection?.saveData;
       setEnabled(!limited);
@@ -56,11 +72,11 @@ export function MotionSystem({ children }: { children: React.ReactNode }) {
       if (limited) {
         finished.current = true;
         setPhase("complete");
-      } else if (!finished.current) {
-        setPhase("noise");
       }
     };
-    preferences();
+    // Preference-driven labels/context must also leave the first paint alone.
+    if (document.readyState === "complete") initializePreferences();
+    else window.addEventListener("load", initializePreferences, { once: true });
     reduced?.addEventListener?.("change", preferences);
     connection?.addEventListener?.("change", preferences);
     const visibility = () => setVisible(!document.hidden);
@@ -79,27 +95,49 @@ export function MotionSystem({ children }: { children: React.ReactNode }) {
         : null;
     if (hero) observer?.observe(hero);
     return () => {
+      window.removeEventListener("load", initializePreferences);
+      window.cancelAnimationFrame(preferenceFrame1);
+      window.cancelAnimationFrame(preferenceFrame2);
       reduced?.removeEventListener?.("change", preferences);
       connection?.removeEventListener?.("change", preferences);
       document.removeEventListener("visibilitychange", visibility);
       observer?.disconnect();
     };
   }, []);
-  // Give hydration and the first meaningful paint priority over optional motion.
+  // Paint the complete static composition first. Enhance only after native
+  // load, two frames and idle time; controls and analysis never wait for this.
   useEffect(() => {
-    if (!enabled) {
+    if (!enabled || (manualStart && !requested)) {
       setIdleReady(false);
       return;
     }
-    if (typeof window.requestIdleCallback === "function") {
-      const id = window.requestIdleCallback(() => setIdleReady(true), {
-        timeout: 1500,
+    let disposed = false;
+    let frame1 = 0, frame2 = 0, idle = 0, fallback = 0;
+    const begin = () => {
+      if (disposed) return;
+      setIdleReady(true);
+      if (!finished.current) setPhase("noise");
+    };
+    const afterPaint = () => {
+      frame1 = window.requestAnimationFrame(() => {
+        frame2 = window.requestAnimationFrame(() => {
+          if (typeof window.requestIdleCallback === "function") {
+            idle = window.requestIdleCallback(begin, { timeout: 1500 });
+          } else fallback = window.setTimeout(begin, 100);
+        });
       });
-      return () => window.cancelIdleCallback(id);
-    }
-    const id = window.setTimeout(() => setIdleReady(true), 100);
-    return () => window.clearTimeout(id);
-  }, [enabled]);
+    };
+    if (document.readyState === "complete") afterPaint();
+    else window.addEventListener("load", afterPaint, { once: true });
+    return () => {
+      disposed = true;
+      window.removeEventListener("load", afterPaint);
+      window.cancelAnimationFrame(frame1);
+      window.cancelAnimationFrame(frame2);
+      if (idle) window.cancelIdleCallback(idle);
+      window.clearTimeout(fallback);
+    };
+  }, [enabled, manualStart, requested]);
   const playing =
     enabled &&
     idleReady &&
@@ -134,8 +172,9 @@ export function MotionSystem({ children }: { children: React.ReactNode }) {
     finished.current = true;
     elapsed.current = 12000;
     setPhase("complete");
+    setRequested(true);
   };
-  const mode = !enabled ? "static" : paused || !visible ? "paused" : "running";
+  const mode = !enabled || !idleReady ? "static" : paused || !visible ? "paused" : "running";
   return (
     <MotionContext.Provider
       value={{
@@ -143,6 +182,11 @@ export function MotionSystem({ children }: { children: React.ReactNode }) {
         paused,
         phase,
         playing,
+        pending: enabled && manualStart && !requested && !finished.current,
+        start: () => {
+          setRequested(true);
+          document.getElementById("hero-scene")?.scrollIntoView({ block: "start" });
+        },
         toggle: () => setPaused((p) => !p),
         skip,
         reason,
@@ -164,19 +208,19 @@ export function MotionControl() {
   return (
     <button
       className="motion-control"
-      onClick={m.toggle}
+      onClick={m.pending ? m.start : m.toggle}
       disabled={!m.enabled}
       aria-pressed={m.paused}
       aria-label={
-        m.enabled
+        m.pending ? "Play introduction" : m.enabled
           ? m.paused
             ? "Resume motion"
             : "Pause motion"
           : "Motion disabled by preference"
       }
     >
-      <span aria-hidden="true">{!m.enabled ? "—" : m.paused ? "▷" : "Ⅱ"}</span>
-      <span>{!m.enabled ? "Motion off" : m.paused ? "Resume" : "Pause"}</span>
+      <span aria-hidden="true" className="motion-icon" data-icon={!m.enabled ? "off" : m.pending || m.paused ? "play" : "pause"} />
+      <span>{!m.enabled ? "Motion off" : m.pending ? "Play intro" : m.paused ? "Resume" : "Pause"}</span>
     </button>
   );
 }

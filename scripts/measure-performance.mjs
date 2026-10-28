@@ -6,12 +6,15 @@ const destination =
   process.env.UNAPPLICATION_PERF_OUTPUT_DIR || "docs/cinematic-v2/performance";
 mkdirSync(destination, { recursive: true });
 const candidateOnly = process.argv.includes("--candidate-only");
+const rounds = Number(process.env.UNAPPLICATION_PERF_ROUNDS || 3);
+if (!Number.isInteger(rounds) || rounds < 3 || rounds > 7) throw new Error("Use 3–7 complete comparison rounds.");
+const saveAssets = process.argv.includes("--save-assets");
 const results = candidateOnly
   ? JSON.parse(
       readFileSync(`${destination}/summary.json`, "utf8"),
     ).results.filter((r) => r.version === "v1")
   : [];
-for (let round = 1; round <= 3; round++) {
+for (let round = 1; round <= rounds; round++) {
   for (const [version, port] of candidateOnly
     ? [["v2", 4173]]
     : [
@@ -28,6 +31,7 @@ for (let round = 1; round <= 3; round++) {
         `--output-path=${path}`,
         "--chrome-flags=--headless",
         "--quiet",
+        ...(saveAssets ? ["--save-assets"] : []),
       ],
       { stdio: "inherit" },
     );
@@ -35,6 +39,7 @@ for (let round = 1; round <= 3; round++) {
     const result = {
       version,
       round,
+      benchmarkIndex: report.environment.benchmarkIndex,
       performance: Math.round(report.categories.performance.score * 100),
       accessibility: Math.round(report.categories.accessibility.score * 100),
       bestPractices: Math.round(
@@ -77,7 +82,10 @@ writeFileSync(
   JSON.stringify(
     {
       method:
-        "Three isolated Lighthouse 13.5.0 mobile runs per version. The candidate-only mode retains the unchanged baseline runs after a targeted candidate optimisation. Same Chromium, machine and uncompressed Python static-server settings. No concurrent browser tests. Medians are descriptive local observations, not field Core Web Vitals.",
+        `${rounds} isolated alternating Lighthouse 13.5.0 default mobile runs per version. Same Chromium, machine, frozen production exports and uncompressed Python static-server settings. No concurrent tests, builds or active preview tabs. Fresh Chrome per run. Candidate-only mode, if selected, retains baseline runs and must not be described as a fresh paired comparison. Medians are descriptive local observations, not field Core Web Vitals.`,
+      capturedAt: new Date().toISOString(),
+      candidateOnly,
+      rounds,
       results,
       medians,
     },

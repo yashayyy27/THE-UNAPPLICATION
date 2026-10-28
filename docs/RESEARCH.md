@@ -5,6 +5,12 @@
 - https://www.rga.com/careers/8302236?gh_jid=8302236 — inaccessible through research tools. Greenhouse board API retrieval also unavailable. No exact responsibilities, technical requirements, location, seniority or active vacancy status have been verified. Data Analyst is the supplied target, not a claim that the vacancy remains open.
 - https://nextjs.org/docs/app/guides/static-exports — official static-export guidance consulted for hosting architecture. Next 16.4.3 verified through npm registry; Node minimum >=20.9.
 
+## Official careers refresh · 28 October 2026
+
+The [official careers page](https://www.rga.com/careers) was accessible in this pass. It describes curiosity, creative work across disciplines, learning, and simplifying complexity. The experience interprets those broad principles through inspectable evidence and a challengeable decision. These are company-wide themes, not verified Data Analyst responsibilities.
+
+The supplied [listing 8302236](https://www.rga.com/careers/8302236?gh_jid=8302236) remained inaccessible. Current vacancy status, location, seniority and exact requirements remain unverified. No new role-specific claims have been added.
+
 ## Exclamation AI audit
 Audited clean local checkout and remote main at 35f1aff81c166215496b0f0b2b041db7a4c0360e. Read architecture, analytics/marketing Python, SQL transformations, integration and verification reports, evaluation/QA logs, portfolio README and public identity/contact copy. No source modification.
 

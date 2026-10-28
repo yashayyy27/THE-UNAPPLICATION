@@ -15,7 +15,7 @@ jobs:
           node-version: "24"
           cache: npm
       - run: npm ci
-      - run: node scripts/export-content.mjs && git diff --exit-code -- public/scenario.json public/evidence-manifest.json docs/EVIDENCE-MANIFEST.md
+      - run: node scripts/export-content.mjs && git diff --exit-code -- public/scenario.json public/evidence-manifest.json docs/EVIDENCE-MANIFEST.md public/scenes.css app/artwork.css
       - run: npm run check
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e

@@ -1,24 +1,22 @@
 "use client";
-import { useState } from "react";
-import { MotionSystem, MotionControl, Scene } from "./MotionSystem";
+import { lazy, useRef, useState } from "react";
+import StaticEvidence from "./StaticEvidence";
 import SignalHero from "./SignalHero";
-import {
-  ViewportVisual,
-  MeasurementVisual,
-  AttributionVisual,
-  CohortVisual,
-  ChallengeSignal,
-  ContradictionTrace,
-} from "./AnalyticalVisuals";
+import { MotionSystem, MotionControl } from "./MotionSystem";
+import { Arrow, External, Chapter } from "./Presentation";
+import { ViewportVisual } from "./ViewportVisual";
+import { ContradictionTrace } from "./ContradictionTrace";
+// Diagram code and DOM load near their scene; numerical readouts are never deferred.
+const MeasurementVisual = lazy(() => import("./AnalyticalVisuals").then(m => ({ default: m.MeasurementVisual })));
+const AttributionVisual = lazy(() => import("./AnalyticalVisuals").then(m => ({ default: m.AttributionVisual })));
+const CohortVisual = lazy(() => import("./AnalyticalVisuals").then(m => ({ default: m.CohortVisual })));
+const ChallengeSignal = lazy(() => import("./AnalyticalVisuals").then(m => ({ default: m.ChallengeSignal })));
 import {
   candidate,
   edition,
   artifact,
-  evidence,
-  selectedWork,
   paths,
   challenges,
-  proofRepo,
   type PathId,
   type ChallengeId,
 } from "../content/edition";
@@ -33,61 +31,15 @@ import {
   wilson,
   type Attribution,
 } from "../lib/analytics";
-import { briefText, downloadBrief } from "../lib/brief";
+import { briefText } from "../lib/brief-model";
+let briefExporter: Promise<typeof import("../lib/brief")> | undefined;
+const loadBriefExporter = () => briefExporter ??= import("../lib/brief").catch(error => {
+  briefExporter = undefined;
+  throw error;
+});
+const warmBriefExporter = () => { void loadBriefExporter().catch(() => {}); };
 
-function Arrow({ diagonal = false }: { diagonal?: boolean }) {
-  return <span aria-hidden="true">{diagonal ? "↗" : "→"}</span>;
-}
-function External({
-  href,
-  children,
-  className = "",
-}: {
-  href: string;
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <a
-      className={className}
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      {children} <Arrow diagonal />
-    </a>
-  );
-}
-function Chapter({
-  number,
-  title,
-  children,
-  className = "",
-  id,
-}: {
-  number: string;
-  title: string;
-  children: React.ReactNode;
-  className?: string;
-  id: string;
-}) {
-  return (
-    <section
-      className={`chapter ${className}`}
-      id={id}
-      aria-labelledby={`${id}-heading`}
-    >
-      <Scene>
-        <div className="chapter-label">
-          <span>{number}</span>
-          <span>{title}</span>
-          <span className="label-line" />
-        </div>
-        {children}
-      </Scene>
-    </section>
-  );
-}
+const hero = <SignalHero />;
 function ExperienceContent() {
   const [pathId, setPathId] = useState<PathId>("measurement");
   const [challengeId, setChallengeId] = useState<ChallengeId>("tracking");
@@ -96,6 +48,9 @@ function ExperienceContent() {
   const [cohortId, setCohortId] = useState("all");
   const [cost, setCost] = useState(1000);
   const [exported, setExported] = useState(false);
+  const [exporting, setExporting] = useState(false);
+  const [exportError, setExportError] = useState(false);
+  const selectionRevision = useRef(0);
   const path = paths.find((p) => p.id === pathId)!;
   const challenge = challenges.find((c) => c.id === challengeId)!;
   const cohort = scenario.cohorts.find((c) => c.id === cohortId)!;
@@ -111,7 +66,11 @@ function ExperienceContent() {
     cohort: cohortId,
   };
   const brief = briefText(briefState);
-  const markChanged = () => setExported(false);
+  const markChanged = () => {
+    selectionRevision.current++;
+    setExported(false);
+    setExportError(false);
+  };
   const code =
     pathId === "measurement"
       ? `-- Transaction grain, not event count\nSELECT COUNT(DISTINCT transaction_id)\n  AS unique_orders\nFROM clean_purchase_events\nWHERE transaction_id IS NOT NULL;`
@@ -134,7 +93,7 @@ function ExperienceContent() {
           </span>
         </a>
         <nav aria-label="Main navigation">
-          <a href="#brief">The challenge</a>
+          <a href="#red-team">The challenge</a>
           <a href="#investigation">Investigation</a>
           <a href="#proof">Evidence</a>
           <a href="#resume">Resume</a>
@@ -148,7 +107,7 @@ function ExperienceContent() {
         </span>
       </header>
       <main id="main">
-        <SignalHero />
+        {hero}
         <Chapter id="brief" number="01" title="THE BUSINESS PROBLEM">
           <div className="section-heading">
             <h2 id="brief-heading">
@@ -563,7 +522,7 @@ function ExperienceContent() {
               aria-live="polite"
               aria-atomic="true"
             >
-              <ChallengeSignal id={challengeId} cost={cost} />
+              <ViewportVisual kind="challenge"><ChallengeSignal id={challengeId} cost={cost} /></ViewportVisual>
               <p className="eyebrow">
                 CHALLENGE ACCEPTED / {challenge.short.toUpperCase()}
               </p>
@@ -685,15 +644,27 @@ function ExperienceContent() {
               </dl>
               <button
                 className="button primary"
-                onClick={() => {
-                  downloadBrief(briefState);
-                  setExported(true);
+                disabled={exporting}
+                onPointerEnter={warmBriefExporter}
+                onFocus={warmBriefExporter}
+                onClick={async () => {
+                  const selection = { ...briefState };
+                  const revision = selectionRevision.current;
+                  setExporting(true);
+                  setExportError(false);
+                  try {
+                    const { downloadBrief } = await loadBriefExporter();
+                    downloadBrief(selection);
+                    if (revision === selectionRevision.current) setExported(true);
+                  } catch {
+                    setExportError(true);
+                  } finally { setExporting(false); }
                 }}
               >
-                Download your decision brief <span aria-hidden="true">↓</span>
+                {exporting ? "Preparing your brief…" : "Download your decision brief"} <span aria-hidden="true">↓</span>
               </button>
               <p className="fine-print" role="status">
-                {exported
+                {exporting ? "Preparing the brief for your selected analysis…" : exportError ? "Couldn’t prepare the brief. Retry, or use the default PDF below." : exported
                   ? "Downloaded: your selected path, challenge and assumptions. Open the HTML brief to print or save as PDF."
                   : "One-page HTML · current selections included · print to PDF"}
               </p>
@@ -703,148 +674,7 @@ function ExperienceContent() {
             </div>
           </div>
         </Chapter>
-        <Chapter id="proof" number="06" title="THE PROOF">
-          <div className="section-heading">
-            <h2 id="proof-heading">
-              Don’t take my word.
-              <br />
-              <span className="muted">Follow the evidence.</span>
-            </h2>
-            <div className="section-intro">
-              <p>
-                Exclamation AI stays the technical source. Every card links to a
-                specific artifact at an audited commit.
-              </p>
-              <External className="subtle-link" href={proofRepo}>
-                Open Exclamation AI
-              </External>
-            </div>
-          </div>
-          <div className="evidence-grid">
-            {evidence.map((e) => (
-              <article key={e.id} className="evidence-card">
-                <div className="evidence-top">
-                  <span className="mono">{e.id}</span>
-                  <span className="evidence-status">{e.category}</span>
-                </div>
-                <h3>{e.title}</h3>
-                <p>{e.description}</p>
-                <div className="evidence-links">
-                  <External href={artifact(e.path)}>View evidence</External>
-                  <External href={artifact(e.secondary)}>
-                    {e.secondaryLabel}
-                  </External>
-                </div>
-                <p className="evidence-limit">{e.limitation}</p>
-              </article>
-            ))}
-          </div>
-          <details className="evidence-details">
-            <summary>
-              What is verified—and what isn’t? <span aria-hidden="true">+</span>
-            </summary>
-            <div>
-              <p>
-                These links substantiate source implementation and historical
-                observations recorded in the upstream project. This application
-                does not independently reauthenticate those Google runs. The
-                synthetic challenge above is a separate demonstration of
-                reasoning.
-              </p>
-              <p>
-                The upstream verification log records 72 Python, 50 frontend and
-                16 browser tests. These are historical upstream counts, not
-                fresh test results for THE UNAPPLICATION. Live model evaluation,
-                BigQuery SDK transport, causal uplift and production
-                daily-export arrival remain unverified.
-              </p>
-              <p>
-                The target job listing was inaccessible. Exact role requirements
-                and current vacancy status are unverified. No approved resume
-                was supplied; no resume or credentials have been invented.
-              </p>
-              <External href={artifact("docs/verification.md")}>
-                Read the full verification report
-              </External>
-              <a href="./evidence-manifest.json" download>
-                Download the evidence manifest ↗
-              </a>
-            </div>
-          </details>
-          <div id="resume" className="resume-note">
-            <div>
-              <p className="eyebrow">THE PERSON BEHIND THE QUESTIONS</p>
-              <h3>Yash Hurdale.</h3>
-              <p>
-                Business questions. Analytical systems. Decisions with the
-                uncertainty attached.
-              </p>
-            </div>
-            <div>
-              <span className="badge">RESUME / AWAITING APPROVED FILE</span>
-              <p>
-                Resume download is waiting for an owner-approved file. Explore
-                the verified project evidence or contact Yash directly.
-              </p>
-              <a href="#contact" className="subtle-link">
-                Start a conversation <Arrow diagonal />
-              </a>
-            </div>
-          </div>
-          <div className="selected-work" aria-label="More selected work">
-            {selectedWork.map((work, i) => (
-              <article key={work.name}>
-                <span className="mono">
-                  0{i + 1} / {work.name}
-                </span>
-                <h3>{work.focus}</h3>
-                <p>{work.description}</p>
-                <External href={work.url}>Inspect {work.name}</External>
-                <p className="work-limit">{work.limit}</p>
-              </article>
-            ))}
-          </div>
-          <div className="more-work">
-            <span className="mono">BEYOND THIS CHALLENGE</span>
-            <p>
-              Explore PULSE, RESTOPS and Apex Insights in my existing portfolio.
-              The project descriptions above come from inspected READMEs; their
-              full implementations were not rerun for this edition.
-            </p>
-            <External href={candidate.portfolio}>Explore more work</External>
-          </div>
-        </Chapter>
-        <section
-          className="contact-section"
-          id="contact"
-          aria-labelledby="contact-heading"
-        >
-          <div>
-            <p className="eyebrow">
-              {candidate.name.toUpperCase()} / THE UNAPPLICATION
-            </p>
-            <h2 id="contact-heading">
-              You’ve seen the thinking.
-              <br />
-              <span className="accent">Let’s talk about what’s next.</span>
-            </h2>
-            <p>Let’s discuss how I’d approach your next challenge.</p>
-            <a
-              className="button primary"
-              href={`mailto:${candidate.email}?subject=Let%E2%80%99s%20talk%20%E2%80%94%20THE%20UNAPPLICATION`}
-            >
-              Start a conversation <Arrow diagonal />
-            </a>
-            <div className="contact-links">
-              <External href={candidate.github}>GitHub</External>
-              <External href={candidate.linkedin}>LinkedIn</External>
-              <External href={candidate.portfolio}>Portfolio</External>
-            </div>
-          </div>
-          <span className="contact-mark" aria-hidden="true">
-            U↗
-          </span>
-        </section>
+        <StaticEvidence />
       </main>
       <footer className="site-footer">
         <span>

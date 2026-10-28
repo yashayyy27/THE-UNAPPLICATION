@@ -2,3 +2,10 @@
 docs/cinematic-v2/lighthouse*.json linguist-generated=true
 docs/cinematic-v2/performance/v1-*.json linguist-generated=true
 docs/cinematic-v2/performance/v2-*.json linguist-generated=true
+
+public/scenes.css linguist-generated=true
+docs/recruiter-readiness/performance/v?-?.json linguist-generated=true
+
+app/artwork.css linguist-generated=true
+
+docs/recruiter-readiness/diagnostics/*.json linguist-generated=true
