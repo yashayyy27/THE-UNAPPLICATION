@@ -1,6 +1,8 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { readFileSync } from "node:fs";
+import { createHash } from "node:crypto";
+import resumeConfig from "../../content/resume.json" with { type: "json" };
 
 const prefix = "/THE-UNAPPLICATION/";
 
@@ -45,8 +47,14 @@ test("public downloads and click-time brief resolve beneath the project path", a
   expect(html).toContain("cost USD 2000");
   expect(html).toContain("SYNTHETIC SCENARIO");
   await page.goto(prefix + "#resume");
-  await expect(page.getByText("RESUME / AWAITING APPROVED FILE")).toBeVisible();
-  await expect(page.getByRole("link", { name: /Download approved resume/ })).toHaveCount(0);
+  const resume = page.getByRole("link", { name: /Download approved resume/ });
+  await expect(resume).toHaveAttribute("href", resumeConfig.approved.href);
+  const resumePending = page.waitForEvent("download");
+  await resume.click();
+  const resumeDownload = await resumePending;
+  const resumeBytes = readFileSync((await resumeDownload.path())!);
+  expect(resumeBytes.length).toBe(resumeConfig.approved.bytes);
+  expect(createHash("sha256").update(resumeBytes).digest("hex")).toBe(resumeConfig.approved.sha256);
   await expect(page.locator('a[href^="mailto:"]')).toHaveAttribute("href", /yash\.h2700@gmail\.com/);
 });
 

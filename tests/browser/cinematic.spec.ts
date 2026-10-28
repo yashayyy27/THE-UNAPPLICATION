@@ -30,7 +30,8 @@ test("optional intro pauses, resumes and skips while navigation remains availabl
   await expect(page).toHaveURL(/#investigation/);
   await page.getByRole("link", { name: "Resume", exact: true }).click();
   await expect(page).toHaveURL(/#resume/);
-  await expect(page.getByText("RESUME / AWAITING APPROVED FILE")).toBeVisible();
+  await expect(page.getByRole("link", { name: /Download approved resume/ })).toHaveAttribute("href", "./resume/yash-hurdale.pdf");
+  await expect(page.getByText("RESUME / OWNER-APPROVED PDF")).toBeVisible();
 });
 test("navigation and inquiry work before the visual sequence finishes", async ({
   page,
@@ -161,6 +162,7 @@ test("no JavaScript still exposes the thesis, evidence, resume status and defaul
   await expect(page.locator(root)).toHaveAttribute("data-motion", "static");
   await page.getByRole("link", { name: "Resume", exact: true }).click();
   await expect(page).toHaveURL(/#resume/);
+  await expect(page.getByRole("link", { name: /Download approved resume/ })).toHaveAttribute("href", "./resume/yash-hurdale.pdf");
   await expect(
     page.getByRole("link", { name: "Or download the default PDF brief" }),
   ).toHaveAttribute("href", "./decision-brief.pdf");

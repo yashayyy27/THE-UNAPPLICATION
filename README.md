@@ -2,7 +2,9 @@
 
 ### FROM NOISE TO SIGNAL.
 
-Release URL: [THE UNAPPLICATION](https://yashayyy27.github.io/THE-UNAPPLICATION/). Deployment success and the current published commit are recorded in [Publish GitHub Pages](https://github.com/yashayyy27/THE-UNAPPLICATION/actions/workflows/pages.yml).
+[Live experience](https://yashayyy27.github.io/THE-UNAPPLICATION/) · [R/GA resume (PDF)](https://yashayyy27.github.io/THE-UNAPPLICATION/resume/yash-hurdale.pdf) · [LinkedIn](https://www.linkedin.com/in/yash-hurdale-ba47a4178/) · [GitHub](https://github.com/yashayyy27)
+
+Public repository and live GitHub Pages release. The published commit and deployment record are available in [Publish GitHub Pages](https://github.com/yashayyy27/THE-UNAPPLICATION/actions/workflows/pages.yml).
 
 DON'T INTERVIEW MY RESUME. INTERVIEW MY THINKING.
 
@@ -12,9 +14,9 @@ An independent, interactive application by **Yash Hurdale**, tailored to the sup
 
 ![Actual desktop experience](docs/screenshots/desktop-hero.png)
 
-## Current review
+## Release verification
 
-[Performance and recruiter readiness report](docs/recruiter-readiness/REVIEW.md) · [approved resume release instructions](docs/RESUME-RELEASE.md). The current branch preserves the cinematic identity and complete analytical journey. The challenge navigation now reaches the red team directly; the primary opening CTA starts with the business question.
+[Performance and recruiter readiness report](docs/recruiter-readiness/REVIEW.md) · [approved resume release instructions](docs/RESUME-RELEASE.md). The live release preserves the cinematic identity and complete analytical journey. The challenge navigation now reaches the red team directly; the primary opening CTA starts with the business question.
 
 ## Cinematic edition · v2
 
@@ -26,7 +28,7 @@ The investigations now have count-preserving event separation, live attribution 
 - [Verification, visual review and performance comparison](docs/cinematic-v2/REVIEW.md)
 - [Desktop](docs/screenshots/v2/desktop-hero.png) · [mobile](docs/screenshots/v2/mobile-hero.png) · [decision](docs/screenshots/v2/desktop-decision.png)
 
-This branch is for review. Nothing has been deployed, published or made public. Resume navigation reaches an honest availability note until an approved file is supplied.
+Cinematic v2 is live on GitHub Pages. Resume navigation offers Yash’s approved R/GA PDF, verified against its recorded SHA-256 and file size. The PDF is an unchanged copy of the final resume; candidate-supplied credentials are not independently certified.
 
 ## Run locally
 
@@ -39,7 +41,7 @@ npm ci
 npm run dev
 ```
 
-Open `http://127.0.0.1:4173`. The repository starts private; cloning requires owner access.
+Open `http://127.0.0.1:4173`. The repository is public; cloning does not require owner access.
 
 ```sh
 npm run check                  # strict types, Vitest + React tests, static production build
@@ -69,7 +71,7 @@ Timing is a design target, not the result of a recruiter study. Deeper inspectio
 - No live AI calls or simulated AI claims. Numerical results come from pure tested functions.
 - No tracking, sign-up, cookies, API keys or unsolicited development-tool credits.
 - The [official Data Analyst listing](https://www.rga.com/careers/8302236?gh_jid=8302236) was checked on 29 October 2026. [Requirement-to-evidence mapping](docs/ROLE-EVIDENCE-MAP.md) distinguishes demonstrated work from gaps. Recheck availability before applying.
-- No approved resume was supplied. No resume, qualification, employment, client outcome or uplift claim was invented.
+- The owner requested publication of the existing final R/GA resume on 29 October 2026. The download is that exact PDF; no qualification, employment, client outcome or uplift claim was invented.
 
 ## Handover
 
@@ -77,6 +79,7 @@ Timing is a design target, not the result of a recruiter study. Deeper inspectio
 - [Research and evidence classification](docs/RESEARCH.md)
 - [Evidence manifest](docs/EVIDENCE-MANIFEST.md) · [machine-readable manifest](public/evidence-manifest.json)
 - [Architecture and analytical walkthrough](docs/ARCHITECTURE.md)
+- [Application links and personalised recruiter note](docs/APPLICATION-KIT.md)
 - [Final owner-review checklist](docs/FINAL-OWNER-REVIEW.md)
 - [GitHub Pages release steps](docs/DEPLOYMENT.md)
 - [Verification and known limitations](docs/VERIFICATION.md)

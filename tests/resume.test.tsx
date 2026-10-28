@@ -8,14 +8,21 @@ import { pathToFileURL } from "node:url";
 import ResumeDownload from "../components/ResumeDownload";
 import { isResumeRecord } from "../lib/resume";
 import { verifyResume } from "../scripts/verify-resume.mjs";
+import resumeConfig from "../content/resume.json";
 const pdf = Buffer.from("%PDF-1.7\nOwner-supplied test fixture\n%%EOF\n");
 const record = { href: "./resume/yash-hurdale.pdf", bytes: pdf.length, sha256: createHash("sha256").update(pdf).digest("hex"), approvedBy: "Yash Hurdale", approvedOn: "2026-10-28" };
 describe("approved resume release gate", () => {
   it("offers contact without advertising a missing resume", () => {
-    render(<ResumeDownload />);
+    render(<ResumeDownload resume={null} />);
     expect(screen.getByRole("link", { name: /Start a conversation/ })).toHaveAttribute("href", "#contact");
     expect(screen.queryByRole("link", { name: /Download approved resume/ })).toBeNull();
     expect(verifyResume(null)).toContain("pending");
+  });
+  it("makes the configured final resume downloadable only when its file identity verifies", () => {
+    expect(verifyResume(resumeConfig.approved, pathToFileURL(join(process.cwd(), "public") + "/"))).toContain("verified");
+    render(<ResumeDownload />);
+    expect(screen.getByRole("link", { name: /Download approved resume/ })).toHaveAttribute("href", resumeConfig.approved.href);
+    expect(screen.getByRole("link", { name: /Download approved resume/ })).toHaveAttribute("download");
   });
   it("renders a native PDF download only for a complete approval record", () => {
     render(<ResumeDownload resume={record} />);
