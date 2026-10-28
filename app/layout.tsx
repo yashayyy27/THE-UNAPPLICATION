@@ -5,8 +5,11 @@ export const metadata: Metadata = {
   title: "THE UNAPPLICATION — Yash Hurdale · R/GA 001",
   description:
     "Don’t interview my resume. Interview my thinking. An independent, interactive application by Yash Hurdale, grounded in inspectable analytical evidence.",
-  robots: { index: false, follow: false },
-  icons: { icon: "./favicon.svg" },
+  robots: {
+    index: process.env.NEXT_PUBLIC_SITE_RELEASE === "true",
+    follow: process.env.NEXT_PUBLIC_SITE_RELEASE === "true",
+  },
+  icons: { icon: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/favicon.svg` },
 };
 export default function RootLayout({
   children,
@@ -15,9 +18,25 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Keep first paint independent of offscreen styling; no React dependency. */}
-        <script dangerouslySetInnerHTML={{ __html: `document.addEventListener("load",function(e){
+        <script dangerouslySetInnerHTML={{ __html: `(function(){
+var initialHash=location.hash,initialNavigation=!!initialHash;
+if(initialNavigation){
+  var cancel=function(){initialNavigation=false};
+  ["pointerdown","keydown","touchstart","wheel","hashchange"].forEach(function(type){addEventListener(type,cancel,{once:true,passive:true})});
+}
+document.addEventListener("load",function(e){
   var link=e.target;if(link.id!=="scene-styles")return;
-  var apply=function(){link.media="all"};
+  var apply=function(){
+    link.media="all";
+    if(!initialNavigation||location.hash!==initialHash)return;
+    var align=function(){requestAnimationFrame(function(){
+      if(!initialNavigation||location.hash!==initialHash)return;
+      var id;try{id=decodeURIComponent(initialHash.slice(1))}catch(e){return}
+      document.getElementById(id)?.scrollIntoView({block:"start",behavior:"instant"});
+      initialNavigation=false;
+    })};
+    if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",align,{once:true});else align();
+  };
   if(performance.getEntriesByName("first-contentful-paint").length){apply();return}
   if(typeof PerformanceObserver==="function"&&PerformanceObserver.supportedEntryTypes?.includes("paint")){
     var observer=new PerformanceObserver(function(list){
@@ -26,9 +45,9 @@ export default function RootLayout({
       }
     });observer.observe({type:"paint",buffered:true});
   }else requestAnimationFrame(function(){requestAnimationFrame(apply)});
-},true)` }} />
-        <link id="scene-styles" rel="stylesheet" href="./scenes.css" media="print" suppressHydrationWarning />
-        <noscript><link rel="stylesheet" href="./scenes.css" /></noscript>
+},true);})();` }} />
+        <link id="scene-styles" rel="stylesheet" href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/scenes.css`} media="print" suppressHydrationWarning />
+        <noscript><link rel="stylesheet" href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/scenes.css`} /></noscript>
       </head>
       <body>{children}</body>
     </html>

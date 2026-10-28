@@ -76,7 +76,7 @@ Timing is a design target, not the result of a recruiter study. Deeper inspectio
 - [Evidence manifest](docs/EVIDENCE-MANIFEST.md) · [machine-readable manifest](public/evidence-manifest.json)
 - [Architecture and analytical walkthrough](docs/ARCHITECTURE.md)
 - [Final owner-review checklist](docs/FINAL-OWNER-REVIEW.md)
-- [Private-source / public-site release steps](docs/DEPLOYMENT.md)
+- [GitHub Pages release steps](docs/DEPLOYMENT.md)
 - [Verification and known limitations](docs/VERIFICATION.md)
 - [Default one-page brief](public/decision-brief.pdf) · [mobile screenshot](docs/screenshots/mobile.png)
 
