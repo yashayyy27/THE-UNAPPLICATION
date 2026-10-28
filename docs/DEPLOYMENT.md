@@ -17,7 +17,7 @@ GitHub's Pages creation API returned HTTP 422: “Your current plan does not sup
 ## Exact release steps
 
 1. Use the owner-approved public repository. In **Settings → Pages → Build and deployment → Source**, select **GitHub Actions** (or create the Pages configuration through the Pages API with `build_type: workflow`).
-2. Require the final PR #1 head to pass CI. Merge the approved PR into `main`; require its verification workflow to pass as well. Record the resulting main SHA.
+2. PR #1 is already merged at `27a1e5984e4fb3e12431de210f8ad2309051df75`. Require the focused publishing PR to pass CI, then merge its approved hosting changes into `main`; require the resulting main verification workflow to pass as well. Record the resulting main SHA.
 3. In **Actions → Publish GitHub Pages → Run workflow**, select `main` and run once. The workflow installs with `npm ci`, verifies generated-content consistency, runs TypeScript/unit tests/build, installs Chromium, runs the project-path desktop/mobile smoke suite, checks production dependencies, uploads only `out/`, then deploys that exact artifact. A failed build/test cannot reach deployment.
 4. Wait for both build and deployment to succeed. Record the workflow URL, main SHA and actual `page_url`. GitHub repository publication alone is not proof of a working website.
 5. Open that HTTPS URL signed out. Confirm initial identity/CTA, intro controls, immediate navigation, all three investigations/six challenges, evidence links, cost/attribution/cohort changes, click-time HTML brief, default PDF, contact links and pending/approved resume state. Verify CSS/chunks load and the 404 return link returns to the project. Check mobile/Safari/VoiceOver priorities from [FINAL-OWNER-REVIEW.md](FINAL-OWNER-REVIEW.md).

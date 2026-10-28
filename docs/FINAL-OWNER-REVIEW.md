@@ -29,14 +29,14 @@ Review the local production export (`npm run build`, then `npm run preview`), no
 
 ## Approval record
 
-- Owner-accepted experience: **9e8e0f5**; final GitHub Pages configuration verification is recorded in PR #1.
+- Owner-accepted experience: **9e8e0f5**; final GitHub Pages configuration verification is recorded in the focused publishing PR.
 - Manual checklist completed: **Owner-reported complete · 29 October 2026**
 - Pending-resume state accepted with the owner’s release instruction on 29 October 2026. **Approved PDF still absent; no resume download is advertised.**
 - Owner confirms contact details, copy and evidence explanations: **Owner-reported complete · 29 October 2026**
 - Public release enables `index,follow` through `NEXT_PUBLIC_SITE_RELEASE=true`; local/review builds retain `noindex,nofollow`.
-- Owner approves merging PR #1 for publication: **Authorized · 29 October 2026**; GitHub Pages changes require final automated verification.
+- Owner approves merging the publishing changes: **Authorized · 29 October 2026**; GitHub Pages changes require final automated verification.
 - Owner approves public release and GitHub hosting/domain: **Authorized · 29 October 2026**. Making this repository public, including source/history: **explicitly authorized**. No paid upgrade requested.
 - Repository publication: **public source/history explicitly approved · 29 October 2026**. No resume or credentials are fabricated.
-- Production URL / deployed commit / deployment ID / smoke-check result: **Recorded in the GitHub Pages workflow/environment and PR #1 after deployment verification**
+- Production URL / deployed commit / deployment ID / smoke-check result: **Recorded in the GitHub Pages workflow/environment and the publishing PR after deployment verification**
 
 Follow [the ordered deployment instructions](DEPLOYMENT.md) only after the relevant approvals are recorded. A successful build is not a merge or hosting authorization.
