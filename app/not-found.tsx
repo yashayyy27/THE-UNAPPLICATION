@@ -8,7 +8,7 @@ export default function NotFound() {
         An honest answer.
       </h1>
       <p>This address doesn’t have an application chapter.</p>
-      <a className="button primary" href="/">
+      <a className="button primary" href={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/`}>
         Back to the experience ↗
       </a>
     </main>

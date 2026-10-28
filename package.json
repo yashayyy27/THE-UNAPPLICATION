@@ -11,7 +11,8 @@
     "test:e2e": "playwright test",
     "check": "npm run typecheck && npm test && npm run build",
     "preview": "python3 -m http.server 4173 --bind 127.0.0.1 --directory out",
-    "prebuild": "node scripts/export-content.mjs"
+    "prebuild": "node scripts/export-content.mjs",
+    "test:pages": "playwright test --config playwright.pages.config.ts"
   },
   "dependencies": {
     "next": "^16.4.3",
