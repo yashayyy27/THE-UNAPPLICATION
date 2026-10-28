@@ -1,6 +1,6 @@
 # Final owner-review checklist
 
-Prepared 29 October 2026 for draft PR #1, `design/cinematic-experience-v2`. **Owner reports all requested checks complete and authorizes GitHub publication on 29 October 2026.** This is owner-reported acceptance; the agent has not independently performed the manual Safari/VoiceOver/device checks. The GitHub Pages visibility/plan prerequisite remains unresolved. Record the final reviewed commit, device/browser versions, date and outcome below. Do not mark a manual check passed from Chromium emulation alone.
+Prepared 29 October 2026 for draft PR #1, `design/cinematic-experience-v2`. **Owner reports all requested checks complete and authorizes GitHub publication on 29 October 2026.** This is owner-reported acceptance; the agent has not independently performed the manual Safari/VoiceOver/device checks. The owner subsequently explicitly approved public source/history to enable GitHub Pages on the existing plan. Record the final reviewed commit, device/browser versions, date and outcome below. Do not mark a manual check passed from Chromium emulation alone.
 
 ## Fixed release decisions
 
@@ -35,8 +35,8 @@ Review the local production export (`npm run build`, then `npm run preview`), no
 - Owner confirms contact details, copy and evidence explanations: **Owner-reported complete · 29 October 2026**
 - Public release enables `index,follow` through `NEXT_PUBLIC_SITE_RELEASE=true`; local/review builds retain `noindex,nofollow`.
 - Owner approves merging PR #1 for publication: **Authorized · 29 October 2026**; GitHub Pages changes require final automated verification.
-- Owner approves public release and GitHub hosting/domain: **Authorized · 29 October 2026**. Repository visibility change or paid-plan upgrade: **not yet authorized**.
-- Repository remains private pending the owner’s visibility/plan choice. No resume or credentials are fabricated.
-- Production URL / deployed commit / deployment ID / smoke-check result: **Pending resolution of the GitHub Pages plan/visibility prerequisite**
+- Owner approves public release and GitHub hosting/domain: **Authorized · 29 October 2026**. Making this repository public, including source/history: **explicitly authorized**. No paid upgrade requested.
+- Repository publication: **public source/history explicitly approved · 29 October 2026**. No resume or credentials are fabricated.
+- Production URL / deployed commit / deployment ID / smoke-check result: **Recorded in the GitHub Pages workflow/environment and PR #1 after deployment verification**
 
 Follow [the ordered deployment instructions](DEPLOYMENT.md) only after the relevant approvals are recorded. A successful build is not a merge or hosting authorization.

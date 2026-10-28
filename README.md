@@ -2,6 +2,8 @@
 
 ### FROM NOISE TO SIGNAL.
 
+Release URL: [THE UNAPPLICATION](https://yashayyy27.github.io/THE-UNAPPLICATION/). Deployment success and the current published commit are recorded in [Publish GitHub Pages](https://github.com/yashayyy27/THE-UNAPPLICATION/actions/workflows/pages.yml).
+
 DON'T INTERVIEW MY RESUME. INTERVIEW MY THINKING.
 
 An independent, interactive application by **Yash Hurdale**, tailored to the supplied **R/GA Data Analyst** target. A fictional campaign gains engagement without gaining revenue. Choose an investigation, challenge its assumptions and download a decision you can defend.

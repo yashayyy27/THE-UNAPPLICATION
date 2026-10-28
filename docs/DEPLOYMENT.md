@@ -2,9 +2,9 @@
 
 The owner reported all requested checks complete and authorized publication on GitHub's domain on 29 October 2026. Cinematic v2 and the accepted performance trade-off remain intact. No approved resume was supplied; retain its honest pending/contact state.
 
-## Current hosting prerequisite
+## Approved hosting choice
 
-GitHub's Pages creation API returned HTTP 422: “Your current plan does not support GitHub Pages for this repository.” The repository is still private. Before enabling Pages, the owner must choose either making `yashayyy27/THE-UNAPPLICATION` public or using an eligible GitHub plan while keeping it private. Do not change visibility or buy an upgrade without that choice. [Official plan requirements](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages).
+GitHub's Pages creation API returned HTTP 422: “Your current plan does not support GitHub Pages for this repository.” The owner then explicitly approved making `yashayyy27/THE-UNAPPLICATION` public, including source and commit history, on 29 October 2026. Public repository hosting is the approved path; no paid upgrade is needed. [Official plan requirements](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages).
 
 ## Release configuration
 
@@ -16,7 +16,7 @@ GitHub's Pages creation API returned HTTP 422: “Your current plan does not sup
 
 ## Exact release steps
 
-1. Resolve the visibility/plan prerequisite with the owner's explicit choice. Keep source private unless making it public is approved. In **Settings → Pages → Build and deployment → Source**, select **GitHub Actions** (or create the Pages configuration through the Pages API with `build_type: workflow`).
+1. Use the owner-approved public repository. In **Settings → Pages → Build and deployment → Source**, select **GitHub Actions** (or create the Pages configuration through the Pages API with `build_type: workflow`).
 2. Require the final PR #1 head to pass CI. Merge the approved PR into `main`; require its verification workflow to pass as well. Record the resulting main SHA.
 3. In **Actions → Publish GitHub Pages → Run workflow**, select `main` and run once. The workflow installs with `npm ci`, verifies generated-content consistency, runs TypeScript/unit tests/build, installs Chromium, runs the project-path desktop/mobile smoke suite, checks production dependencies, uploads only `out/`, then deploys that exact artifact. A failed build/test cannot reach deployment.
 4. Wait for both build and deployment to succeed. Record the workflow URL, main SHA and actual `page_url`. GitHub repository publication alone is not proof of a working website.
