@@ -1,18 +1,24 @@
+import "./compile-scenes.mjs";
 // Node 24 can read these erasable TypeScript content files without a compiler.
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, writeFileSync, readFileSync } from "node:fs";
 import { scenario } from "../content/scenario.ts";
 import {
   evidence,
   selectedWork,
   sourceCommit,
+  officialRole,
   artifact,
 } from "../content/edition.ts";
+import { verifyResume } from "./verify-resume.mjs";
+const resumeApproval = JSON.parse(readFileSync(new URL("../content/resume.json", import.meta.url), "utf8")).approved;
+console.log(verifyResume(resumeApproval));
 mkdirSync("public", { recursive: true });
 writeFileSync("public/scenario.json", JSON.stringify(scenario, null, 2) + "\n");
 const manifest = {
   edition: "R/GA — 001",
   owner: "Yash Hurdale",
-  auditedAt: "2026-10-28",
+  auditedAt: "2026-10-29",
+  officialRole,
   sourceRepository: "https://github.com/yashayyy27/exclamation-ai",
   sourceCommit,
   verificationBoundary:
@@ -73,8 +79,8 @@ const manifest = {
     },
   ],
   unavailable: [
-    "Exact job requirements/current vacancy status",
-    "Approved resume",
+    "Vacancy availability at application time; recruiting confirmation of location/eligibility",
+    ...(resumeApproval ? [] : ["Approved resume"]),
     "Independently verified credentials/employment",
     "Live model quality",
     "BigQuery SDK transport",

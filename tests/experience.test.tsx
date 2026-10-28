@@ -1,6 +1,6 @@
 import { fireEvent, render, screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import Unapplication from "../components/Unapplication";
+import Unapplication from "../app/page";
 describe("recruiter journey", () => {
   it("identifies purpose, ownership and provenance immediately", () => {
     render(<Unapplication />);

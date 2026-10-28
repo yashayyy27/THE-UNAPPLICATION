@@ -1,0 +1,134 @@
+{
+  "fetchedAt": "2026-10-28T01:20:56.344Z",
+  "lighthouse": "13.5.0",
+  "settings": {
+    "formFactor": "mobile",
+    "throttlingMethod": "simulate",
+    "throttling": {
+      "rttMs": 150,
+      "throughputKbps": 1638.4,
+      "requestLatencyMs": 562.5,
+      "downloadThroughputKbps": 1474.5600000000002,
+      "uploadThroughputKbps": 675,
+      "cpuSlowdownMultiplier": 4
+    }
+  },
+  "performance": 82,
+  "lcpMs": 4238.0723,
+  "tbtMs": 225,
+  "lcpElement": "div.hero-composition > div.hero-copy > h1#hero-title > span.headline-first",
+  "traceNote": "Raw recorded renderer timings below are unthrottled observed milliseconds, not additive across nested categories and not the simulated Lighthouse metrics above.",
+  "timings": {
+    "Layout": {
+      "count": 147,
+      "totalMs": 141.78
+    },
+    "UpdateLayoutTree": {
+      "count": 146,
+      "totalMs": 43.44
+    },
+    "Paint": {
+      "count": 356,
+      "totalMs": 88.263
+    },
+    "PrePaint": {
+      "count": 146,
+      "totalMs": 29.962
+    },
+    "Layerize": {
+      "count": 145,
+      "totalMs": 22.912
+    },
+    "EvaluateScript": {
+      "count": 12,
+      "totalMs": 76.393
+    }
+  },
+  "largestLayout": {
+    "ms": 132.589,
+    "dirtyObjects": 825,
+    "totalObjects": 825
+  },
+  "lighthouseMainThread": [
+    {
+      "group": "styleLayout",
+      "groupLabel": "Style & Layout",
+      "duration": 740.8799999999995
+    },
+    {
+      "group": "other",
+      "groupLabel": "Other",
+      "duration": 582.4360000000004
+    },
+    {
+      "group": "paintCompositeRender",
+      "groupLabel": "Rendering",
+      "duration": 409.22800000000524
+    },
+    {
+      "group": "scriptEvaluation",
+      "groupLabel": "Script Evaluation",
+      "duration": 388.6040000000019
+    },
+    {
+      "group": "scriptParseCompile",
+      "groupLabel": "Script Parsing & Compilation",
+      "duration": 64.28399999999999
+    },
+    {
+      "group": "parseHTML",
+      "groupLabel": "Parse HTML & CSS",
+      "duration": 47.49999999999999
+    },
+    {
+      "group": "garbageCollection",
+      "groupLabel": "Garbage Collection",
+      "duration": 19.79599999999998
+    }
+  ],
+  "renderBlocking": [
+    {
+      "url": "http://127.0.0.1:4173/_next/static/css/0aa2e12d940c1ae2.css",
+      "totalBytes": 40677,
+      "wastedMs": 307
+    }
+  ],
+  "nonCompositedAnimations": [
+    {
+      "node": "div.signal-aperture > div.aperture-canvas > svg > path.resolved-trace",
+      "reasons": [
+        {
+          "failureReason": "Unsupported CSS Property: stroke-dashoffset",
+          "animation": "stroke-dashoffset"
+        }
+      ]
+    },
+    {
+      "node": "div.challenge-response > div.challenge-signal > svg > path.reaction-trace",
+      "reasons": [
+        {
+          "failureReason": "Unsupported CSS Property: stroke-dashoffset",
+          "animation": "challenge-trace"
+        }
+      ]
+    },
+    {
+      "node": "div.scene > div.contradiction-trace > svg > path.trace-attention",
+      "reasons": [
+        {
+          "failureReason": "Unsupported CSS Property: stroke-dashoffset",
+          "animation": "trace-reveal"
+        }
+      ]
+    },
+    {
+      "node": "div.scene > div.contradiction-trace > svg > path.trace-revenue",
+      "reasons": [
+        {
+          "failureReason": "Unsupported CSS Property: stroke-dashoffset",
+          "animation": "trace-reveal"
+        }
+      ]
+    }
+  ]
+}

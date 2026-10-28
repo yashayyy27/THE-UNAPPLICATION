@@ -1,0 +1,51 @@
+
+> the-unapplication@1.0.0 check
+> npm run typecheck && npm test && npm run build
+
+
+> the-unapplication@1.0.0 typecheck
+> tsc --noEmit
+
+
+> the-unapplication@1.0.0 test
+> vitest run
+
+
+ RUN  v4.1.12 /Users/yashhurdale/Documents/New project/THE-UNAPPLICATION
+
+
+ Test Files  4 passed (4)
+      Tests  36 passed (36)
+   Start at  13:36:15
+   Duration  6.94s (transform 7.41s, setup 8.24s, import 3.89s, tests 2.11s, environment 6.09s)
+
+
+> the-unapplication@1.0.0 prebuild
+> node scripts/export-content.mjs
+
+Compiled scene CSS: 24165 bytes.
+Resume pending owner-approved PDF; no download advertised.
+Exported fixture and evidence manifest.
+
+> the-unapplication@1.0.0 build
+> NEXT_TELEMETRY_DISABLED=1 next build --webpack
+
+▲ Next.js 16.4.3 (webpack)
+✓ Running next.config.ts took 909ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 2.6s
+  Running TypeScript ...
+  Finished TypeScript in 4.6s ...
+  Collecting page data using 4 workers ...
+  Generating static pages using 4 workers (0/3) ...
+✓ Generating static pages using 4 workers (3/3) in 1809ms
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ○ /
+└ ○ /_not-found
+
+
+○  (Static)  prerendered as static content

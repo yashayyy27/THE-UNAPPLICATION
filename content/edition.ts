@@ -6,7 +6,6 @@ export const candidate = {
   github: "https://github.com/yashayyy27",
   linkedin: "https://www.linkedin.com/in/yash-hurdale-ba47a4178/",
   portfolio: "https://yashayyy27.github.io/",
-  resume: null,
 };
 export const edition = {
   company: "R/GA",
@@ -15,8 +14,15 @@ export const edition = {
   disclaimer:
     "An independent candidate project. Not affiliated with or endorsed by R/GA.",
   roleStatus:
-    "Target role supplied by the candidate. The original listing could not be verified.",
+    "Official listing 8302236 checked on 29 October 2026; confirm availability before applying.",
   accent: "#d9ff43",
+};
+export const officialRole = {
+  url: "https://www.rga.com/careers/8302236?gh_jid=8302236",
+  verifiedOn: "2026-10-29",
+  title: "Data Analyst",
+  location: "Body: Tokyo or Melbourne/Sydney; page header: Japan",
+  status: "Listing and careers index accessible on verification date; confirm availability before applying.",
 };
 export const sourceCommit = "35f1aff81c166215496b0f0b2b041db7a4c0360e";
 export const proofRepo = "https://github.com/yashayyy27/exclamation-ai";

@@ -40,3 +40,29 @@ The source excerpt shown in the UI is simplified explanatory logic, explicitly l
 ## Maintenance
 
 Run Node 24, edit content, then `npm run check` and `npm run test:e2e`. Update a pinned evidence revision only after inspecting the relevant artifact and its limitations. Regenerate PDF if default copy changes; render and inspect all pages. Do not add credentials to client code or equate simulated outcomes with achievements. The owner should explain the calculations above and defend why the recommendation changes before sharing the experience.
+
+## Cinematic presentation layer (v2)
+
+`MotionSystem.tsx` owns a finite intro clock and session-only pause, reduced-motion, Save-Data, viewport and visibility handling. Motion starts only after preferences are available; server/no-JS output is complete and static. `SignalHero.tsx` authors the procedural aperture and labels from existing fixture inputs. Its finite transform runs on an HTML layer instead of repeatedly transforming an SVG group. `AnalyticalVisuals.tsx` uses compact SVG paths to display exact event counts, attribution credit and cohort volumes; the adjacent accessible readouts retain all numerical meaning. `Scene` adds finite intersection-triggered line reveals without hiding content.
+
+No analytics functions, fixtures, evidence revisions, brief exporters, production dependencies or Exclamation AI files change in this redesign. See the [creative treatment](cinematic-v2/CREATIVE-TREATMENT.md) and [review](cinematic-v2/REVIEW.md).
+
+Optional intro playback is scheduled after browser idle (with a bounded fallback), so it does not take priority over hydration and first paint. Supporting diagrams activate near the viewport with reserved space and a static poster; analytical readouts and controls are present independently of that enhancement.
+
+
+## Recruiter readiness pass
+
+The first frame contains the complete headline, identity, business question, exact analytical readouts, evidence links and native navigation. The header challenge shortcut goes directly to the red team; the opening primary CTA goes to the business problem. No intro completion is required.
+
+`app/globals.css` holds first-frame styles and motion preferences. `styles/scenes.css` is the readable source for investigation, challenge, decision and evidence styling; prebuild minifies it to `public/scenes.css` using the CSS compiler already bundled with Next. Scene CSS downloads concurrently with a print media hint. A native first-paint listener applies it independently of React hydration, with a full noscript stylesheet fallback. First-frame geometry remains stable if it arrives late. Stylesheet failure retains the readable core and functional controls.
+
+The browser skips offscreen chapter layout/paint with `content-visibility: auto`. Any native hash target opts chapters back into full layout through `html:has(:target)`, so estimated heights cannot move anchor destinations. Unsupported browsers use normal layout. Printing always expands chapters. The auto state preserves normal document and accessibility availability ([MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/content-visibility)); physical screen-reader review remains a release check.
+
+Original hero geometry lives in `styles/signal-aperture.svg`, consolidated into three opacity bands. Prebuild embeds it as a CSS image in generated `app/artwork.css`; there is no media request, document vector subtree or client geometry computation. Floating signal labels use HTML transforms; the hero no longer animates SVG stroke dash offsets. The complete static composition paints before load/two animation frames/idle enhancement. On touch/coarse-pointer devices, a visible Play introduction control starts the complete sequence on demand; desktop starts automatically after that first paint. Existing pause, skip, visibility, reduced-motion and Save-Data rules still apply. Static evidence is memoized and the hero element remains stable during analytical state changes.
+
+`ViewportVisual` uses an observer to load analytical diagram code with React lazy/Suspense near its scene. Numerical readouts and controls are never deferred. Reserved heights prevent layout shifts. Loading and error boundaries retain a labelled procedural poster if a diagram chunk fails; calculations, evidence and briefs remain usable.
+
+Resume source-of-truth is `content/resume.json`; no file is currently approved. Prebuild checks a configured local PDF's approval record, header/end marker, length and SHA-256. This verifies file identity, not credentials or PDF accessibility. See `docs/RESUME-RELEASE.md` for the owner handoff.
+
+
+The original `briefText` model is shared in `lib/brief-model.ts`. Its calculations and strings are unchanged; `lib/brief.ts` retains compatible exports and the original HTML/export bodies. The HTML template is fetched on download intent, with pointer/focus warm-up, visible preparation/error states and retry. A selection-revision guard keeps a delayed click-time snapshot from claiming to export a newer analysis. The real default PDF remains available if generation fails.

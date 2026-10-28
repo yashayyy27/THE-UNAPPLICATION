@@ -1,4 +1,8 @@
+> Historical verification snapshot. The latest performance and recruiter readiness pass is recorded in [the current review](recruiter-readiness/REVIEW.md).
+
 # Observed verification · 28 October 2026 (Australia/Sydney)
+
+> Historical v1 release record. Current cinematic branch verification and performance trade-offs are in [the v2 review](cinematic-v2/REVIEW.md).
 
 All results below are for THE UNAPPLICATION unless explicitly labelled upstream. Local checks used the bundled Node 24.22.1 runtime, Next.js 16.4.3, Vitest 4.1.12 and Chromium. No paid services or model calls.
 
@@ -31,7 +35,7 @@ Largest Contentful Paint 3.8s; Cumulative Layout Shift 0. The SEO score is reduc
 
 - Repository is created private. A Site shell was registered but automatic approval review rejected source transfer to the separate hosting destination because the user authorised GitHub creation without explicitly authorising that transfer. No hosted application has been deployed. The owner then explicitly chose GitHub only. No source was transferred to Sites. Source/build and exact future hosting instructions are available.
 - No approved resume or independently verified background credentials were supplied. The UI explains the resume gap instead of providing a fabricated file.
-- Exact role requirements and vacancy status remain unverified because the official listing was inaccessible. Company interpretation is based on the official public About page, not confidential research.
+- Role research refreshed on 29 October 2026: the official listing is accessible. See [research](RESEARCH.md) and [requirement mapping](ROLE-EVIDENCE-MAP.md). Recheck availability before applying; no confidential research is used.
 - No live model performance, BigQuery SDK transport, causal/client outcomes or revenue uplift claimed. Historical Google receipts are upstream documented observations, not new authenticated checks.
 - PULSE, RESTOPS and Apex Insights descriptions are grounded in inspected READMEs at linked revisions. Their implementations/test suites were not rerun for this edition.
 - The initial [hosted GitHub verification](https://github.com/yashayyy27/THE-UNAPPLICATION/actions/runs/40524875404) passed at commit `9b889487a583443bf2cc3ebd1cf96258ef83e605`, including install, content consistency, types/unit tests/build, Linux desktop/mobile browser tests and the production dependency audit. That run does not establish success for later commits; check the latest workflow separately. Manual VoiceOver/real-device review, recruiter timing and owner understanding remain human review steps.

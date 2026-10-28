@@ -1,0 +1,118 @@
+
+> the-unapplication@1.0.0 test:e2e
+> playwright test
+
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:48] "GET / HTTP/1.1" 200 -
+
+Running 12 tests using 1 worker
+
+(node:57248) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:50] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:50] "GET /_next/static/css/6fbc6b4ffca2be07.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:50] "GET /_next/static/chunks/webpack-44d8aec3c26a0cdc.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:50] "GET /_next/static/chunks/4bd1b696-c7408084347438ae.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:50] "GET /_next/static/chunks/794-f09dc234193e386a.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:50] "GET /_next/static/chunks/main-app-d5d1b5b72ece6a5d.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:50] "GET /_next/static/chunks/app/page-c1382c5f3f8e6f30.js HTTP/1.1" 200 -
+  ✓   1 [desktop] › tests/browser/journey.spec.ts:4:1 › primary journey, all investigation paths and revised decision (2.7s)
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:52] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:52] "GET /_next/static/css/6fbc6b4ffca2be07.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:52] "GET /_next/static/chunks/webpack-44d8aec3c26a0cdc.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:52] "GET /_next/static/chunks/4bd1b696-c7408084347438ae.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:52] "GET /_next/static/chunks/794-f09dc234193e386a.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:52] "GET /_next/static/chunks/main-app-d5d1b5b72ece6a5d.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:52] "GET /_next/static/chunks/app/page-c1382c5f3f8e6f30.js HTTP/1.1" 200 -
+  ✓   2 [desktop] › tests/browser/journey.spec.ts:32:1 › all six challenges produce distinct, useful responses (504ms)
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:52] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:52] "GET /_next/static/css/6fbc6b4ffca2be07.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:52] "GET /_next/static/chunks/webpack-44d8aec3c26a0cdc.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:52] "GET /_next/static/chunks/4bd1b696-c7408084347438ae.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:52] "GET /_next/static/chunks/794-f09dc234193e386a.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:52] "GET /_next/static/chunks/app/page-c1382c5f3f8e6f30.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:52] "GET /_next/static/chunks/main-app-d5d1b5b72ece6a5d.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:53] "GET /decision-brief.pdf HTTP/1.1" 200 -
+  ✓   3 [desktop] › tests/browser/journey.spec.ts:52:1 › current-selection brief downloads, and default PDF is a real file (293ms)
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:53] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:53] "GET /_next/static/css/6fbc6b4ffca2be07.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:53] "GET /_next/static/chunks/4bd1b696-c7408084347438ae.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:53] "GET /_next/static/chunks/webpack-44d8aec3c26a0cdc.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:53] "GET /_next/static/chunks/794-f09dc234193e386a.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:53] "GET /_next/static/chunks/main-app-d5d1b5b72ece6a5d.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:53] "GET /_next/static/chunks/app/page-c1382c5f3f8e6f30.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:53] "GET /scenario.json HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:53] "GET /evidence-manifest.json HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:53] "GET /favicon.svg HTTP/1.1" 200 -
+  ✓   4 [desktop] › tests/browser/journey.spec.ts:82:1 › evidence, contact, fixture, manifest and all local anchors resolve (322ms)
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:53] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:53] "GET /_next/static/css/6fbc6b4ffca2be07.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:53] "GET /_next/static/chunks/webpack-44d8aec3c26a0cdc.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:53] "GET /_next/static/chunks/794-f09dc234193e386a.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:53] "GET /_next/static/chunks/4bd1b696-c7408084347438ae.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:53] "GET /_next/static/chunks/main-app-d5d1b5b72ece6a5d.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:53] "GET /_next/static/chunks/app/page-c1382c5f3f8e6f30.js HTTP/1.1" 200 -
+  ✓   5 [desktop] › tests/browser/journey.spec.ts:106:1 › keyboard entry, reduced motion, accessibility and no horizontal overflow (1.2s)
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:54] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:54] "GET /_next/static/css/6fbc6b4ffca2be07.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:54] "GET /_next/static/chunks/webpack-44d8aec3c26a0cdc.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:54] "GET /_next/static/chunks/4bd1b696-c7408084347438ae.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:54] "GET /_next/static/chunks/794-f09dc234193e386a.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:54] "GET /_next/static/chunks/main-app-d5d1b5b72ece6a5d.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:54] "GET /_next/static/chunks/app/page-c1382c5f3f8e6f30.js HTTP/1.1" 200 -
+  ✓   6 [desktop] › tests/browser/journey.spec.ts:136:1 › capture actual experience (468ms)
+(node:57298) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:55] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:55] "GET /_next/static/css/6fbc6b4ffca2be07.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:55] "GET /_next/static/chunks/webpack-44d8aec3c26a0cdc.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:55] "GET /_next/static/chunks/4bd1b696-c7408084347438ae.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:55] "GET /_next/static/chunks/794-f09dc234193e386a.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:55] "GET /_next/static/chunks/main-app-d5d1b5b72ece6a5d.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:55] "GET /_next/static/chunks/app/page-c1382c5f3f8e6f30.js HTTP/1.1" 200 -
+  ✓   7 [mobile] › tests/browser/journey.spec.ts:4:1 › primary journey, all investigation paths and revised decision (2.2s)
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:58] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:58] "GET /_next/static/chunks/webpack-44d8aec3c26a0cdc.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:58] "GET /_next/static/css/6fbc6b4ffca2be07.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:58] "GET /_next/static/chunks/4bd1b696-c7408084347438ae.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:58] "GET /_next/static/chunks/794-f09dc234193e386a.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:58] "GET /_next/static/chunks/main-app-d5d1b5b72ece6a5d.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:58] "GET /_next/static/chunks/app/page-c1382c5f3f8e6f30.js HTTP/1.1" 200 -
+  ✓   8 [mobile] › tests/browser/journey.spec.ts:32:1 › all six challenges produce distinct, useful responses (492ms)
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:58] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:58] "GET /_next/static/css/6fbc6b4ffca2be07.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:58] "GET /_next/static/chunks/794-f09dc234193e386a.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:58] "GET /_next/static/chunks/main-app-d5d1b5b72ece6a5d.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:58] "GET /_next/static/chunks/4bd1b696-c7408084347438ae.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:58] "GET /_next/static/chunks/webpack-44d8aec3c26a0cdc.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:58] "GET /_next/static/chunks/app/page-c1382c5f3f8e6f30.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:58] "GET /decision-brief.pdf HTTP/1.1" 200 -
+  ✓   9 [mobile] › tests/browser/journey.spec.ts:52:1 › current-selection brief downloads, and default PDF is a real file (280ms)
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:58] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:58] "GET /_next/static/css/6fbc6b4ffca2be07.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:58] "GET /_next/static/chunks/4bd1b696-c7408084347438ae.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:58] "GET /_next/static/chunks/webpack-44d8aec3c26a0cdc.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:58] "GET /_next/static/chunks/794-f09dc234193e386a.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:58] "GET /_next/static/chunks/main-app-d5d1b5b72ece6a5d.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:58] "GET /_next/static/chunks/app/page-c1382c5f3f8e6f30.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:58] "GET /scenario.json HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:58] "GET /evidence-manifest.json HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:58] "GET /favicon.svg HTTP/1.1" 200 -
+  ✓  10 [mobile] › tests/browser/journey.spec.ts:82:1 › evidence, contact, fixture, manifest and all local anchors resolve (311ms)
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:59] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:59] "GET /_next/static/css/6fbc6b4ffca2be07.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:59] "GET /_next/static/chunks/webpack-44d8aec3c26a0cdc.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:59] "GET /_next/static/chunks/4bd1b696-c7408084347438ae.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:59] "GET /_next/static/chunks/794-f09dc234193e386a.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:59] "GET /_next/static/chunks/main-app-d5d1b5b72ece6a5d.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:05:59] "GET /_next/static/chunks/app/page-c1382c5f3f8e6f30.js HTTP/1.1" 200 -
+  ✓  11 [mobile] › tests/browser/journey.spec.ts:106:1 › keyboard entry, reduced motion, accessibility and no horizontal overflow (1.2s)
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:06:00] "GET / HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:06:00] "GET /_next/static/css/6fbc6b4ffca2be07.css HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:06:00] "GET /_next/static/chunks/webpack-44d8aec3c26a0cdc.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:06:00] "GET /_next/static/chunks/4bd1b696-c7408084347438ae.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:06:00] "GET /_next/static/chunks/794-f09dc234193e386a.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:06:00] "GET /_next/static/chunks/main-app-d5d1b5b72ece6a5d.js HTTP/1.1" 200 -
+[WebServer] 127.0.0.1 - - [28/Oct/2026 02:06:00] "GET /_next/static/chunks/app/page-c1382c5f3f8e6f30.js HTTP/1.1" 200 -
+  ✓  12 [mobile] › tests/browser/journey.spec.ts:136:1 › capture actual experience (976ms)
+
+  12 passed (12.8s)
